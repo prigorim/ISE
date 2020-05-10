@@ -1,0 +1,20 @@
+.copi {
+    color: #333333;
+	font-size: 2vh;
+	font-family:  Calibri, Helvetica, sans-serif;
+	text-align: left;
+	position: fixed; 
+    right: 0%; 
+	bottom: -2%;
+	cursor: default;	
+}
+
+.trash {
+	position: fixed;
+	bottom: 4%;
+	right: 1.5%;
+	width: 15vh;
+    height: auto;
+	opacity: .30;
+	transition: all 0.5s;
+}
