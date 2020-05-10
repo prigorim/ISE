@@ -1,0 +1,162 @@
+.selecter {
+    display:inline;
+	position: fixed;
+	height: 100%; /* высота секции равна высоте области просмотра */
+	width: 50vh;
+	left: -48vh;
+	right:0;
+	top:0;
+	bottom:0;
+	box-shadow: 0 0 2vw #000000;
+	overflow: auto;
+	background-color: #333333;
+	transition: all 0.5s;
+	z-index: 49;	
+
+}
+
+.openpanel  {
+    left: 0; /* отступ слева */
+}
+
+.elements
+{	
+	width: 100%;
+	position:relative;
+    background-color: rgba(100, 149, 237);
+	border-radius: 0vh;
+	margin: -7% 0% 0 0%;
+	font-size: 3vh;
+	font-family:  Calibri, Helvetica, sans-serif;
+	font-weight: normal;
+	text-indent: 5%;
+	color: #ededed;
+	cursor: pointer;
+	transition: all 0.5s;
+	 z-index: 10;
+	
+}
+
+.elements:hover {
+background-color: #FFFFFF;
+color: #333333;
+}
+
+.elements2 {
+	position:relative;
+    background-color: rgba(100, 149, 237);
+	border-radius: 0;
+	width: 100%;
+	font-size: 1vw;
+	font-family:  Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	text-indent: 5%;
+	color: #333333;
+	height: 0vh;
+	margin: -7.1% 0% 0 0%;
+	overflow: auto;
+	transition: all 300ms;
+	z-index: 1;
+
+}
+
+.container_elements {
+	 position:absolute;
+	 top:15%;
+	 left: 0;
+	 width: 100%;
+
+ }
+ 
+ .counter_elements {
+	position: relative;
+	top: 10%;
+	width: 50%;
+	background-color: rgba(100, 149, 237);
+	border-radius: 3vw 3vw 3vw 3vw;
+	border: none;
+	float: left;
+	transition: all 0.3s;
+ }
+ 
+.popup_menu_elements {
+	top: 2%;
+	width: 33%;
+	background-color: rgba(100, 149, 237);
+	position: relative;
+	border-radius: 3vw 3vw 3vw 3vw;
+	border: none;
+	float: left;
+	transition: all 0.3s;
+ }
+  
+.elements_table {
+	position:absolute;
+	top: 3%;
+	border: none;
+	font-size: 3vh;
+	font-family:  Calibri, Helvetica, sans-serif;
+	font-weight: normal;
+ }
+ 
+.elements_icon {
+	position: relative;
+	width: 90%;
+	height: auto;
+	cursor: pointer;
+}
+
+.hidden_icons {
+	position: relative;
+	top: 5%;
+	width: 50%;
+	height: 50%;
+}
+
+.elements_size {
+	height: 37vh;
+	background-color: #FFFFFF;
+}
+
+.elements_color {
+	color: #333333;
+	background-color: #FFFFFF;
+}
+
+.close2 {
+    top: 2vh;
+    left: -9vh;
+    width: 9vh;
+    height: 9vh;
+    position: fixed;
+    border-radius: 6vh;
+    background-color: rgba(100, 149, 237);
+    cursor: pointer;
+    outline: none;
+	color: rgba(255, 255, 255, 0.9);
+	font-size: 3vh;
+	z-index: 50;
+	transition: all 0.5s;
+	border: none;
+	text-indent: none;
+}
+/* кнопка закрытия при наведении */
+.close2:hover {
+    background-color: rgba(252, 20, 0, 0.8);
+}
+
+.close2_show {
+	visibility: visible;
+	left: 39vh;
+}
+
+.autor {
+	position: relative;
+    color: #ededed;
+	font-size: 6vh;
+	left: 2%;
+	top: -3%;
+	font-family:  Calibri, Helvetica, sans-serif;
+	cursor: default;
+	width: 90%
+}

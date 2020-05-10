@@ -21,7 +21,18 @@
         </style>	
     </head>
     <body>
+        <!-- Сетка  -->
         <div id="wrap">
+			<div id="canvas" class="ui-draggable ui-draggable-handle">
+				<svg id="svgs" width="150" height="150" style="z-index: 6; position:relative">
+					<rect 	fill="FFFFFF"
+							width="150"
+							height="150"/>
+					<line 	stroke="black"
+							x1="0" y1="0"
+							x2="150" y2="150"/>
+				</svg>
+			</div>
         </div>  
 
         <!-- Модальное Окно  -->
@@ -57,86 +68,65 @@
         </div>
 
         <!--Selecter-->
-        <button class="close2" id="closer">X</button>			
+        <button class="close2" id="closer"></button>
         <div class = "selecter" id="panel">
             <p class="autor unselectable">МЕНЮ</p>
             <div class="container_elements">
-                <div class="elements unselectable" id="id1">
+                <div class="elements" id="id1">
                     <h3>Логические элементы</h3>
                 </div>
-                <center>
+                <div style="text-align: center;">
                     <div class="elements2" id="elem1">								
                         <div class="popup_menu_elements"  id="and">
                             <img class="elements_icon" src="img/И.png">
-                            <center>
-                                <p class="unselectable">И</p>
-                            </center>
+                            <p class="unselectable">И</p>
                         </div>
                         <div class="popup_menu_elements" id="or">
                             <img class="elements_icon" src="img/ИЛИ.png" >
-                            <center>
-                                <p class="unselectable">ИЛИ</p>
-                            </center>
+                            <p class="unselectable">ИЛИ</p>
                         </div>
                         <div class="popup_menu_elements" id="andnot">
                             <img class="elements_icon" src="img/И-НЕ.png" >
-                            <center>
                                 <p class="unselectable">ИНЕ</p>
-                            </center>
                         </div>
                         <div class="popup_menu_elements" id="ornot">
                             <img class="elements_icon" src="img/ИЛИ-НЕ.png" >
-                            <center>
                                 <p class="unselectable">ИЛИНЕ</p>
-                            </center>
                         </div>
                         <div class="popup_menu_elements" id="not">
                             <img class="elements_icon" src="img/НЕ.png" >
-                            <center>
                                 <p class="unselectable">НЕ</p>
-                            </center>
                         </div>																																	
                     </div>
-                </center>	
-                <div class="elements unselectable" id="id2">
+                </div>
+                <div class="elements" id="id2">
                     <h3>Счетчики</h3>
                 </div>
-                <center>
+
                     <div class="elements2" id="elem2">
                         <div class="counter_elements" id="counter">
                             <img class="elements_icon" src="img/counter.png" >
-                            <center>
                                 <p class="unselectable">Счетчик увеличения</p>
-                            </center>
                         </div>
                         <div class="counter_elements" id="counter_">
                             <img class="elements_icon" src="img/counter.png">
-                            <center>
                                 <p class="unselectable">Счетчик уменьшения</p>
-                            </center>	
                         </div>
                     </div>
-                </center>	
-                <div class="elements unselectable" id="id3">
+                <div class="elements" id="id3">
                     <h3>Логические анализаторы</h3>
                 </div>
-                <center>
-                    <div class="elements2" id="elem3">	
-                        <div class="counter_elements" id="analyzer1">
-							<img class="elements_icon" src="img/analyzer.png" >
-                            <center>
-                                <p class="unselectable">Анализатор классический</p>
-                            </center>				
-                        </div>
-                        <div class="counter_elements" id="analyzer2">
-                            <img class="elements_icon" src="img/analyzer.png">
-                            <center>
-                                <p class="unselectable">Анализатор уникальный</p>
-                            </center>	
-                        </div>
+                <div class="elements2" id="elem3">
+                    <div class="counter_elements" id="analyzer1">
+                        <img class="elements_icon" src="img/analyzer.png" >
+                        <p class="unselectable">Анализатор классический</p>
                     </div>
-                </center>									
-            </div>				
+                    <div class="counter_elements" id="analyzer2">
+                        <img class="elements_icon" src="img/analyzer.png">
+                        <p class="unselectable">Анализатор уникальный</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!--ANALYZER-->	
@@ -149,14 +139,10 @@
         </div>
         <div class="containeranalyzer" id="containeranalyzer">
             <div class="selectanalyzer selectanalyzerselected" id="graf">
-                <center>
-                    <p>ДИАГРАММА</p>
-                </center>
+                <p>ДИАГРАММА</p>
             </div>
             <div class="selectanalyzer" id="table">
-                <center>
                     <p>ТАБЛИЦА</p>
-                </center>
             </div>
         </div>
 
@@ -176,12 +162,9 @@
 <script type="text/javascript" src="scripts/jquery.js"></script>
 <script type="text/javascript" src="scripts/jquery-ui.js"></script>
 <script type="text/javascript" src="scripts/jsplumb.js"></script>
-<script type="text/javascript" src="scripts/main.js"></script>	
 <script type="text/javascript" src="scripts/svg.min.js"></script>
 <script type="text/javascript" src="scripts/svg.js"></script>	
 <!--функции-->
 <script src="scripts/setsize.js"></script>
-<script type="text/javascript" src="scripts/build_canvas.js"></script>
-<script type="text/javascript" src="scripts/tools.js"></script>
 <script src="scripts/splash.js"></script>
 <script src="scripts/menu.js"></script>
