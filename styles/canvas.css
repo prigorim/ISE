@@ -10,7 +10,7 @@
 #canvas {
     border: none;
     height: 1000px;
-    width: 2000px;
+    width: 1995px;
     background: #ededed;
     -moz-transition: transform 0.3s ease, opacity 0.1s ease; /* Для Firefox */
     -webkit-transition: transform 0.3s ease, opacity 0.1s ease; /* Для Safari, Chrome, iOS */
