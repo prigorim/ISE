@@ -34,7 +34,7 @@
 .selectanalyzer {
 	position: relative;
 	color: #ededed;
-	background-color: rgba(100, 149, 237);
+	background-color: rgb(100, 149, 237);
 	cursor: pointer;
 	top: -12.4vh;
 	left: 0.9vw;

@@ -30,16 +30,15 @@
 /* кнопка закрытия */
 .close {
     top: 26vh;
-    left: 66vw;
-    width: 9vh;
-    height: 9vh;
+    left: 68vw;
+    width: 5vh;
+    height: 5vh;
     position: fixed;
     border-radius: 50%;
-    background-color: rgba(100, 149, 237);
+    background-color: rgb(100, 149, 237);
     cursor: pointer;
     outline: none;
     z-index: 50;
-
     border: none;
 }
 
