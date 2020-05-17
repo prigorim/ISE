@@ -82,7 +82,6 @@ $( "#clk" ).click(function(){
     $( "#analyz" ).fadeToggle();
     $( "#containeranalyzer" ).fadeToggle();
     $( "#clk_edit" ).fadeToggle();
-
 });
 
 analyz.onclick = function () {
