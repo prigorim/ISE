@@ -1,158 +1,168 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>	
-        <META charset="utf-8">
-        <link rel="SHORTCUT ICON" href="img/favicon.ico" type="image/x-icon">
-        <title>Integral Scheme Editor</title>
-		<script type="text/javascript" src="scripts/jquery.js"></script>
-		<script type="text/javascript" src="scripts/jquery-ui.js"></script>
-		<script type="text/javascript" src="scripts/jsplumb.js"></script>
-		<link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">
-        <style>
-            @import url("styles/splash.css"); 
-            @import url("styles/main.css");
-            @import url("styles/menu.css");	
-            @import url("styles/canvas.css");	
-            @import url("styles/fixed_elements.css");
-            @import url("styles/selecter.css");
-            @import url("styles/analyzer.css");
-			#draggable {font-size: x-large; border: thin solid black;
-            width: 5em; text-align: center; padding:10px; z-index:1; position: absolute;}
-        </style>	
-    </head>
-    <body>
-        <!-- Сетка  -->
-        <div id="wrap">
-			<div id="canvas" class="ui-draggable ui-draggable-handle">
-				<svg id="svgs" width="150" height="150" style="z-index: 6; position:relative">
-					<rect 	fill="FFFFFF"
-							width="150"
-							height="150"/>
-					<line 	stroke="black"
-							x1="0" y1="0"
-							x2="150" y2="150"/>
-				</svg>
-			</div>
-        </div>  
+<head>
+    <META charset="utf-8">
+    <link rel="SHORTCUT ICON" href="img/favicon.ico" type="image/x-icon">
+    <title>Integral Scheme Editor</title>
+    <script type="text/javascript" src="scripts/jquery.js"></script>
+    <script type="text/javascript" src="scripts/jquery-ui.js"></script>
+    <script type="text/javascript" src="scripts/jsplumb.js"></script>
+    <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">
+    <style>
+        @import url("styles/splash.css");
+        @import url("styles/main.css");
+        @import url("styles/menu.css");
+        @import url("styles/canvas.css");
+        @import url("styles/fixed_elements.css");
+        @import url("styles/selecter.css");
+        @import url("styles/analyzer.css");
 
-        <!-- Модальное Окно  -->
-        <div id="overlay">
-            <div class="popup unselectable">
-                <h2>Добро пожаловать в Integral Scheme Editor</h2>
-                <div class="pl-left">
-                    <img src="img/logo.png">
-                </div>
-                <p>Данный софт разработан для обучения и не претендует на авторские права</p>
-                <p>Разработано с любовью</p>
-                <button class="close" title="Закрыть" onclick="document.getElementById('overlay').style.display = 'none';"></button>
-            </div>
+        #draggable {
+            font-size: x-large;
+            border: thin solid black;
+            width: 5em;
+            text-align: center;
+            padding: 10px;
+            z-index: 1;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<!-- Сетка  -->
+<div id="wrap">
+    <div id="canvas" class="ui-draggable ui-draggable-handle">
+        <svg id="svgs" width="150" height="150" style="z-index: 6; position:relative">
+            <rect fill="FFFFFF"
+                  width="150"
+                  height="150"/>
+            <line stroke="black"
+                  x1="0" y1="0"
+                  x2="150" y2="150"/>
+        </svg>
+    </div>
+</div>
+
+<!-- Модальное Окно  -->
+<div id="overlay">
+    <div class="popup unselectable">
+        <h2>Добро пожаловать в Integral Scheme Editor</h2>
+        <div class="pl-left">
+            <img src="img/logo.png">
         </div>
+        <p>Данный софт разработан для обучения и не претендует на авторские права</p>
+        <p>Разработано с любовью</p>
+        <button class="close" title="Закрыть"
+                onclick="document.getElementById('overlay').style.display = 'none';"></button>
+    </div>
+</div>
 
-        <!--Меню программы-->
-        <div class = "mainmenu">	
-            <input type="checkbox" name="checkboxName" class="checkbox">		
-            <div class="switch switchOn"></div>
-            <img class="switchicon unselectable" src="img/grid.png">
-            <img class="controll_button unselectable" src="img/stop.png" id="stop">
-            <img class="controll_button unselectable" src="img/pause.png" id="pause">
-            <img class="controll_button unselectable" src="img/start.png" id="start">
-            <img class="controll_button unselectable" src="img/wire.png" id="wire">
-            <img class="controll_button unselectable" src="img/text.png" id="text">
-            <img class="controll_button unselectable" src="img/clk.png" id="clk">	
-            <div class="clk" id="clk_edit">
-                <p class="text_clk unselectable" id="text_clk">  clk/sec</p>
-                <input type="number" class="input_clk unselectable" size="15" id="input_clk" value="15" step="0.5" min="0.5" max="100">
-            </div>
-            <img class="headericon unselectable" src="img/icon.png">
-            <p class="headertext unselectable">ISE</p>			
+<!--Меню программы-->
+<div class="mainmenu">
+    <input type="checkbox" name="checkboxName" class="checkbox">
+    <div class="switch switchOn"></div>
+    <img class="switchicon unselectable" src="img/grid.png">
+    <img class="controll_button unselectable" src="img/stop.png" id="stop">
+    <img class="controll_button unselectable" src="img/pause.png" id="pause">
+    <img class="controll_button unselectable" src="img/start.png" id="start">
+    <img class="controll_button unselectable" src="img/wire.png" id="wire">
+    <img class="controll_button unselectable" src="img/text.png" id="text">
+    <img class="controll_button unselectable" src="img/clk.png" id="clk">
+    <div class="clk" id="clk_edit">
+        <p class="text_clk unselectable" id="text_clk">  clk/sec</p>
+        <input type="number" class="input_clk unselectable" size="15" id="input_clk" value="15" step="0.5" min="0.5"
+               max="100">
+    </div>
+    <img class="headericon unselectable" src="img/icon.png">
+    <p class="headertext unselectable">ISE</p>
+</div>
+
+<!--Selecter-->
+<button class="close2" id="closer"></button>
+<div class="selecter" id="panel">
+    <p class="autor unselectable">МЕНЮ</p>
+    <div class="container_elements">
+        <div class="elements" id="id1">
+            <h3>Логические элементы</h3>
         </div>
-
-        <!--Selecter-->
-        <button class="close2" id="closer"></button>
-        <div class = "selecter" id="panel">
-            <p class="autor unselectable">МЕНЮ</p>
-            <div class="container_elements">
-                <div class="elements" id="id1">
-                    <h3>Логические элементы</h3>
+        <div style="text-align: center;">
+            <div class="elements2" id="elem1">
+                <div class="popup_menu_elements" id="and">
+                    <img class="elements_icon" src="img/И.png">
+                    <p class="unselectable">И</p>
                 </div>
-                <div style="text-align: center;">
-                    <div class="elements2" id="elem1">								
-                        <div class="popup_menu_elements"  id="and">
-                            <img class="elements_icon" src="img/И.png">
-                            <p class="unselectable">И</p>
-                        </div>
-                        <div class="popup_menu_elements" id="or">
-                            <img class="elements_icon" src="img/ИЛИ.png" >
-                            <p class="unselectable">ИЛИ</p>
-                        </div>
-                        <div class="popup_menu_elements" id="andnot">
-                            <img class="elements_icon" src="img/И-НЕ.png" >
-                                <p class="unselectable">ИНЕ</p>
-                        </div>
-                        <div class="popup_menu_elements" id="ornot">
-                            <img class="elements_icon" src="img/ИЛИ-НЕ.png" >
-                                <p class="unselectable">ИЛИНЕ</p>
-                        </div>
-                        <div class="popup_menu_elements" id="not">
-                            <img class="elements_icon" src="img/НЕ.png" >
-                                <p class="unselectable">НЕ</p>
-                        </div>																																	
-                    </div>
+                <div class="popup_menu_elements" id="or">
+                    <img class="elements_icon" src="img/ИЛИ.png">
+                    <p class="unselectable">ИЛИ</p>
                 </div>
-                <div class="elements" id="id2">
-                    <h3>Счетчики</h3>
+                <div class="popup_menu_elements" id="andnot">
+                    <img class="elements_icon" src="img/И-НЕ.png">
+                    <p class="unselectable">ИНЕ</p>
                 </div>
-
-                    <div class="elements2" id="elem2">
-                        <div class="counter_elements" id="counter">
-                            <img class="elements_icon" src="img/counter.png" >
-                                <p class="unselectable">Счетчик увеличения</p>
-                        </div>
-                        <div class="counter_elements" id="counter_">
-                            <img class="elements_icon" src="img/counter.png">
-                                <p class="unselectable">Счетчик уменьшения</p>
-                        </div>
-                    </div>
-                <div class="elements" id="id3">
-                    <h3>Логические анализаторы</h3>
+                <div class="popup_menu_elements" id="ornot">
+                    <img class="elements_icon" src="img/ИЛИ-НЕ.png">
+                    <p class="unselectable">ИЛИНЕ</p>
                 </div>
-                <div class="elements2" id="elem3">
-                    <div class="counter_elements" id="analyzer1">
-                        <img class="elements_icon" src="img/analyzer.png" >
-                        <p class="unselectable">Анализатор классический</p>
-                    </div>
-                    <div class="counter_elements" id="analyzer2">
-                        <img class="elements_icon" src="img/analyzer.png">
-                        <p class="unselectable">Анализатор уникальный</p>
-                    </div>
+                <div class="popup_menu_elements" id="not">
+                    <img class="elements_icon" src="img/НЕ.png">
+                    <p class="unselectable">НЕ</p>
                 </div>
             </div>
         </div>
-
-        <!--ANALYZER-->	
-        <div class="analyzerpanel" id="analyz">
-            <div class="headeranalyzer">
-                <p class="unselectable">АНАЛИЗАТОР</p>
-            </div>
-            <div class="analyzegraf">
-            </div>
-        </div>
-        <div class="containeranalyzer" id="containeranalyzer">
-            <div class="selectanalyzer selectanalyzerselected" id="graf">
-                <p>ДИАГРАММА</p>
-            </div>
-            <div class="selectanalyzer" id="table">
-                    <p>ТАБЛИЦА</p>
-            </div>
+        <div class="elements" id="id2">
+            <h3>Счетчики</h3>
         </div>
 
-        <!--Info-->
-        <div class = "fixed">
-            <img class="trash unselectable" src="img/trash.png" id="trash">
-            <p class="copi unselectable">Powered by Evgeniy Chernyshev 2020</p>
+        <div class="elements2" id="elem2">
+            <div class="counter_elements" id="counter">
+                <img class="elements_icon" src="img/counter.png">
+                <p class="unselectable">Счетчик увеличения</p>
+            </div>
+            <div class="counter_elements" id="counter_">
+                <img class="elements_icon" src="img/counter.png">
+                <p class="unselectable">Счетчик уменьшения</p>
+            </div>
         </div>
+        <div class="elements" id="id3">
+            <h3>Логические анализаторы</h3>
+        </div>
+        <div class="elements2" id="elem3">
+            <div class="counter_elements" id="analyzer1">
+                <img class="elements_icon" src="img/analyzer.png">
+                <p class="unselectable">Анализатор классический</p>
+            </div>
+            <div class="counter_elements" id="analyzer2">
+                <img class="elements_icon" src="img/analyzer.png">
+                <p class="unselectable">Анализатор уникальный</p>
+            </div>
+        </div>
+    </div>
+</div>
 
-    </body>
+<!--ANALYZER-->
+<div class="analyzerpanel" id="analyz">
+    <div class="headeranalyzer">
+        <p class="unselectable">АНАЛИЗАТОР</p>
+    </div>
+    <div class="analyzegraf">
+    </div>
+</div>
+<div class="containeranalyzer" id="containeranalyzer">
+    <div class="selectanalyzer selectanalyzerselected" id="graf">
+        <p>ДИАГРАММА</p>
+    </div>
+    <div class="selectanalyzer" id="table">
+        <p>ТАБЛИЦА</p>
+    </div>
+</div>
+
+<!--Info-->
+<div class="fixed">
+    <img class="trash unselectable" src="img/trash.png" id="trash">
+    <p class="copi unselectable">Powered by Evgeniy Chernyshev 2020</p>
+</div>
+
+</body>
 </html>
 
 
@@ -163,7 +173,7 @@
 <script type="text/javascript" src="scripts/jquery-ui.js"></script>
 <script type="text/javascript" src="scripts/jsplumb.js"></script>
 <script type="text/javascript" src="scripts/svg.min.js"></script>
-<script type="text/javascript" src="scripts/svg.js"></script>	
+<script type="text/javascript" src="scripts/svg.js"></script>
 <!--функции-->
 <script src="scripts/setsize.js"></script>
 <script src="scripts/splash.js"></script>

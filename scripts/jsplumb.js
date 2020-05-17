@@ -5013,7 +5013,7 @@
                                     noMatchTarget = (targetMatchExact && targets.length > 0 && !_ep.isTarget);
 
                                 if (noMatchSource || noMatchTarget) {
-                                    continue inner;
+                                    continue;
                                 }
 
                                 ep.push(_ep);
