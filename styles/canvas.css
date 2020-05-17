@@ -11,9 +11,7 @@
     border: none;
     height: 1000px;
     width: 2000px;
-    background: linear-gradient(#bdbdbd, transparent 1px), linear-gradient(90deg, #bdbdbd, transparent 1px);
-    background-color: #FFFFFF;
-    background-size: 15px 15px;
+    background: #FFFFFF;
     -moz-transition: transform 0.3s ease, opacity 0.1s ease; /* Для Firefox */
     -webkit-transition: transform 0.3s ease, opacity 0.1s ease; /* Для Safari, Chrome, iOS */
     -o-transition: transform 0.3s ease, opacity 0.1s ease; /* Для Opera */
@@ -23,7 +21,12 @@
 	position: relative;
 	box-shadow: 0 0 100px rgba(100, 149, 237, 0.85);
 	/*box-shadow: 0 0 100px rgba(255, 255, 255, 1);*/
-	
+}
+
+#canvas.checkered {
+    background: linear-gradient(#bdbdbd, transparent 1px), linear-gradient(90deg, #bdbdbd, transparent 1px);
+    background-color: #FFFFFF;
+    background-size: 15px 15px;
 }
 
 

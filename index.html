@@ -15,21 +15,12 @@
         @import url("styles/fixed_elements.css");
         @import url("styles/selecter.css");
         @import url("styles/analyzer.css");
-        #draggable {
-            font-size: x-large;
-            border: thin solid black;
-            width: 5em;
-            text-align: center;
-            padding: 10px;
-            z-index: 1;
-            position: absolute;
-        }
     </style>
 </head>
 <body>
 <!-- Сетка  -->
 <div id="wrap">
-    <div id="canvas" class="ui-draggable ui-draggable-handle">
+    <div id="canvas" class="ui-draggable ui-draggable-handle checkered">
         <svg id="svgs" width="150" height="150" style="z-index: 6; position:relative">
             <rect fill="FFFFFF"
                   width="150"
