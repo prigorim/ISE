@@ -37,7 +37,7 @@
     <div class="popup unselectable" onclick="document.getElementById('overlay').style.display = 'none';">
         <h2>Добро пожаловать в Integral Scheme Editor</h2>
         <div class="pl-left">
-            <img src="img/logo.png">
+            <img src="img/logo.png" alt="logo">
         </div>
         <p>Данный софт разработан для обучения и не претендует на авторские права</p>
         <p>Разработано с любовью для Вас</p>
@@ -45,26 +45,28 @@
 </div>
 <!--Меню программы-->
 <div class="mainmenu">
-    <input type="checkbox" name="checkboxName" class="checkbox">
+    <label>
+        <input type="checkbox" name="checkboxName" class="checkbox">
+    </label>
     <div class="switch switchOn"></div>
-    <img class="switchicon unselectable" src="img/grid.png">
-    <img class="controll_button unselectable" src="img/stop.png" id="stop">
-    <img class="controll_button unselectable" src="img/pause.png" id="pause">
-    <img class="controll_button unselectable" src="img/start.png" id="start">
-    <img class="controll_button unselectable" src="img/wire.png" id="wire">
-    <img class="controll_button unselectable" src="img/text.png" id="text">
-    <img class="controll_button unselectable" src="img/clk.png" id="clk">
+    <img class="switchicon unselectable" src="img/grid.png" alt="switch">
+    <img class="controll_button unselectable" src="img/stop.png" id="stop" alt="stop">
+    <img class="controll_button unselectable" src="img/pause.png" id="pause" alt="pause">
+    <img class="controll_button unselectable" src="img/start.png" id="start" alt="start">
+    <img class="controll_button unselectable" src="img/wire.png" id="wire" alt="wire">
+    <img class="controll_button unselectable" src="img/text.png" id="text" alt="text">
+    <img class="controll_button unselectable" src="img/clk.png" id="clk" alt="clk">
     <div class="clk" id="clk_edit">
         <p class="text_clk unselectable" id="text_clk">clk/sec</p>
-        <input type="number" class="input_clk unselectable" size="15" id="input_clk" value="15" step="0.5" min="0.5"
-               max="100">
+        <label for="input_clk"></label><input type="number" class="input_clk unselectable" size="15" id="input_clk" value="15" step="0.5" min="0.5"
+                                              max="100">
     </div>
-    <img class="headericon unselectable" src="img/icon.png">
+    <img class="headericon unselectable" src="img/icon.png" alt="icon">
     <p class="headertext unselectable">ISE</p>
 </div>
 <!--Selecter-->
-<img class="img_menu_button unselectable" id="opener" src="img/menu_button.png">
-<img class="img_menu_button vision unselectable" id="closer" src="img/close_menu_button.png">
+<img class="img_menu_button unselectable" id="opener" src="img/menu_button.png" alt="open">
+<img class="img_menu_button vision unselectable" id="closer" src="img/close_menu_button.png" alt="close">
 <div class="selecter" id="panel">
     <p class="autor unselectable">МЕНЮ</p>
     <div class="container_elements">
@@ -74,23 +76,23 @@
         <div style="text-align: center;">
             <div class="elements2" id="elem1">
                 <div class="popup_menu_elements" id="and">
-                    <img class="elements_icon" src="img/И.png">
+                    <img class="elements_icon" src="img/И.png" alt="and">
                     <p class="unselectable">И</p>
                 </div>
                 <div class="popup_menu_elements" id="or">
-                    <img class="elements_icon" src="img/ИЛИ.png">
+                    <img class="elements_icon" src="img/ИЛИ.png" alt="or">
                     <p class="unselectable">ИЛИ</p>
                 </div>
                 <div class="popup_menu_elements" id="andnot">
-                    <img class="elements_icon" src="img/И-НЕ.png">
+                    <img class="elements_icon" src="img/И-НЕ.png" alt="andnot">
                     <p class="unselectable">ИНЕ</p>
                 </div>
                 <div class="popup_menu_elements" id="ornot">
-                    <img class="elements_icon" src="img/ИЛИ-НЕ.png">
+                    <img class="elements_icon" src="img/ИЛИ-НЕ.png" alt="ornot">
                     <p class="unselectable">ИЛИНЕ</p>
                 </div>
                 <div class="popup_menu_elements" id="not">
-                    <img class="elements_icon" src="img/НЕ.png">
+                    <img class="elements_icon" src="img/НЕ.png" alt="not">
                     <p class="unselectable">НЕ</p>
                 </div>
             </div>
@@ -100,11 +102,11 @@
         </div>
         <div class="elements2" id="elem2">
             <div class="counter_elements" id="counter">
-                <img class="elements_icon" src="img/counter.png">
+                <img class="elements_icon" src="img/counter.png" alt="counter">
                 <p class="unselectable">Счетчик увеличения</p>
             </div>
             <div class="counter_elements" id="counter_">
-                <img class="elements_icon" src="img/counter.png">
+                <img class="elements_icon" src="img/counter.png" alt="counter">
                 <p class="unselectable">Счетчик уменьшения</p>
             </div>
         </div>
@@ -113,11 +115,11 @@
         </div>
         <div class="elements2" id="elem3">
             <div class="counter_elements" id="analyzer1">
-                <img class="elements_icon" src="img/analyzer.png">
+                <img class="elements_icon" src="img/analyzer.png" alt="analyzer">
                 <p class="unselectable">Анализатор классический</p>
             </div>
             <div class="counter_elements" id="analyzer2">
-                <img class="elements_icon" src="img/analyzer.png">
+                <img class="elements_icon" src="img/analyzer.png" alt="analyzer">
                 <p class="unselectable">Анализатор уникальный</p>
             </div>
         </div>
@@ -141,7 +143,7 @@
 </div>
 <!--Info-->
 <div class="fixed">
-    <img class="trash unselectable" src="img/trash.png" id="trash">
+    <img class="trash unselectable" src="img/trash.png" id="trash" alt="trash">
     <p class="copi unselectable">Powered by Evgeniy Chernyshev 2020</p>
 </div>
 </body>
