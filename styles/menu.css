@@ -90,7 +90,7 @@
 
 .clk {
 	position: relative;
-	width: 0vh;
+	width: 20vh;
 	height: 4vh;
 	background-color: #FFFFFF;
 	border-radius: 3vw 0 0 3vw;
@@ -100,41 +100,24 @@
     line-height: 0%;
 	margin: 0.5vh -1.9vh 0 0;
 	z-index: 5;
-}
+	display: none;
 
-.clkactive{
-	width: 20vh;
 }
-
 .input_clk {
 	outline: none;
 	position: relative;
 	float: right;
-    line-height: 0%;
-	width: 0vh;
+	width: 7vh;
     font-size: 2vh;
 	margin: -1.2vh 2vh 0 0;
 	cursor: pointer;
 	z-index: 6;
-	visibility: hidden;
 	border: 0;
-	transition: all 350ms;
+	color: #333333;
 }
-
 .text_clk {
 	position: relative;
 	font-size: 2vh;
 	color: #333333;
-	transition: all 300ms;
 	margin: 2vh 10vh 0 0;
-	visibility: hidden;
-}
-
-.clk_hidden {
-	visibility: visible;
-}
-
-.clk_hidden_input {
-	visibility: visible;
-	width: 7vh;
 }

@@ -3,13 +3,14 @@
 	height: 60%; 
 	width: 30%;
 	right:0%;
-	top:-53.5%;
+	top: 5%;
 	bottom:0;
 	overflow: auto;
 	background-color: #333333;
 	z-index: 10;	
 	box-shadow: 0 0 2vw #000000;
 	cursor: pointer;
+	display: none;
 }
 
 .headeranalyzer {
@@ -25,10 +26,11 @@
 
 .containeranalyzer {
 	position:fixed;
-	top: -33.3%;
+	top: 25.2%;
 	left: 60%;
 	z-index: 11;
 	z-index: 10;
+	display: none;
 }
 
 .selectanalyzer {
@@ -70,12 +72,4 @@
 	background-color: #FFFFFF;
 	height: 84%; /* высота секции равна высоте области просмотра */
 	width: 94%;
-}
-
-.openanalyzer {
-	top: 5%;
-}
-
-.openselectmenu {
-top: 25.2%;
 }

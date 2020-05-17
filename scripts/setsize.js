@@ -1,5 +1,6 @@
-var panel = document.getElementById("panel");
+var opener = document.getElementById("opener");
 var closer = document.getElementById("closer");
+var panel = document.getElementById("panel");
 
 var id1 = document.getElementById('id1');
 var elem1 = document.getElementById("elem1");
@@ -19,27 +20,32 @@ var elem3 = document.getElementById("elem3");
 var analyzer1 = document.getElementById("analyzer1");
 var analyzer2 = document.getElementById("analyzer2");
 
-var clk = document.getElementById("clk");
-var clk_edit = document.getElementById("clk_edit");
-var text_clk = document.getElementById("text_clk");
-var input_clk = document.getElementById("input_clk");
-
 var analyz = document.getElementById("analyz");
 var containeranalyzer = document.getElementById("containeranalyzer");
 var graf = document.getElementById('graf');
 var table = document.getElementById('table');
 var overlay = document.getElementById('overlay');
 
-panel.onclick = function () {
-    panel.classList.add("openpanel");
+$( "#opener" ).click(function(){
+    $( "#panel" ).fadeIn();
+});
+$( "#closer" ).click(function(){
+    $( "#panel" ).fadeOut();
+});
+opener.onclick = function () {
+    opener.classList.add("vision");
+    closer.classList.remove("vision");
+};
+closer.onclick = function () {
+    opener.classList.remove("vision")
     closer.classList.add("vision");
-    closer.classList.add("close2_show");
 };
 
-closer.onclick = function () {
-    panel.classList.remove("openpanel");
-    closer.classList.remove("close2_show");
+
+and.onclick = function () {
+
 };
+
 
 id1.onclick = function () {
     elem1.classList.toggle("elements_size");
@@ -50,29 +56,34 @@ id1.onclick = function () {
     ornot.classList.toggle("elements_color");
     not.classList.toggle("elements_color");
 };
-and.onclick = function () {
-
-};
-
+$( "#id1" ).click(function(){
+    $( "#elem1" ).fadeToggle();
+});
 id2.onclick = function () {
     elem2.classList.toggle("elements_size");
     id2.classList.toggle("elements_color");
     counter.classList.toggle("elements_color");
     counter_.classList.toggle("elements_color");
 };
-
+$( "#id2" ).click(function(){
+    $( "#elem2" ).fadeToggle();
+});
 id3.onclick = function () {
     elem3.classList.toggle("elements_size");
     id3.classList.toggle("elements_color");
     analyzer1.classList.toggle("elements_color");
     analyzer2.classList.toggle("elements_color");
 };
+$( "#id3" ).click(function(){
+    $( "#elem3" ).fadeToggle();
+});
 
-clk.onclick = function () {
-    clk_edit.classList.toggle("clkactive");
-    input_clk.classList.toggle("clk_hidden_input");
-    text_clk.classList.toggle("clk_hidden");
-};
+$( "#clk" ).click(function(){
+    $( "#analyz" ).fadeToggle();
+    $( "#containeranalyzer" ).fadeToggle();
+    $( "#clk_edit" ).fadeToggle();
+
+});
 
 analyz.onclick = function () {
     analyz.classList.toggle("openanalyzer");
@@ -94,4 +105,4 @@ overlay.onclick = function () {
     $(function () {
         $("#svgs").draggable({containment: 'parent', grid: [15, 15]});
     });
-};  
+};

@@ -33,15 +33,13 @@
 </div>
 <!-- Модальное Окно  -->
 <div id="overlay">
-    <div class="popup unselectable">
+    <div class="popup unselectable" onclick="document.getElementById('overlay').style.display = 'none';">
         <h2>Добро пожаловать в Integral Scheme Editor</h2>
         <div class="pl-left">
             <img src="img/logo.png">
         </div>
         <p>Данный софт разработан для обучения и не претендует на авторские права</p>
         <p>Разработано с любовью</p>
-        <button class="close" title="Закрыть"
-                onclick="document.getElementById('overlay').style.display = 'none';"></button>
     </div>
 </div>
 <!--Меню программы-->
@@ -56,7 +54,7 @@
     <img class="controll_button unselectable" src="img/text.png" id="text">
     <img class="controll_button unselectable" src="img/clk.png" id="clk">
     <div class="clk" id="clk_edit">
-        <p class="text_clk unselectable" id="text_clk">  clk/sec</p>
+        <p class="text_clk unselectable" id="text_clk">clk/sec</p>
         <input type="number" class="input_clk unselectable" size="15" id="input_clk" value="15" step="0.5" min="0.5"
                max="100">
     </div>
@@ -64,7 +62,8 @@
     <p class="headertext unselectable">ISE</p>
 </div>
 <!--Selecter-->
-<button class="close2" id="closer"></button>
+<img class="img_menu_button unselectable" id="opener" src="img/menu_button.png">
+<img class="img_menu_button vision unselectable" id="closer" src="img/close_menu_button.png">
 <div class="selecter" id="panel">
     <p class="autor unselectable">МЕНЮ</p>
     <div class="container_elements">
