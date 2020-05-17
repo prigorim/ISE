@@ -12,23 +12,20 @@ body, html {
     font-weight: bold;
 	background-color: #a9a9a9; /* Цвет фона */
 }
-
 .unselectable {
 	user-select: none;           /* Non-prefixed version, currently*/
     text-align: center;
 }
-
 input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 	margin: 0;
 }
-
 ::-webkit-scrollbar {
     width: 0%;
 	height: 0%;
 }
 ::-webkit-scrollbar-thumb {
-    background: rgba(100, 149, 237);
+    background: rgb(100, 149, 237);
 }
 ::-webkit-scrollbar-corner {
 	width: 0%;

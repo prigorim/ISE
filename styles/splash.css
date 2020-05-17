@@ -14,8 +14,7 @@
 .popup {
     top: 25%;
     left: 0;
-    right: 0;       
-    font-size: 2vh;
+    right: 0;
     margin: auto;
     width: 40vw;
     position: absolute;
@@ -23,31 +22,14 @@
     background: #fefefe;
     z-index: 1000;
     border-radius: 1%;
-    font: 2vh/3vh 'Tahoma', Arial, sans-serif;
+    font: 3vh/4vh 'Tahoma', Arial, sans-serif;
     animation: fade .6s;
+    text-align: left;
 }
-/* кнопка закрытия */
-.close {
-    top: 26vh;
-    left: 68vw;
-    width: 5vh;
-    height: 5vh;
-    position: fixed;
-    border-radius: 20%;
-    background-color: rgb(100, 149, 237);
-    cursor: pointer;
-    outline: none;
-    z-index: 50;
-    border: none;
+.popup p {
+    text-align: justify;
 }
 
-.close:before {
-    background-color: rgba(252, 20, 0, 0.8);
-}
-/* кнопка закрытия при наведении */
-.close:hover {
-    background-color: rgba(252, 20, 0, 0.8);
-}
 /* изображения в модальном окне */
 .popup img {
     width: 100%;
@@ -57,32 +39,21 @@
 
 .popup h2 {
     text-align: left;
+    font: 4vh/5vh 'Tahoma', Arial, sans-serif;
 }
-
-/* миниатюры изображений */
-.pl-left, .pl-right {
-    width: 25%;
-    height: auto;
-}
-/* миниатюры справа */
-.pl-right {
-    float: right;
-}
-/* миниатюры слева */
 .pl-left {
     float: left;
+    width: 30%;
+    height: auto;
 }
-/* анимация при появлении блоков с содержанием */
 @-moz-keyframes fade {
     from { opacity: 0; }
     to { opacity: 1 }
 }
-
 @-webkit-keyframes fade {
     from { opacity: 0; }
     to { opacity: 1 } 
 }
-
 @keyframes fade {
     from { opacity: 0; }
     to { opacity: 1 }

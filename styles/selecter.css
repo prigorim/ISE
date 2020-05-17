@@ -1,9 +1,8 @@
 .selecter {
-    display:inline;
 	position: fixed;
 	height: 100%; /* высота секции равна высоте области просмотра */
 	width: 50vh;
-	left: -48vh;
+	left: 0;
 	right:0;
 	top:0;
 	bottom:0;
@@ -15,11 +14,7 @@
 	min-height: 100%;
 	max-width: 50vh;
 	max-height: 100%;
-
-}
-
-.openpanel  {
-    left: 0; /* отступ слева */
+	display: none;
 }
 
 .elements
@@ -27,8 +22,7 @@
 	width: 100%;
 	position:relative;
     background-color: rgb(100, 149, 237);
-	border-radius: 0vh;
-	margin: -7% 0% 0;
+	margin: -7% 0% 0%;
 	font-size: 3vh;
 	font-family:  Calibri, Helvetica, sans-serif;
 	font-weight: normal;
@@ -61,6 +55,7 @@ color: #333333;
 	margin: -7.1% 0% 0 0%;
 	overflow: auto;
 	z-index: 1;
+	display: none;
 
 }
 
@@ -124,40 +119,27 @@ color: #333333;
 	color: #333333;
 	background-color: #FFFFFF;
 }
-
-.close2 {
-    top: 4vh;
-    left: -5vh;
-    width: 5vh;
-    height: 5vh;
-    position: fixed;
-    background-color: rgb(100, 149, 237);
-    cursor: pointer;
-    outline: none;
-	color: rgba(255, 255, 255, 0.9);
-	font-size: 3vh;
+.img_menu_button{
+	position: fixed;
+	cursor: pointer;
+	outline: none;
+	left: 3vh;
+	top: 7vh;
+	width: 5vh;
+	height: 5vh;
 	z-index: 50;
-	border: none;
-	border-radius: 20%;
 }
-/* кнопка закрытия при наведении */
-.close2:hover {
-    background-color: rgba(252, 20, 0, 0.8);
+.vision{
+	visibility: hidden;
 }
-
-.close2_show {
-	visibility: visible;
-	left: 43vh;
-}
-
 .autor {
 	position: relative;
     color: #ededed;
 	font-size: 6vh;
 	left: 6%;
-	top: -3%;
+	top: 0%;
 	font-family:  Calibri, Helvetica, sans-serif;
 	cursor: default;
 	width: 90%;
-	text-align: left;
+	text-align: right;
 }

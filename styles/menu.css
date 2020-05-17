@@ -6,7 +6,7 @@
 	right:0;
 	top:0;
 	bottom:0;
-	background-color: rgba(100, 149, 237);
+	background-color: rgb(100, 149, 237);
 	z-index:11;
 	overflow: hidden;	
 }
