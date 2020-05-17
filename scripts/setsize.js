@@ -1,30 +1,30 @@
-var opener = document.getElementById("opener");
-var closer = document.getElementById("closer");
-var panel = document.getElementById("panel");
+const opener = document.getElementById("opener");
+const closer = document.getElementById("closer");
+const panel = document.getElementById("panel");
 
-var id1 = document.getElementById('id1');
-var elem1 = document.getElementById("elem1");
-var and = document.getElementById("and");
-var or = document.getElementById("or");
-var andnot = document.getElementById("andnot");
-var ornot = document.getElementById("ornot");
-var not = document.getElementById("not");
-var canvas = document.getElementById("canvas");
-var id2 = document.getElementById('id2');
-var elem2 = document.getElementById("elem2");
-var counter = document.getElementById("counter");
-var counter_ = document.getElementById("counter_");
+const id1 = document.getElementById('id1');
+const elem1 = document.getElementById("elem1");
+const and = document.getElementById("and");
+const or = document.getElementById("or");
+const andnot = document.getElementById("andnot");
+const ornot = document.getElementById("ornot");
+const not = document.getElementById("not");
+const canvas = document.getElementById("canvas");
+const id2 = document.getElementById('id2');
+const elem2 = document.getElementById("elem2");
+const counter = document.getElementById("counter");
+const counter_ = document.getElementById("counter_");
 
-var id3 = document.getElementById('id3');
-var elem3 = document.getElementById("elem3");
-var analyzer1 = document.getElementById("analyzer1");
-var analyzer2 = document.getElementById("analyzer2");
+const id3 = document.getElementById('id3');
+const elem3 = document.getElementById("elem3");
+const analyzer1 = document.getElementById("analyzer1");
+const analyzer2 = document.getElementById("analyzer2");
 
-var analyz = document.getElementById("analyz");
-var containeranalyzer = document.getElementById("containeranalyzer");
-var graf = document.getElementById('graf');
-var table = document.getElementById('table');
-var overlay = document.getElementById('overlay');
+const analyz = document.getElementById("analyz");
+const containeranalyzer = document.getElementById("containeranalyzer");
+const graf = document.getElementById('graf');
+const table = document.getElementById('table');
+const overlay = document.getElementById('overlay');
 
 $( "#opener" ).click(function(){
     $( "#panel" ).fadeIn();
