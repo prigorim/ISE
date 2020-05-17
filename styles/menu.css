@@ -54,7 +54,7 @@
 
 .switchicon	{
 	float: right;
-    line-height: 0%;
+    line-height: 0;
 	width: 4vh;
     height: auto;
 	margin: 0.5vh 1vh 0 4vh;
@@ -62,25 +62,25 @@
 
 .headertext {
 	float: left;
-    line-height: 0%;
+    line-height: 0;
     color: #ededed;
-	margin: 2.5vh 1vh 1vh 0vh;
+	margin: 2.5vh 1vh 1vh 0;
 	font-size: 4.5vh;
 	font-family:  Calibri, Helvetica, sans-serif;
 }
 
 .headericon {
 	float: left;
-    line-height: 0%;
+    line-height: 0;
 	width: 5vh;
     height: auto;
-	margin: 0vh 1vh 0 4vh;
+	margin: 0 1vh 0 4vh;
 }
 
 .controll_button {
 	position: relative;
 	float: right;
-    line-height: 0%;
+    line-height: 0;
 	width: 4vh;
     height: auto;
 	margin: 0.5vh 0.5vh 0 0;
@@ -97,7 +97,7 @@
 	border: none;
 	transition: all 0.5s;
 	float: right;
-    line-height: 0%;
+    line-height: 0;
 	margin: 0.5vh -1.9vh 0 0;
 	z-index: 5;
 	display: none;

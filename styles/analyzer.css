@@ -2,7 +2,7 @@
 	position: absolute;
 	height: 60%; 
 	width: 30%;
-	right:0%;
+	right:0;
 	top: 5%;
 	bottom:0;
 	overflow: auto;
@@ -29,7 +29,6 @@
 	top: 25.2%;
 	left: 60%;
 	z-index: 11;
-	z-index: 10;
 	display: none;
 }
 
