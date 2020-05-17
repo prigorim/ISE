@@ -10,8 +10,11 @@
 	box-shadow: 0 0 2vw #000000;
 	overflow: auto;
 	background-color: #333333;
-	transition: all 0.5s;
-	z-index: 49;	
+	z-index: 49;
+	min-width: 50vh;
+	min-height: 100%;
+	max-width: 50vh;
+	max-height: 100%;
 
 }
 
@@ -32,8 +35,10 @@
 	text-indent: 5%;
 	color: #ededed;
 	cursor: pointer;
-	transition: all 0.5s;
 	 z-index: 10;
+	max-height: 10vh;
+	max-width: 100%;
+	text-align: left;
 	
 }
 
@@ -136,7 +141,6 @@ color: #333333;
 	color: rgba(255, 255, 255, 0.9);
 	font-size: 3vh;
 	z-index: 50;
-	transition: all 0.5s;
 	border: none;
 	text-indent: none;
 }
