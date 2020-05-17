@@ -26,7 +26,7 @@
 {	
 	width: 100%;
 	position:relative;
-    background-color: rgba(100, 149, 237);
+    background-color: rgb(100, 149, 237);
 	border-radius: 0vh;
 	margin: -7% 0% 0 0%;
 	font-size: 3vh;
@@ -49,7 +49,7 @@ color: #333333;
 
 .elements2 {
 	position:relative;
-    background-color: rgba(100, 149, 237);
+    background-color: rgb(100, 149, 237);
 	border-radius: 0;
 	width: 100%;
 	font-size: 1vw;
@@ -76,7 +76,7 @@ color: #333333;
 	position: relative;
 	top: 10%;
 	width: 50%;
-	background-color: rgba(100, 149, 237);
+	background-color: rgb(100, 149, 237);
 	border-radius: 3vw 3vw 3vw 3vw;
 	border: none;
 	float: left;
@@ -85,7 +85,7 @@ color: #333333;
 .popup_menu_elements {
 	top: 2%;
 	width: 33%;
-	background-color: rgba(100, 149, 237);
+	background-color: rgb(100, 149, 237);
 	position: relative;
 	border-radius: 3vw 3vw 3vw 3vw;
 	border: none;
@@ -132,14 +132,13 @@ color: #333333;
     height: 5vh;
     position: fixed;
     border-radius: 6vh;
-    background-color: rgba(100, 149, 237);
+    background-color: rgb(100, 149, 237);
     cursor: pointer;
     outline: none;
 	color: rgba(255, 255, 255, 0.9);
 	font-size: 3vh;
 	z-index: 50;
 	border: none;
-	text-indent: none;
 }
 /* кнопка закрытия при наведении */
 .close2:hover {
