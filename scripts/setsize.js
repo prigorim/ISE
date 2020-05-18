@@ -42,7 +42,7 @@ closer.onclick = function () {
 };
 
 and.onclick = function () {
-    $("#and").plumb({target: 'andnot'});
+    $("#and").plumb({target: 'andnot'}); // КОРОЧЕ ВОТ ТУТ типо линия или нужно сначала задать какой-то вар?
 };
 
 
