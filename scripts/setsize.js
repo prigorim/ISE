@@ -41,10 +41,8 @@ closer.onclick = function () {
     closer.classList.add("vision");
 };
 
-
 and.onclick = function () {
     $("#and").plumb({target: 'andnot'});
-    $("#or").jsPlumb
 };
 
 
