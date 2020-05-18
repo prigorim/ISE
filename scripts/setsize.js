@@ -103,5 +103,6 @@ overlay.onclick = function () {
     });
     $(function () {
         $("#svgs").draggable({containment: 'parent', grid: [15, 15]});
+        $("#svgs2").draggable({containment: 'parent', grid: [15, 15]});
     });
 };
