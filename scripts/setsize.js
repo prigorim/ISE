@@ -43,7 +43,8 @@ closer.onclick = function () {
 
 
 and.onclick = function () {
-
+    $("#and").plumb({target: 'andnot'});
+    $("#or").jsPlumb
 };
 
 
