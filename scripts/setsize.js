@@ -42,8 +42,13 @@ closer.onclick = function () {
 };
 
 and.onclick = function () {
-    $("#and").plumb({target: 'andnot'}); // КОРОЧЕ ВОТ ТУТ типо линия или нужно сначала задать какой-то вар?
-    jsPlumb.connect({source: $("#svgs"), target: $("#svgs2")});
+    $("#and").plumb({ //???
+        target: 'andnot'
+    }); // КОРОЧЕ ВОТ ТУТ типо линия или нужно сначала задать какой-то вар?
+    jsPlumb.connect({
+        source: $("#svgs"),
+        target: $("#svgs2")
+    });
 };
 
 
@@ -102,13 +107,44 @@ overlay.onclick = function () {
         $("#canvas").draggable();
     });
     $(function () {
-        $("#svgs").draggable({containment: 'parent', grid: [15, 15]});
-        $("#svgs2").draggable({containment: 'parent', grid: [15, 15]});
-        $("#and").draggable({grid: [15, 15], revert: true, helper: "clone"});
-        $("#or").draggable({containment: 'parent', grid: [15, 15], revert: true, helper: "clone"});
-        $("#ornot").draggable({containment: 'parent', grid: [15, 15], revert: true, helper: "clone"});
-        $("#andnot").draggable({containment: 'parent', grid: [15, 15], revert: true, helper: "clone"});
-        $("#not").draggable({containment: 'parent', grid: [15, 15], revert: true, helper: "clone"});
+        $("#svgs").draggable({
+            containment: 'parent',
+            grid: [15, 15]
+        });
+        $("#svgs2").draggable({
+            containment: 'parent',
+            grid: [15, 15]
+        });
+        $("#and").draggable({
+            containment: 'canvas',
+            grid: [15, 15],
+            revert: true,
+            helper: "clone"
+        });
+        $("#or").draggable({
+            containment: 'parent',
+            grid: [15, 15],
+            revert: true,
+            helper: "clone"
+        });
+        $("#ornot").draggable({
+            containment: 'parent',
+            grid: [15, 15],
+            revert: true,
+            helper: "clone"
+        });
+        $("#andnot").draggable({
+            containment: 'parent',
+            grid: [15, 15],
+            revert: true,
+            helper: "clone"
+        });
+        $("#not").draggable({
+            containment: 'parent',
+            grid: [15, 15],
+            revert: true,
+            helper: "clone"
+        });
 
     });
 };
