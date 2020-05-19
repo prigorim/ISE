@@ -154,12 +154,12 @@ overlay.onclick = function () {
             snap: "#canvas",
         });
         $( "#canvas" ).droppable({
+            //принимать только ...
             //accept: "#and",
-            drop:  function(event, ui) {
-                // Если мы успешно бросаем элемент - клонируем его
-                // Не забудем удалить класс hiddenGroup - т.к. оригинал перетаскиваемого элемента был спрятан
-                $(this).append($(ui.helper));
-                }
+            greedy: true,
+            drop: function(ev, ui) {
+                $(this).append($(ui.helper)); // Тут нужна помощь я не понимаю
+            }
             });
         });
 };
