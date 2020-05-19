@@ -105,8 +105,6 @@ table.onclick = function () {
 overlay.onclick = function () {
     $(function () {
         $("#canvas").draggable();
-    });
-    $(function () {
         $("#svgs").draggable({
             containment: 'parent',
             grid: [15, 15]
@@ -116,35 +114,64 @@ overlay.onclick = function () {
             grid: [15, 15]
         });
         $("#and").draggable({
-            containment: 'canvas',
+            appendTo: "#canvas",
             grid: [15, 15],
-            revert: true,
-            helper: "clone"
+            revert: 'invalid',
+            helper: "clone",
+            snap: "#canvas",
         });
         $("#or").draggable({
             containment: 'parent',
             grid: [15, 15],
-            revert: true,
+            revert: 'invalid',
             helper: "clone"
         });
         $("#ornot").draggable({
             containment: 'parent',
             grid: [15, 15],
-            revert: true,
+            revert: 'invalid',
             helper: "clone"
         });
         $("#andnot").draggable({
             containment: 'parent',
             grid: [15, 15],
-            revert: true,
+            revert: 'invalid',
             helper: "clone"
         });
         $("#not").draggable({
             containment: 'parent',
             grid: [15, 15],
-            revert: true,
+            revert: 'invalid',
             helper: "clone"
         });
-
-    });
+        $( "#canvas td" ).droppable({
+            drop: function( event, ui ) {
+                $( this ).append(
+                    $(ui.helper).clone()
+                        .draggable({containment:"parent"})
+                        .resizable());
+            }
+        });
+        });
 };
+
+
+/*
+$(function() {
+       $( ".draggable" ).draggable({
+         revert: 'invalid',
+         helper:"clone",
+         snap: "#drop_here td",
+         opacity: 0.7
+       });
+       $( "#drop_here td" ).droppable({
+         accept: '#left .draggable',
+         drop: function( event, ui ) {
+           $( this ).append(
+             $(ui.helper).clone()
+             .draggable({containment:"parent"})
+             .resizable());
+         }
+       });
+     }); МЭЙБИ ПОМОЖЕТ МНЕ
+ */
