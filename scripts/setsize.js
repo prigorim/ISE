@@ -158,7 +158,7 @@ overlay.onclick = function () {
             drop:  function(event, ui) {
                 // Если мы успешно бросаем элемент - клонируем его
                 // Не забудем удалить класс hiddenGroup - т.к. оригинал перетаскиваемого элемента был спрятан
-                $(this).append($(ui.draggable));
+                $(this).append($(ui.helper));
                 }
             });
         });
