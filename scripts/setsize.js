@@ -42,13 +42,13 @@ closer.onclick = function () {
 };
 
 and.onclick = function () {
-    $("#and").plumb({ //???
-        target: 'andnot'
-    }); // КОРОЧЕ ВОТ ТУТ типо линия или нужно сначала задать какой-то вар?
-    jsPlumb.connect({
-        source: $("#svgs"),
-        target: $("#svgs2")
-    });
+    //$("#and").plumb({ //???
+        //target: 'andnot'
+    //}); // КОРОЧЕ ВОТ ТУТ типо линия или нужно сначала задать какой-то вар?
+   // jsPlumb.connect({
+       // source: $("#svgs"),
+      ///  target: $("#svgs2")
+    //});
 };
 
 
@@ -114,44 +114,53 @@ overlay.onclick = function () {
             grid: [15, 15]
         });
         $("#and").draggable({
+            //присоединить к канве
+            appendTo: "#canvas",
+            //сетка перемещения по 15 пикселей
+            grid: [15, 15],
+            //вернуть на место если не получилось переместить
+            revert: 'invalid',
+            //создать копию и её перетаскивать
+            helper: "clone",
+            //магнитить только к канве
+            //snap: "#canvas",
+        });
+        $("#or").draggable({
             appendTo: "#canvas",
             grid: [15, 15],
             revert: 'invalid',
             helper: "clone",
             snap: "#canvas",
         });
-        $("#or").draggable({
-            containment: 'parent',
-            grid: [15, 15],
-            revert: 'invalid',
-            helper: "clone"
-        });
         $("#ornot").draggable({
-            containment: 'parent',
+            appendTo: "#canvas",
             grid: [15, 15],
             revert: 'invalid',
-            helper: "clone"
+            helper: "clone",
+            snap: "#canvas",
         });
         $("#andnot").draggable({
-            containment: 'parent',
+            appendTo: "#canvas",
             grid: [15, 15],
             revert: 'invalid',
-            helper: "clone"
+            helper: "clone",
+            snap: "#canvas",
         });
         $("#not").draggable({
-            containment: 'parent',
+            appendTo: "#canvas",
             grid: [15, 15],
             revert: 'invalid',
-            helper: "clone"
+            helper: "clone",
+            snap: "#canvas",
         });
-        $( "#canvas td" ).droppable({
-            drop: function( event, ui ) {
-                $( this ).append(
-                    $(ui.helper).clone()
-                        .draggable({containment:"parent"})
-                        .resizable());
-            }
-        });
+        $( "#canvas" ).droppable({
+            //accept: "#and",
+            drop:  function(event, ui) {
+                // Если мы успешно бросаем элемент - клонируем его
+                // Не забудем удалить класс hiddenGroup - т.к. оригинал перетаскиваемого элемента был спрятан
+                $(this).append($(ui.draggable));
+                }
+            });
         });
 };
 
