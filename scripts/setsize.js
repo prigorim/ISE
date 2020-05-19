@@ -104,7 +104,7 @@ overlay.onclick = function () {
     $(function () {
         $("#svgs").draggable({containment: 'parent', grid: [15, 15]});
         $("#svgs2").draggable({containment: 'parent', grid: [15, 15]});
-        $("#and").draggable({containment: "#canvas", grid: [15, 15], revert: true, helper: "clone"});
+        $("#and").draggable({grid: [15, 15], revert: true, helper: "clone"});
         $("#or").draggable({containment: 'parent', grid: [15, 15], revert: true, helper: "clone"});
         $("#ornot").draggable({containment: 'parent', grid: [15, 15], revert: true, helper: "clone"});
         $("#andnot").draggable({containment: 'parent', grid: [15, 15], revert: true, helper: "clone"});
