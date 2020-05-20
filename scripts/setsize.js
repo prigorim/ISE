@@ -170,36 +170,14 @@ overlay.onclick = function () {
         $( "#canvas" ).droppable({
             //принимать только ...
              accept: "#and, #or, #andnot, #ornot, #not, #counter, #counter_",
-             drop: function(ev, ui) {//Нужно каким-то образом оставить клонируемый элемент в канве
+             drop: function(ev, ui) {
                 $(ui.draggable).clone()
                                .appendTo(this)
                                .removeClass()
                                .addClass('autowidth')
                                .removeAttr('id')
                                .draggable();
-            //     // Тут нужна помощь я не понимаю
-            }
+             }
             });
         });
 };
-
-
-/*
-$(function() {
-       $( ".draggable" ).draggable({
-         revert: 'invalid',
-         helper:"clone",
-         snap: "#drop_here td",
-         opacity: 0.7
-       });
-       $( "#drop_here td" ).droppable({
-         accept: '#left .draggable',
-         drop: function( event, ui ) {
-           $( this ).append(
-             $(ui.helper).clone()
-             .draggable({containment:"parent"})
-             .resizable());
-         }
-       });
-     }); МЭЙБИ ПОМОЖЕТ МНЕ
- */
