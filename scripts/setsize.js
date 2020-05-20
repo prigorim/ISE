@@ -153,14 +153,27 @@ overlay.onclick = function () {
             helper: "clone",
             snap: "#canvas",
         });
+        $("#counter").draggable({
+            appendTo: "#canvas",
+            grid: [15, 15],
+            revert: 'invalid',
+            helper: "clone",
+            snap: "#canvas",
+        });
+        $("#counter_").draggable({
+            appendTo: "#canvas",
+            grid: [15, 15],
+            revert: 'invalid',
+            helper: "clone",
+            snap: "#canvas",
+        });
         $( "#canvas" ).droppable({
             //принимать только ...
             //accept: "#and",
-            drop: function(ev, ui) {
+             drop: function(ev, ui) {
                 $(this).append($(ui.helper));        //Нужно каким-то образом оставить клонируемый элемент в канве
                 $(ui.draggable).clone().appendTo(this);
-                alert('1');
-                // Тут нужна помощь я не понимаю
+            //     // Тут нужна помощь я не понимаю
             }
             });
         });
