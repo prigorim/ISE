@@ -16,3 +16,7 @@
     height: auto;
 	opacity: .30;
 }
+
+.trash:hover {
+	opacity: .99;
+}

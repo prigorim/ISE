@@ -170,8 +170,9 @@ overlay.onclick = function () {
         });
 
         $("#trash").droppable({
+            //accept: "#and, #or, #andnot, #ornot, #not, #counter, #counter_";
             drop: function (ev, ui) {
-                alert(1)
+                $(ui.draggable).remove()
             }
         });
 
