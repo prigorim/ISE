@@ -34,4 +34,5 @@ svg {
 
 .autowidth {
     width: max-content;
+    position: absolute;
 }

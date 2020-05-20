@@ -159,22 +159,25 @@ overlay.onclick = function () {
             helper: "clone",
             snap: "#canvas",
         });
-        $("#canvas").droppable({ // TODO FIXME нужно сохранить координаты для переносимого элемента
+        $("#canvas").droppable({
             accept: "#and, #or, #andnot, #ornot, #not, #counter, #counter_",
             drop: function (ev, ui) {
-                $(ui.draggable).clone()
-                    .appendTo(this)
-                    .removeClass()
-                    .addClass('autowidth')
-                    .removeAttr('id')
-                    .draggable({
-                        grid: [15, 15],
-                        containment: 'parent',
-                    })
-                    .css({
-                        left: ui.position.left,
-                        top: ui.position.top
-                    });
+                x = ui.position.left / 15, y = ui.position.top / 15,
+                    correctx = Math.ceil(x) * 15,
+                    correcty = Math.ceil(y) * 15,
+                    $(ui.draggable).clone()
+                        .appendTo(this)
+                        .removeClass()
+                        .addClass('autowidth')
+                        .removeAttr('id')
+                        .draggable({
+                            grid: [15, 15],
+                            containment: 'parent',
+                        })
+                        .css({
+                            left: correctx,
+                            top: correcty
+                        });
             }
         });
     });
