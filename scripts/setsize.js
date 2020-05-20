@@ -168,6 +168,13 @@ overlay.onclick = function () {
             helper: "clone",
             snap: "#canvas",
         });
+
+        $("#trash").droppable({
+            drop: function (ev, ui) {
+                alert(1)
+            }
+        });
+
         $("#canvas").droppable({
             accept: "#and, #or, #andnot, #ornot, #not, #counter, #counter_",
             drop: function (ev, ui) {
@@ -189,5 +196,6 @@ overlay.onclick = function () {
                         });
             }
         });
+
     });
 };
