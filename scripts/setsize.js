@@ -105,14 +105,6 @@ table.onclick = function () {
 overlay.onclick = function () {
     $(function () {
         $("#canvas").draggable();
-        $("#svgs").draggable({
-            containment: 'parent',
-            grid: [15, 15]
-        });
-        $("#svgs2").draggable({
-            containment: 'parent',
-            grid: [15, 15]
-        });
         $("#and").draggable({
             //присоединить к канве
             appendTo: "#canvas",
@@ -176,7 +168,10 @@ overlay.onclick = function () {
                                .removeClass()
                                .addClass('autowidth')
                                .removeAttr('id')
-                               .draggable();
+                               .draggable({
+                                   grid: [15, 15],
+                                   containment: 'parent',
+                               });
              }
             });
         });
