@@ -160,7 +160,6 @@ overlay.onclick = function () {
             snap: "#canvas",
         });
         $( "#canvas" ).droppable({
-            //принимать только ...
              accept: "#and, #or, #andnot, #ornot, #not, #counter, #counter_",
              drop: function(ev, ui) {
                 $(ui.draggable).clone()
