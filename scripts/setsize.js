@@ -26,11 +26,11 @@ const graf = document.getElementById('graf');
 const table = document.getElementById('table');
 const overlay = document.getElementById('overlay');
 
-$( "#opener" ).click(function(){
-    $( "#panel" ).fadeIn();
+$("#opener").click(function () {
+    $("#panel").fadeIn();
 });
-$( "#closer" ).click(function(){
-    $( "#panel" ).fadeOut();
+$("#closer").click(function () {
+    $("#panel").fadeOut();
 });
 opener.onclick = function () {
     opener.classList.add("vision");
@@ -43,11 +43,11 @@ closer.onclick = function () {
 
 and.onclick = function () {
     //$("#and").plumb({ //???
-        //target: 'andnot'
+    //target: 'andnot'
     //}); // КОРОЧЕ ВОТ ТУТ типо линия или нужно сначала задать какой-то вар?
-   // jsPlumb.connect({
-       // source: $("#svgs"),
-      ///  target: $("#svgs2")
+    // jsPlumb.connect({
+    // source: $("#svgs"),
+    ///  target: $("#svgs2")
     //});
 };
 
@@ -61,8 +61,8 @@ id1.onclick = function () {
     ornot.classList.toggle("elements_color");
     not.classList.toggle("elements_color");
 };
-$( "#id1" ).click(function(){
-    $( "#elem1" ).fadeToggle();
+$("#id1").click(function () {
+    $("#elem1").fadeToggle();
 });
 id2.onclick = function () {
     elem2.classList.toggle("elements_size");
@@ -70,8 +70,8 @@ id2.onclick = function () {
     counter.classList.toggle("elements_color");
     counter_.classList.toggle("elements_color");
 };
-$( "#id2" ).click(function(){
-    $( "#elem2" ).fadeToggle();
+$("#id2").click(function () {
+    $("#elem2").fadeToggle();
 });
 id3.onclick = function () {
     elem3.classList.toggle("elements_size");
@@ -79,14 +79,14 @@ id3.onclick = function () {
     analyzer1.classList.toggle("elements_color");
     analyzer2.classList.toggle("elements_color");
 };
-$( "#id3" ).click(function(){
-    $( "#elem3" ).fadeToggle();
+$("#id3").click(function () {
+    $("#elem3").fadeToggle();
 });
 
-$( "#clk" ).click(function(){
-    $( "#analyz" ).fadeToggle();
-    $( "#containeranalyzer" ).fadeToggle();
-    $( "#clk_edit" ).fadeToggle();
+$("#clk").click(function () {
+    $("#analyz").fadeToggle();
+    $("#containeranalyzer").fadeToggle();
+    $("#clk_edit").fadeToggle();
 });
 
 analyz.onclick = function () {
@@ -159,19 +159,23 @@ overlay.onclick = function () {
             helper: "clone",
             snap: "#canvas",
         });
-        $( "#canvas" ).droppable({ // TODO FIXME нужно сохранить координаты для переносимого элемента
-             accept: "#and, #or, #andnot, #ornot, #not, #counter, #counter_",
-             drop: function(ev, ui) {
+        $("#canvas").droppable({ // TODO FIXME нужно сохранить координаты для переносимого элемента
+            accept: "#and, #or, #andnot, #ornot, #not, #counter, #counter_",
+            drop: function (ev, ui) {
                 $(ui.draggable).clone()
-                               .appendTo(this)
-                               .removeClass()
-                               .addClass('autowidth')
-                               .removeAttr('id')
-                               .draggable({
-                                   grid: [15, 15],
-                                   containment: 'parent',
-                               });
-             }
-            });
+                    .appendTo(this)
+                    .removeClass()
+                    .addClass('autowidth')
+                    .removeAttr('id')
+                    .draggable({
+                        grid: [15, 15],
+                        containment: 'parent',
+                    })
+                    .css({
+                        left: ui.position.left,
+                        top: ui.position.top
+                    });
+            }
         });
+    });
 };
