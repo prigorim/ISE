@@ -169,10 +169,14 @@ overlay.onclick = function () {
         });
         $( "#canvas" ).droppable({
             //принимать только ...
-            //accept: "#and",
-             drop: function(ev, ui) {
-                $(this).append($(ui.helper));        //Нужно каким-то образом оставить клонируемый элемент в канве
-                $(ui.draggable).clone().appendTo(this);
+             accept: "#and, #or, #andnot, #ornot, #not, #counter, #counter_",
+             drop: function(ev, ui) {//Нужно каким-то образом оставить клонируемый элемент в канве
+                $(ui.draggable).clone()
+                               .appendTo(this)
+                               .removeClass()
+                               .addClass('autowidth')
+                               .removeAttr('id')
+                               .draggable();
             //     // Тут нужна помощь я не понимаю
             }
             });
