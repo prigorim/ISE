@@ -116,6 +116,11 @@ color: #333333;
 	color: #333333;
 	background-color: #FFFFFF;
 }
+
+.elements_background_white {
+	background-color: transparent;
+}
+
 .img_menu_button{
 	position: fixed;
 	cursor: pointer;
