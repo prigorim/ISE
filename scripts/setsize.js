@@ -156,9 +156,11 @@ overlay.onclick = function () {
         $( "#canvas" ).droppable({
             //принимать только ...
             //accept: "#and",
-            greedy: true,
             drop: function(ev, ui) {
-                $(this).append($(ui.helper)); // Тут нужна помощь я не понимаю
+                $(this).append($(ui.helper));        //Нужно каким-то образом оставить клонируемый элемент в канве
+                $(ui.draggable).clone().appendTo(this);
+                alert('1');
+                // Тут нужна помощь я не понимаю
             }
             });
         });
