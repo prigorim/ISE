@@ -104,57 +104,66 @@ table.onclick = function () {
 
 overlay.onclick = function () {
     $(function () {
+
         $("#canvas").draggable();
         $("#and").draggable({
-            //присоединить к канве
+            start: function( event, ui ) {
+                $(this).removeClass('elements_color');
+            },
             appendTo: "#canvas",
-            //сетка перемещения по 15 пикселей
-            grid: [15, 15],
-            //вернуть на место если не получилось переместить
             revert: 'invalid',
-            //создать копию и её перетаскивать
             helper: "clone",
-            //магнитить только к канве
-            //snap: "#canvas",
         });
         $("#or").draggable({
+            start: function( event, ui ) {
+                $(this).removeClass('elements_color');
+            },
             appendTo: "#canvas",
-            grid: [15, 15],
             revert: 'invalid',
             helper: "clone",
             snap: "#canvas",
         });
         $("#ornot").draggable({
+            start: function( event, ui ) {
+                $(this).removeClass('elements_color');
+            },
             appendTo: "#canvas",
-            grid: [15, 15],
             revert: 'invalid',
             helper: "clone",
             snap: "#canvas",
         });
         $("#andnot").draggable({
+            start: function( event, ui ) {
+                $(this).removeClass('elements_color');
+            },
             appendTo: "#canvas",
-            grid: [15, 15],
             revert: 'invalid',
             helper: "clone",
             snap: "#canvas",
         });
         $("#not").draggable({
+            start: function( event, ui ) {
+                $(this).removeClass('elements_color');
+            },
             appendTo: "#canvas",
-            grid: [15, 15],
             revert: 'invalid',
             helper: "clone",
             snap: "#canvas",
         });
         $("#counter").draggable({
+            start: function( event, ui ) {
+                $(this).removeClass('elements_color');
+            },
             appendTo: "#canvas",
-            grid: [15, 15],
             revert: 'invalid',
             helper: "clone",
             snap: "#canvas",
         });
         $("#counter_").draggable({
+            start: function( event, ui ) {
+                $(this).removeClass('elements_color');
+            },
             appendTo: "#canvas",
-            grid: [15, 15],
             revert: 'invalid',
             helper: "clone",
             snap: "#canvas",
