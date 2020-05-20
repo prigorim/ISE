@@ -159,7 +159,7 @@ overlay.onclick = function () {
             helper: "clone",
             snap: "#canvas",
         });
-        $( "#canvas" ).droppable({
+        $( "#canvas" ).droppable({ // TODO FIXME нужно сохранить координаты для переносимого элемента
              accept: "#and, #or, #andnot, #ornot, #not, #counter, #counter_",
              drop: function(ev, ui) {
                 $(ui.draggable).clone()
