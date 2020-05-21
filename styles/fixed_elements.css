@@ -15,6 +15,8 @@
 	width: 15vh;
     height: auto;
 	opacity: .30;
+	z-index: 50;
+	cursor: pointer;
 }
 
 .trash:hover {
@@ -24,4 +26,32 @@
 .opacity_trash {
 	opacity: .99;
 	transition: 0.5s;
+}
+
+.pluse_scale {
+	position: fixed;
+	width: 5vh;
+	height: 5vh;
+	opacity: .30;
+	z-index: 50;
+	right: 1.5%;
+	top: 7vh;
+}
+.pluse_scale:hover{
+	opacity: .99;
+	cursor: pointer;
+}
+
+.minus_scale {
+	position: fixed;
+	width: 5vh;
+	height: 5vh;
+	opacity: .30;
+	z-index: 50;
+	right: 1.5%;
+	top: 12vh;
+}
+.minus_scale:hover{
+	opacity: .99;
+	cursor: pointer;
 }

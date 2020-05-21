@@ -2,16 +2,16 @@
 <html lang="ru">
 <head>
     <META charset="utf-8">
-    <link rel="SHORTCUT ICON"
-          href="img/favicon.ico"
+    <link href="img/favicon.ico"
+          rel="SHORTCUT ICON"
           type="image/x-icon">
     <title>Integral Scheme Editor</title>
-    <script type="text/javascript"
-            src="lib/jquery.js"></script>
-    <script type="text/javascript"
-            src="lib/jquery-ui.js"></script>
-    <script type="text/javascript"
-            src="lib/jsplumb.js"></script>
+    <script src="lib/jquery.js"
+            type="text/javascript"></script>
+    <script src="lib/jquery-ui.js"
+            type="text/javascript"></script>
+    <script src="lib/jsplumb.js"
+            type="text/javascript"></script>
     <style>
         @import url("styles/splash.css");
         @import url("styles/main.css");
@@ -26,8 +26,8 @@
 <!--Контекстное меню-->
 <!-- Сетка  -->
 <div id="wrap">
-    <div id="canvas"
-         class="ui-draggable ui-draggable-handle checkered">
+    <div class="ui-draggable ui-draggable-handle checkered"
+         id="canvas">
     </div>
 </div>
 <!-- Модальное Окно  -->
@@ -36,8 +36,10 @@
          onclick="document.getElementById('overlay').style.display = 'none';">
         <h2>Добро пожаловать в Integral Scheme Editor</h2>
         <div class="pl-left">
-            <img src="img/logo.png"
-                 alt="logo">
+            <img alt="logo"
+                 ondrag="return false"
+                 ondragstart="return false"
+                 src="img/logo.png">
         </div>
         <p>Данный софт разработан для обучения и не претендует на авторские права</p>
         <p>Разработано с любовью для Вас</p>
@@ -46,64 +48,86 @@
 <!--Меню программы-->
 <div class="mainmenu">
     <label>
-        <input type="checkbox"
+        <input class="checkbox"
                name="checkboxName"
-               class="checkbox">
+               type="checkbox">
     </label>
     <div class="switch switchOn"></div>
-    <img class="switchicon unselectable"
-         src="img/grid.png"
-         alt="switch">
-    <img class="controll_button unselectable"
-         src="img/stop.png"
+    <img alt="switch"
+         class="switchicon unselectable"
+         ondrag="return false"
+         ondragstart="return false"
+         src="img/grid.png">
+    <img alt="stop"
+         class="controll_button unselectable"
          id="stop"
-         alt="stop">
-    <img class="controll_button unselectable"
-         src="img/pause.png" id="pause" alt="pause">
-    <img class="controll_button unselectable"
-         src="img/start.png"
+         ondrag="return false"
+         ondragstart="return false"
+         src="img/stop.png">
+    <img alt="pause"
+         class="controll_button unselectable"
+         id="pause"
+         ondrag="return false"
+         ondragstart="return false"
+         src="img/pause.png">
+    <img alt="start"
+         class="controll_button unselectable"
          id="start"
-         alt="start">
-    <img class="controll_button unselectable"
-         src="img/wire.png"
+         ondrag="return false"
+         ondragstart="return false"
+         src="img/start.png">
+    <img alt="wire"
+         class="controll_button unselectable"
          id="wire"
-         alt="wire">
-    <img class="controll_button unselectable"
-         src="img/text.png"
+         ondrag="return false"
+         ondragstart="return false"
+         src="img/wire.png">
+    <img alt="text"
+         class="controll_button unselectable"
          id="text"
-         alt="text">
-    <img class="controll_button unselectable"
-         src="img/clk.png"
+         ondrag="return false"
+         ondragstart="return false"
+         src="img/text.png">
+    <img alt="clk"
+         class="controll_button unselectable"
          id="clk"
-         alt="clk">
+         ondrag="return false"
+         ondragstart="return false"
+         src="img/clk.png">
     <div class="clk"
          id="clk_edit">
         <p class="text_clk unselectable"
            id="text_clk">clk/sec</p>
         <label for="input_clk"></label>
-        <input type="number"
-               class="input_clk unselectable"
-               size="15"
+        <input class="input_clk unselectable"
                id="input_clk"
-               value="15"
-               step="0.5"
+               max="100"
                min="0.5"
-               max="100">
+               size="15"
+               step="0.5"
+               type="number"
+               value="15">
     </div>
-    <img class="headericon unselectable"
-         src="img/icon.png"
-         alt="icon">
+    <img alt="icon"
+         class="headericon unselectable"
+         ondrag="return false"
+         ondragstart="return false"
+         src="img/icon.png">
     <p class="headertext unselectable">ISE</p>
 </div>
 <!--Selecter-->
-<img class="img_menu_button unselectable"
+<img alt="open"
+     class="img_menu_button unselectable"
      id="opener"
-     src="img/menu_button.png"
-     alt="open">
-<img class="img_menu_button vision unselectable"
+     ondrag="return false"
+     ondragstart="return false"
+     src="img/menu_button.png">
+<img alt="close"
+     class="img_menu_button vision unselectable"
      id="closer"
-     src="img/close_menu_button.png"
-     alt="close">
+     ondrag="return false"
+     ondragstart="return false"
+     src="img/close_menu_button.png">
 <div class="selecter"
      id="panel">
     <p class="autor unselectable">МЕНЮ</p>
@@ -116,188 +140,188 @@
             <div class="elements2"
                  id="elem1">
                 <div class="popup_menu_elements">
-                    <div id="and" class="elements_background_white">
-                        <svg width="90"
-                             height="60"
+                    <div class="elements_background_white" id="and">
+                        <svg height="60"
                              style="z-index: 49;
-                                position:relative;">
+                                position:relative;"
+                             width="90">
                             <rect fill="white"
+                                  height="57"
                                   stroke="#333333"
-                                  stroke-width="3px"
-                                  x="31.5" y="2"
-                                  width="27"
-                                  height="57">
+                                  stroke-width="3px" width="27"
+                                  x="31.5"
+                                  y="2">
                             </rect>
                             <line stroke="#333333"
                                   stroke-width="3px"
-                                  x1="30" y1="15"
-                                  x2="0" y2="15">
+                                  x1="30" x2="0"
+                                  y1="15" y2="15">
                             </line>
                             <line stroke="#333333"
                                   stroke-width="3px"
-                                  x1="30" y1="45"
-                                  x2="0" y2="45">
+                                  x1="30" x2="0"
+                                  y1="45" y2="45">
                             </line>
                             <line stroke="#333333"
                                   stroke-width="3px"
-                                  x1="60" y1="30"
-                                  x2="90" y2="30">
+                                  x1="60" x2="90"
+                                  y1="30" y2="30">
                             </line>
-                            <text x="45" y="15"
-                                  style="fill: #333333;">&
+                            <text style="fill: #333333;" x="45"
+                                  y="15">&
                             </text>
                         </svg>
                     </div>
                     <p class="unselectable">И</p>
                 </div>
                 <div class="popup_menu_elements">
-                    <div id="or" class="elements_background_white">
-                        <svg width="90"
-                             height="60"
+                    <div class="elements_background_white" id="or">
+                        <svg height="60"
                              style="z-index: 49;
-                                position:relative;">
+                                position:relative;"
+                             width="90">
                             <rect fill="white"
+                                  height="57"
                                   stroke="#333333"
-                                  stroke-width="3px"
-                                  x="31.5" y="2"
-                                  width="27"
-                                  height="57">
+                                  stroke-width="3px" width="27"
+                                  x="31.5"
+                                  y="2">
                             </rect>
                             <line stroke="#333333"
                                   stroke-width="3px"
-                                  x1="30" y1="15"
-                                  x2="0" y2="15">
+                                  x1="30" x2="0"
+                                  y1="15" y2="15">
                             </line>
                             <line stroke="#333333"
                                   stroke-width="3px"
-                                  x1="30" y1="45"
-                                  x2="0" y2="45">
+                                  x1="30" x2="0"
+                                  y1="45" y2="45">
                             </line>
                             <line stroke="#333333"
                                   stroke-width="3px"
-                                  x1="60" y1="30"
-                                  x2="90" y2="30">
+                                  x1="60" x2="90"
+                                  y1="30" y2="30">
                             </line>
-                            <text x="45" y="15"
-                                  style="fill: #333333;">1
+                            <text style="fill: #333333;" x="45"
+                                  y="15">1
                             </text>
                         </svg>
                     </div>
                     <p class="unselectable">ИЛИ</p>
                 </div>
                 <div class="popup_menu_elements">
-                    <div id="andnot" class="elements_background_white">
-                        <svg width="90"
-                             height="60"
+                    <div class="elements_background_white" id="andnot">
+                        <svg height="60"
                              style="z-index: 49;
-                                position:relative;">
+                                position:relative;"
+                             width="90">
                             <rect fill="white"
+                                  height="57"
                                   stroke="#333333"
-                                  stroke-width="3px"
-                                  x="31.5" y="2"
-                                  width="27"
-                                  height="57">
+                                  stroke-width="3px" width="27"
+                                  x="31.5"
+                                  y="2">
                             </rect>
                             <line stroke="#333333"
                                   stroke-width="3px"
-                                  x1="30" y1="15"
-                                  x2="0" y2="15">
+                                  x1="30" x2="0"
+                                  y1="15" y2="15">
                             </line>
                             <line stroke="#333333"
                                   stroke-width="3px"
-                                  x1="30" y1="45"
-                                  x2="0" y2="45">
+                                  x1="30" x2="0"
+                                  y1="45" y2="45">
                             </line>
                             <line stroke="#333333"
                                   stroke-width="3px"
-                                  x1="60" y1="30"
-                                  x2="90" y2="30">
+                                  x1="60" x2="90"
+                                  y1="30" y2="30">
                             </line>
-                            <text x="45" y="15"
-                                  style="fill: #333333;">&
+                            <text style="fill: #333333;" x="45"
+                                  y="15">&
                             </text>
-                            <circle r="3px"
-                                    stroke-width="3"
-                                    stroke="#333333"
-                                    cx="60" cy="30"
-                                    fill="white">
+                            <circle cx="60"
+                                    cy="30"
+                                    fill="white"
+                                    r="3px" stroke="#333333"
+                                    stroke-width="3">
                             </circle>
                         </svg>
                     </div>
                     <p class="unselectable">ИНЕ</p>
                 </div>
                 <div class="popup_menu_elements">
-                    <div id="ornot" class="elements_background_white">
-                        <svg width="90"
-                             height="60"
+                    <div class="elements_background_white" id="ornot">
+                        <svg height="60"
                              style="z-index: 49;
-                                position:relative;">
+                                position:relative;"
+                             width="90">
                             <rect fill="white"
+                                  height="57"
                                   stroke="#333333"
-                                  stroke-width="3px"
-                                  x="31.5" y="2"
-                                  width="27"
-                                  height="57">
+                                  stroke-width="3px" width="27"
+                                  x="31.5"
+                                  y="2">
                             </rect>
                             <line stroke="#333333"
                                   stroke-width="3px"
-                                  x1="30" y1="15"
-                                  x2="0" y2="15">
+                                  x1="30" x2="0"
+                                  y1="15" y2="15">
                             </line>
                             <line stroke="#333333"
                                   stroke-width="3px"
-                                  x1="30" y1="45"
-                                  x2="0" y2="45">
+                                  x1="30" x2="0"
+                                  y1="45" y2="45">
                             </line>
                             <line stroke="#333333"
                                   stroke-width="3px"
-                                  x1="60" y1="30"
-                                  x2="90" y2="30">
+                                  x1="60" x2="90"
+                                  y1="30" y2="30">
                             </line>
-                            <text x="45" y="15"
-                                  style="fill: #333333;">1
+                            <text style="fill: #333333;" x="45"
+                                  y="15">1
                             </text>
-                            <circle r="3px"
-                                    stroke-width="3"
-                                    stroke="#333333"
-                                    cx="60" cy="30"
-                                    fill="white">
+                            <circle cx="60"
+                                    cy="30"
+                                    fill="white"
+                                    r="3px" stroke="#333333"
+                                    stroke-width="3">
                             </circle>
                         </svg>
                     </div>
                     <p class="unselectable">ИЛИНЕ</p>
                 </div>
                 <div class="popup_menu_elements">
-                    <div id="not" class="elements_background_white">
-                        <svg width="90"
-                             height="60"
+                    <div class="elements_background_white" id="not">
+                        <svg height="60"
                              style="z-index: 49;
-                                position:relative;">
+                                position:relative;"
+                             width="90">
                             <rect fill="white"
+                                  height="57"
                                   stroke="#333333"
-                                  stroke-width="3px"
-                                  x="31.5" y="2"
-                                  width="27"
-                                  height="57">
+                                  stroke-width="3px" width="27"
+                                  x="31.5"
+                                  y="2">
                             </rect>
                             <line stroke="#333333"
                                   stroke-width="3px"
-                                  x1="30" y1="30"
-                                  x2="0" y2="30">
+                                  x1="30" x2="0"
+                                  y1="30" y2="30">
                             </line>
                             <line stroke="#333333"
                                   stroke-width="3px"
-                                  x1="60" y1="30"
-                                  x2="90" y2="30">
+                                  x1="60" x2="90"
+                                  y1="30" y2="30">
                             </line>
-                            <text x="45" y="15"
-                                  style="fill: #333333;">1
+                            <text style="fill: #333333;" x="45"
+                                  y="15">1
                             </text>
-                            <circle r="3px"
-                                    stroke-width="3"
-                                    stroke="#333333"
-                                    cx="60" cy="30"
-                                    fill="white">
+                            <circle cx="60"
+                                    cy="30"
+                                    fill="white"
+                                    r="3px" stroke="#333333"
+                                    stroke-width="3">
                             </circle>
                         </svg>
                     </div>
@@ -312,147 +336,147 @@
         <div class="elements2"
              id="elem2">
             <div class="counter_elements elements_icon">
-                <div id="counter" class="elements_background_white">
-                    <svg width="135"
-                         height="105"
+                <div class="elements_background_white" id="counter">
+                    <svg height="105"
                          style="z-index: 49;
-                            position:relative;">
+                            position:relative;"
+                         width="135">
                         <rect fill="white"
+                              height="105"
                               stroke="#333333"
-                              stroke-width="3px"
-                              x="30" y="0"
-                              width="75"
-                              height="105">
+                              stroke-width="3px" width="75"
+                              x="30"
+                              y="0">
                         </rect>
                         <line stroke="#333333"
                               stroke-width="3px"
-                              x1="30" y1="15"
-                              x2="0" y2="15">
+                              x1="30" x2="0"
+                              y1="15" y2="15">
                         </line>
                         <line stroke="#333333"
                               stroke-width="3px"
-                              x1="105" y1="15"
-                              x2="135" y2="15">
+                              x1="105" x2="135"
+                              y1="15" y2="15">
                         </line>
                         <line stroke="#333333"
                               stroke-width="3px"
-                              x1="105" y1="30"
-                              x2="135" y2="30">
+                              x1="105" x2="135"
+                              y1="30" y2="30">
                         </line>
                         <line stroke="#333333"
                               stroke-width="3px"
-                              x1="105" y1="45"
-                              x2="135" y2="45">
+                              x1="105" x2="135"
+                              y1="45" y2="45">
                         </line>
                         <line stroke="#333333"
                               stroke-width="3px"
-                              x1="105" y1="60"
-                              x2="135" y2="60">
+                              x1="105" x2="135"
+                              y1="60" y2="60">
                         </line>
                         <line stroke="#333333"
                               stroke-width="3px"
-                              x1="105" y1="75"
-                              x2="135" y2="75">
+                              x1="105" x2="135"
+                              y1="75" y2="75">
                         </line>
                         <line stroke="#333333"
                               stroke-width="3px"
-                              x1="105" y1="90"
-                              x2="135" y2="90">
+                              x1="105" x2="135"
+                              y1="90" y2="90">
                         </line>
-                        <text x="35" y="15"
-                              style="fill: #333333;">RST+
+                        <text style="fill: #333333;" x="35"
+                              y="15">RST+
                         </text>
-                        <text x="90" y="15"
-                              style="fill: #333333;">1
+                        <text style="fill: #333333;" x="90"
+                              y="15">1
                         </text>
-                        <text x="90" y="30"
-                              style="fill: #333333;">2
+                        <text style="fill: #333333;" x="90"
+                              y="30">2
                         </text>
-                        <text x="90" y="45"
-                              style="fill: #333333;">3
+                        <text style="fill: #333333;" x="90"
+                              y="45">3
                         </text>
-                        <text x="90" y="60"
-                              style="fill: #333333;">4
+                        <text style="fill: #333333;" x="90"
+                              y="60">4
                         </text>
-                        <text x="90" y="75"
-                              style="fill: #333333;">5
+                        <text style="fill: #333333;" x="90"
+                              y="75">5
                         </text>
-                        <text x="90" y="90"
-                              style="fill: #333333;">6
+                        <text style="fill: #333333;" x="90"
+                              y="90">6
                         </text>
                     </svg>
                 </div>
                 <p class="unselectable">Счетчик увеличения</p>
             </div>
             <div class="counter_elements elements_icon">
-                <div id="counter_" class="elements_background_white">
-                    <svg width="135"
-                         height="105"
+                <div class="elements_background_white" id="counter_">
+                    <svg height="105"
                          style="z-index: 49;
                      position:relative;
-                     background-color: aqua;">
+                     background-color: aqua;"
+                         width="135">
                         <rect fill="white"
+                              height="105"
                               stroke="#333333"
-                              stroke-width="3px"
-                              x="30" y="0"
-                              width="75"
-                              height="105">
+                              stroke-width="3px" width="75"
+                              x="30"
+                              y="0">
                         </rect>
                         <line stroke="#333333"
                               stroke-width="3px"
-                              x1="30" y1="15"
-                              x2="0" y2="15">
+                              x1="30" x2="0"
+                              y1="15" y2="15">
                         </line>
                         <line stroke="#333333"
                               stroke-width="3px"
-                              x1="105" y1="15"
-                              x2="135" y2="15">
+                              x1="105" x2="135"
+                              y1="15" y2="15">
                         </line>
                         <line stroke="#333333"
                               stroke-width="3px"
-                              x1="105" y1="30"
-                              x2="135" y2="30">
+                              x1="105" x2="135"
+                              y1="30" y2="30">
                         </line>
                         <line stroke="#333333"
                               stroke-width="3px"
-                              x1="105" y1="45"
-                              x2="135" y2="45">
+                              x1="105" x2="135"
+                              y1="45" y2="45">
                         </line>
                         <line stroke="#333333"
                               stroke-width="3px"
-                              x1="105" y1="60"
-                              x2="135" y2="60">
+                              x1="105" x2="135"
+                              y1="60" y2="60">
                         </line>
                         <line stroke="#333333"
                               stroke-width="3px"
-                              x1="105" y1="75"
-                              x2="135" y2="75">
+                              x1="105" x2="135"
+                              y1="75" y2="75">
                         </line>
                         <line stroke="#333333"
                               stroke-width="3px"
-                              x1="105" y1="90"
-                              x2="135" y2="90">
+                              x1="105" x2="135"
+                              y1="90" y2="90">
                         </line>
-                        <text x="35" y="15"
-                              style="fill: #333333;">RST-
+                        <text style="fill: #333333;" x="35"
+                              y="15">RST-
                         </text>
-                        <text x="90" y="15"
-                              style="fill: #333333;">1
+                        <text style="fill: #333333;" x="90"
+                              y="15">1
                         </text>
-                        <text x="90" y="30"
-                              style="fill: #333333;">2
+                        <text style="fill: #333333;" x="90"
+                              y="30">2
                         </text>
-                        <text x="90" y="45"
-                              style="fill: #333333;">3
+                        <text style="fill: #333333;" x="90"
+                              y="45">3
                         </text>
-                        <text x="90" y="60"
-                              style="fill: #333333;">4
+                        <text style="fill: #333333;" x="90"
+                              y="60">4
                         </text>
-                        <text x="90" y="75"
-                              style="fill: #333333;">5
+                        <text style="fill: #333333;" x="90"
+                              y="75">5
                         </text>
-                        <text x="90" y="90"
-                              style="fill: #333333;">6
+                        <text style="fill: #333333;" x="90"
+                              y="90">6
                         </text>
                     </svg>
                 </div>
@@ -467,16 +491,16 @@
              id="elem3">
             <div class="counter_elements"
                  id="analyzer1">
-                <img class="elements_icon"
-                     src="img/analyzer.png"
-                     alt="analyzer">
+                <img alt="analyzer"
+                     class="elements_icon"
+                     src="img/analyzer.png">
                 <p class="unselectable">Анализатор классический</p>
             </div>
             <div class="counter_elements"
                  id="analyzer2">
-                <img class="elements_icon"
-                     src="img/analyzer.png"
-                     alt="analyzer">
+                <img alt="analyzer"
+                     class="elements_icon"
+                     src="img/analyzer.png">
                 <p class="unselectable">Анализатор уникальный</p>
             </div>
         </div>
@@ -504,21 +528,35 @@
 </div>
 <!--Info-->
 <div class="fixed">
-    <img class="trash unselectable"
-         src="img/trash.png"
+    <img alt="trash"
+         class="trash unselectable"
          id="trash"
-         alt="trash">
+         ondrag="return false"
+         ondragstart="return false"
+         src="img/trash.png">
+    <img alt="pluse_scale"
+         class="pluse_scale unselectable"
+         id="pluse_scale"
+         ondrag="return false"
+         ondragstart="return false"
+         src="img/plus_scale.png">
+    <img alt="minus_scale"
+         class="minus_scale unselectable"
+         id="minus_scale"
+         ondrag="return false"
+         ondragstart="return false"
+         src="img/minus_scale.png">
     <p class="copi unselectable">Powered by Evgeniy Chernyshev 2020</p>
 </div>
 </body>
 </html>
 <!--либы-->
-<script type="text/javascript"
-        src="lib/jquery.js"></script>
-<script type="text/javascript"
-        src="lib/jquery-ui.js"></script>
-<script type="text/javascript"
-        src="lib/jsplumb.js"></script>
+<script src="lib/jquery.js"
+        type="text/javascript"></script>
+<script src="lib/jquery-ui.js"
+        type="text/javascript"></script>
+<script src="lib/jsplumb.js"
+        type="text/javascript"></script>
 <!--наши-->
 <script src="scripts/setsize.js"></script>
 <script src="scripts/splash.js"></script>
