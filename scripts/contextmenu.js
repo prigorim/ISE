@@ -53,7 +53,8 @@ $(document).ready(function () {
                     )
                     .show('fast');
             }
-            if (target.classList = "added_element ui-draggable ui-draggable-handle"){
+            //alert(target.classList); TODO EBAT
+            if (target.hasClass("added_element")){
                 $('<div/>', {
                     class: 'context-menu'
                 })
