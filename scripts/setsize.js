@@ -8,7 +8,7 @@ const and = document.getElementById("and");
 const or = document.getElementById("or");
 const andnot = document.getElementById("andnot");
 const ornot = document.getElementById("ornot");
-const not = document.getElementById("not");
+const no = document.getElementById("not");
 const canvas = document.getElementById("canvas");
 const id2 = document.getElementById('id2');
 const elem2 = document.getElementById("elem2");
@@ -59,7 +59,7 @@ id1.onclick = function () {
     or.classList.toggle("elements_color");
     andnot.classList.toggle("elements_color");
     ornot.classList.toggle("elements_color");
-    not.classList.toggle("elements_color");
+    no.classList.toggle("elements_color");
 };
 $("#id1").click(function () {
     $("#elem1").fadeToggle();
@@ -171,7 +171,7 @@ overlay.onclick = function () {
 
         $("#trash").droppable({
             activeClass: "opacity_trash",
-            //accept: "#and, #or, #andnot, #ornot, #not, #counter, #counter_";
+            accept: '.autowidth',
             drop: function (ev, ui) {
                 $(ui.draggable).remove()
             }
