@@ -105,7 +105,14 @@ table.onclick = function () {
 overlay.onclick = function () {
     $(function () {
 
-        $("#canvas").draggable();
+        $("#canvas").draggable({
+            // drag: function(evt,ui)
+            // {
+            //     // zoom fix
+            //     ui.position.top = Math.round(ui.position.top / $('#canvas').css("zoom"));
+            //     ui.position.left = Math.round(ui.position.left / $('#canvas').css("zoom"));
+            // }
+        });
         $("#and").draggable({
             start: function (event, ui) {
                 $(this).removeClass('elements_color').css('z-index', '49');

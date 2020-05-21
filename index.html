@@ -22,8 +22,7 @@
         @import url("styles/analyzer.css");
     </style>
 </head>
-<body>
-<!--Контекстное меню-->
+<body id="body">
 <!-- Сетка  -->
 <div id="wrap">
     <div class="ui-draggable ui-draggable-handle checkered"
@@ -130,6 +129,27 @@
      src="img/close_menu_button.png">
 <div class="selecter"
      id="panel">
+    <img alt="save"
+         class="navigation unselectable"
+         id="save"
+         ondrag="return false"
+         ondragstart="return false"
+         src="img/save.png"
+         style="left: 31vh">
+    <img alt="load"
+         class="navigation unselectable"
+         id="load"
+         ondrag="return false"
+         ondragstart="return false"
+         src="img/download.png"
+         style="left: 37vh">
+    <img alt="create"
+         class="navigation unselectable"
+         id="create"
+         ondrag="return false"
+         ondragstart="return false"
+         src="img/create.png"
+         style="left: 43vh">
     <p class="autor unselectable">МЕНЮ</p>
     <div class="container_elements">
         <div class="elements unselectable"
@@ -562,3 +582,4 @@
 <script src="scripts/splash.js"></script>
 <script src="scripts/contextmenu.js"></script>
 <script src="scripts/menu.js"></script>
+<script src="scripts/scale.js"></script>

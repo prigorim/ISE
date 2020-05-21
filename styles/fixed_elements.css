@@ -15,7 +15,7 @@
 	width: 15vh;
     height: auto;
 	opacity: .30;
-	z-index: 50;
+	z-index: 9;
 	cursor: pointer;
 }
 

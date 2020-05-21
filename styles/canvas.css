@@ -17,9 +17,10 @@
     -o-transition: transform 0.3s ease, opacity 0.1s ease; /* Для Opera */
     transition: transform 0.3s ease, opacity 0.1s ease;
 	border-radius: 30px;
-	margin: auto auto;
+	margin: 0;
 	position: relative;
 	box-shadow: 0 0 100px rgba(100, 149, 237, 0.85);
+    zoom: 1;
 	/*box-shadow: 0 0 100px rgba(255, 255, 255, 1);*/
 }
 
