@@ -108,7 +108,7 @@ overlay.onclick = function () {
         $("#canvas").draggable();
         $("#and").draggable({
             start: function( event, ui ) {
-                $(this).removeClass('elements_color');
+                $(this).removeClass('elements_color').css('z-index', '49');
             },
             appendTo: "#canvas",
             revert: 'invalid',
@@ -116,7 +116,7 @@ overlay.onclick = function () {
         });
         $("#or").draggable({
             start: function( event, ui ) {
-                $(this).removeClass('elements_color');
+                $(this).removeClass('elements_color').css('z-index', '49');
             },
             appendTo: "#canvas",
             revert: 'invalid',
@@ -125,7 +125,7 @@ overlay.onclick = function () {
         });
         $("#ornot").draggable({
             start: function( event, ui ) {
-                $(this).removeClass('elements_color');
+                $(this).removeClass('elements_color').css('z-index', '49');
             },
             appendTo: "#canvas",
             revert: 'invalid',
@@ -134,7 +134,7 @@ overlay.onclick = function () {
         });
         $("#andnot").draggable({
             start: function( event, ui ) {
-                $(this).removeClass('elements_color');
+                $(this).removeClass('elements_color').css('z-index', '49');
             },
             appendTo: "#canvas",
             revert: 'invalid',
@@ -143,7 +143,7 @@ overlay.onclick = function () {
         });
         $("#not").draggable({
             start: function( event, ui ) {
-                $(this).removeClass('elements_color');
+                $(this).removeClass('elements_color').css('z-index', '49');
             },
             appendTo: "#canvas",
             revert: 'invalid',
@@ -170,6 +170,7 @@ overlay.onclick = function () {
         });
 
         $("#trash").droppable({
+            activeClass: "opacity_trash",
             //accept: "#and, #or, #andnot, #ornot, #not, #counter, #counter_";
             drop: function (ev, ui) {
                 $(ui.draggable).remove()

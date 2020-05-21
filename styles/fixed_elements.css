@@ -20,3 +20,8 @@
 .trash:hover {
 	opacity: .99;
 }
+
+.opacity_trash {
+	opacity: .99;
+	transition: 0.5s;
+}
