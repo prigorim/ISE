@@ -107,7 +107,7 @@ overlay.onclick = function () {
 
         $("#canvas").draggable();
         $("#and").draggable({
-            start: function( event, ui ) {
+            start: function (event, ui) {
                 $(this).removeClass('elements_color').css('z-index', '49');
             },
             appendTo: "#canvas",
@@ -115,7 +115,7 @@ overlay.onclick = function () {
             helper: "clone",
         });
         $("#or").draggable({
-            start: function( event, ui ) {
+            start: function (event, ui) {
                 $(this).removeClass('elements_color').css('z-index', '49');
             },
             appendTo: "#canvas",
@@ -124,7 +124,7 @@ overlay.onclick = function () {
             snap: "#canvas",
         });
         $("#ornot").draggable({
-            start: function( event, ui ) {
+            start: function (event, ui) {
                 $(this).removeClass('elements_color').css('z-index', '49');
             },
             appendTo: "#canvas",
@@ -133,7 +133,7 @@ overlay.onclick = function () {
             snap: "#canvas",
         });
         $("#andnot").draggable({
-            start: function( event, ui ) {
+            start: function (event, ui) {
                 $(this).removeClass('elements_color').css('z-index', '49');
             },
             appendTo: "#canvas",
@@ -142,7 +142,7 @@ overlay.onclick = function () {
             snap: "#canvas",
         });
         $("#not").draggable({
-            start: function( event, ui ) {
+            start: function (event, ui) {
                 $(this).removeClass('elements_color').css('z-index', '49');
             },
             appendTo: "#canvas",
@@ -151,7 +151,7 @@ overlay.onclick = function () {
             snap: "#canvas",
         });
         $("#counter").draggable({
-            start: function( event, ui ) {
+            start: function (event, ui) {
                 $(this).removeClass('elements_color');
             },
             appendTo: "#canvas",
@@ -160,7 +160,7 @@ overlay.onclick = function () {
             snap: "#canvas",
         });
         $("#counter_").draggable({
-            start: function( event, ui ) {
+            start: function (event, ui) {
                 $(this).removeClass('elements_color');
             },
             appendTo: "#canvas",
@@ -194,7 +194,8 @@ overlay.onclick = function () {
                         })
                         .css({
                             left: correctx,
-                            top: correcty
+                            top: correcty,
+                            zIndex: 10
                         });
             }
         });

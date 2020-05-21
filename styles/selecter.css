@@ -1,147 +1,150 @@
 .selecter {
-	position: fixed;
-	height: 100%; /* высота секции равна высоте области просмотра */
-	width: 50vh;
-	left: 0;
-	right:0;
-	top:0;
-	bottom:0;
-	box-shadow: 0 0 2vw #000000;
-	overflow: auto;
-	background-color: #333333;
-	z-index: 48;
-	min-width: 50vh;
-	min-height: 100%;
-	max-width: 50vh;
-	max-height: 100%;
-	display: none;
+    position: fixed;
+    height: 100%; /* высота секции равна высоте области просмотра */
+    width: 50vh;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    box-shadow: 0 0 2vw #000000;
+    overflow: auto;
+    background-color: #333333;
+    z-index: 48;
+    min-width: 50vh;
+    min-height: 100%;
+    max-width: 50vh;
+    max-height: 100%;
+    display: none;
 }
 
-.elements
-{	
-	width: 100%;
-	position:relative;
+.elements {
+    width: 100%;
+    position: relative;
     background-color: rgb(100, 149, 237);
-	margin: -7% 0 0;
-	font-size: 3vh;
-	font-family:  Calibri, Helvetica, sans-serif;
-	font-weight: normal;
-	text-indent: 5%;
-	color: #ededed;
-	cursor: pointer;
-	 z-index: 10;
-	max-height: 10vh;
-	max-width: 100%;
-	text-align: left;
-	
+    margin: -7% 0 0;
+    font-size: 3vh;
+    font-family: Calibri, Helvetica, sans-serif;
+    font-weight: normal;
+    text-indent: 5%;
+    color: #ededed;
+    cursor: pointer;
+    z-index: 10;
+    max-height: 10vh;
+    max-width: 100%;
+    text-align: left;
+
 }
 
 .elements:hover {
-background-color: #FFFFFF;
-color: #333333;
+    background-color: #FFFFFF;
+    color: #333333;
 }
 
 .elements2 {
-	position:relative;
+    position: relative;
     background-color: rgb(100, 149, 237);
-	border-radius: 0;
-	width: 100%;
-	font-size: 1vw;
-	font-family:  Arial, Helvetica, sans-serif;
-	font-weight: normal;
-	text-indent: 5%;
-	color: #333333;
-	height: 0;
-	margin: -7.1% 0 0 0;
-	overflow: auto;
-	z-index: 1;
-	display: none;
+    border-radius: 0;
+    width: 100%;
+    font-size: 1vw;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    text-indent: 5%;
+    color: #333333;
+    height: 0;
+    margin: -7.1% 0 0 0;
+    overflow: auto;
+    z-index: 1;
+    display: none;
 
 }
 
 .container_elements {
-	 position:absolute;
-	 top:15%;
-	 left: 0;
-	 width: 100%;
+    position: absolute;
+    top: 15%;
+    left: 0;
+    width: 100%;
 
- }
- 
- .counter_elements {
-	position: relative;
-	top: 10%;
-	width: 50%;
-	border-radius: 3vw 3vw 3vw 3vw;
-	border: none;
-	float: left;
- }
- 
+
+}
+
+.counter_elements {
+    position: relative;
+    top: 10%;
+    width: 49%;
+    border-radius: 3vw 3vw 3vw 3vw;
+    border: none;
+    float: left;
+}
+
 .popup_menu_elements {
-	top: 5%;
-	width: 33%;
-	position: relative;
-	border: none;
-	float: left;
- }
-  
+    top: 5%;
+    width: 33%;
+    position: relative;
+    border: none;
+    float: left;
+}
+
 .elements_table {
-	position:absolute;
-	top: 3%;
-	border: none;
-	font-size: 3vh;
-	font-family:  Calibri, Helvetica, sans-serif;
-	font-weight: normal;
- }
- 
+    position: absolute;
+    top: 3%;
+    border: none;
+    font-size: 3vh;
+    font-family: Calibri, Helvetica, sans-serif;
+    font-weight: normal;
+}
+
 .elements_icon {
-	position: relative;
-	width: 90%;
-	height: auto;
-	cursor: pointer;
+    position: relative;
+    width: 49%;
+    height: auto;
+    cursor: pointer;
+    max-width: 49%;
 }
 
 .hidden_icons {
-	position: relative;
-	top: 5%;
-	width: 50%;
-	height: 50%;
+    position: relative;
+    top: 5%;
+    width: 50%;
+    height: 50%;
 }
 
 .elements_size {
-	height: 30vh;
-	background-color: #FFFFFF;
+    height: 30vh;
+    background-color: #FFFFFF;
 }
 
 .elements_color {
-	color: #333333;
-	background-color: #FFFFFF;
+    color: #333333;
+    background-color: #FFFFFF;
 }
 
 .elements_background_white {
-	background-color: transparent;
+    background-color: transparent;
 }
 
-.img_menu_button{
-	position: fixed;
-	cursor: pointer;
-	outline: none;
-	left: 3vh;
-	top: 7vh;
-	width: 5vh;
-	height: 5vh;
-	z-index: 50;
+.img_menu_button {
+    position: fixed;
+    cursor: pointer;
+    outline: none;
+    left: 3vh;
+    top: 7vh;
+    width: 5vh;
+    height: 5vh;
+    z-index: 50;
 }
-.vision{
-	visibility: hidden;
+
+.vision {
+    visibility: hidden;
 }
+
 .autor {
-	position: relative;
+    position: relative;
     color: #ededed;
-	font-size: 6vh;
-	left: 6%;
-	top: 0;
-	font-family:  Calibri, Helvetica, sans-serif;
-	cursor: default;
-	width: 90%;
-	text-align: right;
+    font-size: 6vh;
+    left: 6%;
+    top: 0;
+    font-family: Calibri, Helvetica, sans-serif;
+    cursor: default;
+    width: 90%;
+    text-align: right;
 }

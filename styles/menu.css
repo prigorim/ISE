@@ -1,122 +1,124 @@
 .mainmenu {
-	position: absolute;
-	height: 5vh; /* высота секции равна высоте области просмотра */
-	width: 100%;
-	left:0;
-	right:0;
-	top:0;
-	bottom:0;
-	background-color: rgb(100, 149, 237);
-	z-index:50;
-	overflow: hidden;	
+    position: absolute;
+    height: 5vh; /* высота секции равна высоте области просмотра */
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgb(100, 149, 237);
+    z-index: 50;
+    overflow: hidden;
 }
 
-.checkbox{
-	display:none
+.checkbox {
+    display: none
 }
 
 .switch {
-	display:inline-block;
-	width: 3.1%;
-	height: 70%;
-	background: #FFFFFF;
-	cursor: pointer;
-	position: relative;
-	border-radius:20vh;
-	float: right;
-	margin: 0.3% 1% 0 0;
-	overflow: hidden;
+    display: inline-block;
+    width: 3.1%;
+    height: 70%;
+    background: #FFFFFF;
+    cursor: pointer;
+    position: relative;
+    border-radius: 20vh;
+    float: right;
+    margin: 0.3% 1% 0 0;
+    overflow: hidden;
 }
 
 .switch:after {
-	content: ' ';
-	height: 99%;
-	width: 50%;
-	border-radius: 99%;
-	background: #FFFFFF;
-	position: absolute;
-	z-index: 2;
-	top: 1%;
-	left: 1%;
-	-webkit-transition-duration: 300ms;
-	transition-duration: 300ms;
-	box-shadow: 0 0.1vw 0.2vw #999999;
-	overflow: hidden;
+    content: ' ';
+    height: 99%;
+    width: 50%;
+    border-radius: 99%;
+    background: #FFFFFF;
+    position: absolute;
+    z-index: 2;
+    top: 1%;
+    left: 1%;
+    -webkit-transition-duration: 300ms;
+    transition-duration: 300ms;
+    box-shadow: 0 0.1vw 0.2vw #999999;
+    overflow: hidden;
 }
 
-.switchOn , .switchOn:before {
-	background: #333333 !important;
+.switchOn, .switchOn:before {
+    background: #333333 !important;
 }
 
-.switchOn:after	{
-	left: 50% !important;
+.switchOn:after {
+    left: 50% !important;
 }
 
-.switchicon	{
-	float: right;
+.switchicon {
+    float: right;
     line-height: 0;
-	width: 4vh;
+    width: 4vh;
     height: auto;
-	margin: 0.5vh 1vh 0 4vh;
+    margin: 0.5vh 1vh 0 4vh;
 }
 
 .headertext {
-	float: left;
+    float: left;
     line-height: 0;
     color: #ededed;
-	margin: 2.5vh 1vh 1vh 0;
-	font-size: 4.5vh;
-	font-family:  Calibri, Helvetica, sans-serif;
+    margin: 2.5vh 1vh 1vh 0;
+    font-size: 4.5vh;
+    font-family: Calibri, Helvetica, sans-serif;
 }
 
 .headericon {
-	float: left;
+    float: left;
     line-height: 0;
-	width: 5vh;
+    width: 5vh;
     height: auto;
-	margin: 0 1vh 0 4vh;
+    margin: 0 1vh 0 4vh;
 }
 
 .controll_button {
-	position: relative;
-	float: right;
+    position: relative;
+    float: right;
     line-height: 0;
-	width: 4vh;
+    width: 4vh;
     height: auto;
-	margin: 0.5vh 0.5vh 0 0;
-	cursor: pointer;
-	z-index: 6;
+    margin: 0.5vh 0.5vh 0 0;
+    cursor: pointer;
+    z-index: 6;
 }
 
 .clk {
-	position: relative;
-	width: 20vh;
-	height: 4vh;
-	background-color: #FFFFFF;
-	border-radius: 3vw 0 0 3vw;
-	border: none;
-	float: right;
+    position: relative;
+    width: 20vh;
+    height: 4vh;
+    background-color: #FFFFFF;
+    border-radius: 3vw 0 0 3vw;
+    border: none;
+    float: right;
     line-height: 0;
-	margin: 0.5vh -1.9vh 0 0;
-	z-index: 5;
-	display: none;
+    margin: 0.5vh -1.9vh 0 0;
+    z-index: 5;
+    display: none;
 
 }
+
 .input_clk {
-	outline: none;
-	position: relative;
-	float: right;
-	width: 7vh;
+    outline: none;
+    position: relative;
+    float: right;
+    width: 7vh;
     font-size: 2vh;
-	margin: -1.2vh 2vh 0 0;
-	cursor: pointer;
-	z-index: 6;
-	border: 0;
-	color: #333333;
+    margin: -1.2vh 2vh 0 0;
+    cursor: pointer;
+    z-index: 6;
+    border: 0;
+    color: #333333;
 }
+
 .text_clk {
-	position: relative;
-	font-size: 2vh;
-	color: #333333;
-	margin: 2vh 10vh 0 0;
+    position: relative;
+    font-size: 2vh;
+    color: #333333;
+    margin: 2vh 10vh 0 0;
 }
