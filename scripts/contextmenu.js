@@ -4,7 +4,7 @@ $(document).ready(function () {
         $('.context-menu').remove();
         if (event.which === 3) {
             var target = $(event.target);
-            target.addClass('e');
+            //target.addClass('e');
             if (target.is('#canvas')) {
                 $('<div/>', {
                     class: 'context-menu'
@@ -54,7 +54,7 @@ $(document).ready(function () {
                     .show('fast');
             }
             //alert(target.classList); TODO EBAT
-            if (target.hasClass("added_element")){
+            if (target.hasClass("context_menu_for_draggable_elements")){
                 $('<div/>', {
                     class: 'context-menu'
                 })
