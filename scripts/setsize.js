@@ -175,15 +175,13 @@ overlay.onclick = function () {
             helper: "clone",
             snap: "#canvas",
         });
-
         $("#trash").droppable({
             activeClass: "opacity_trash",
-            accept: '.autowidth',
+            accept: '.added_element',
             drop: function (ev, ui) {
                 $(ui.draggable).remove()
             }
         });
-
         $("#canvas").droppable({
             accept: "#and, #or, #andnot, #ornot, #not, #counter, #counter_",
             drop: function (ev, ui) {
@@ -193,7 +191,7 @@ overlay.onclick = function () {
                     $(ui.draggable).clone()
                         .appendTo(this)
                         .removeClass()
-                        .addClass('autowidth')
+                        .addClass('added_element')
                         .removeAttr('id')
                         .draggable({
                             grid: [15, 15],
@@ -205,6 +203,7 @@ overlay.onclick = function () {
                             zIndex: 10
                         });
             }
+
         });
 
     });

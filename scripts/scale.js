@@ -12,19 +12,17 @@ window.onkeydown = function (evt) {
 pluse_scale.onclick = function () {
     if (scale < 2) {
         scale += 0.1;
-        canvas.style.transform = canvas.style.WebkitTransform = canvas.style.MsTransform = 'scale(' + scale + ')';
+        canvas.style.zoom = canvas.style.WebkitZoom = canvas.style.MsZoom = scale;
     }
 }
 
 minus_scale.onclick = function () {
     if (scale > 0.3) {
         scale -= 0.1;
-        canvas.style.transform = canvas.style.WebkitTransform = canvas.style.MsTransform = 'scale(' + scale + ')';
+        canvas.style.zoom = canvas.style.WebkitZoom = canvas.style.MsZoom = scale;
     }
 }
 
-
-//рабочий масштаб канвы, но баги
 function addOnWheel(elem, handler) {
     if (elem.addEventListener) {
         if ('onwheel' in document) {
@@ -39,15 +37,15 @@ addOnWheel(canvas, function (e) {
     var delta = e.deltaY || e.detail || e.wheelDelta;
 
     // отмасштабируем при помощи CSS
-    if (delta > 0)
+    if (delta < 0)
         if (scale < 2) {
             scale += 0.1;
-            canvas.style.transform = canvas.style.WebkitTransform = canvas.style.MsTransform = 'scale(' + scale + ')';
+            canvas.style.zoom = canvas.style.WebkitZoom = canvas.style.MsZoom = scale;
         }
-    if (delta < 0)
+    if (delta > 0)
         if (scale > 0.3) {
             scale -= 0.1;
-            canvas.style.transform = canvas.style.WebkitTransform = canvas.style.MsTransform = 'scale(' + scale + ')';
+            canvas.style.zoom = canvas.style.WebkitZoom = canvas.style.MsZoom = scale;
         }
     // отменим прокрутку
     e.preventDefault();
