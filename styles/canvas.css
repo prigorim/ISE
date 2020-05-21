@@ -11,7 +11,7 @@
     border: none;
     height: 1500px;
     width: 3000px;
-    background: #ededed;
+    background: #FFFFFF;
     -moz-transition: transform 0.3s ease, opacity 0.1s ease; /* Для Firefox */
     -webkit-transition: transform 0.3s ease, opacity 0.1s ease; /* Для Safari, Chrome, iOS */
     -o-transition: transform 0.3s ease, opacity 0.1s ease; /* Для Opera */
@@ -25,7 +25,7 @@
 
 #canvas.checkered {
     background: linear-gradient(#bdbdbd, transparent 1px), linear-gradient(90deg, #bdbdbd, transparent 1px);
-    background-color: #EDEDED;
+    background-color: #FFFFFF;
     background-size: 15px 15px;
 }
 
