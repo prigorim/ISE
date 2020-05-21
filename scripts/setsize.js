@@ -176,7 +176,7 @@ overlay.onclick = function () {
             snap: "#canvas",
         });
         $("#trash").droppable({
-            activeClass: "opacity_trash",
+            hoverClass: "opacity_trash",
             accept: '.added_element',
             drop: function (ev, ui) {
                 $(ui.draggable).remove()

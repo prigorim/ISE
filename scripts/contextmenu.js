@@ -16,10 +16,13 @@ $(document).ready(function () {
                     .appendTo('body')
                     .append(
                         $('<ul/>').append('<div id="add_element"><li><p>Добавить элемент</p></li></div>')
-                            .append('<div id="add_element"><li><p>Вернуть положение</p></li></div>')
-                            .append('<div id="add_element"><li><p>Восстановить масштаб</p></li></div>')
+                            .append('<div id="return_move"><li><p>Вернуть положение</p></li></div>')
+                            .append('<div id="fix_scale"><li><p>Восстановить масштаб</p></li></div>')
                     )
                     .show('fast');
+                $("#add_element").click(function () {
+                    alert(1);
+                });
             }
             if (target.is('#trash')) {
                 $('<div/>', {
@@ -31,8 +34,8 @@ $(document).ready(function () {
                     })
                     .appendTo('body')
                     .append(
-                        $('<ul/>').append('<div id="remove_element"><li><p>Открыть корзину</p></li></div>')
-                            .append('<div id="add_element"><li><p>Очистить корзину</p></li></div>')
+                        $('<ul/>').append('<div id="open_trash"><li><p>Открыть корзину</p></li></div>')
+                            .append('<div id="clean_trash"><li><p>Очистить корзину</p></li></div>')
                     )
                     .show('fast');
             }
@@ -46,11 +49,11 @@ $(document).ready(function () {
                     })
                     .appendTo('body')
                     .append(
-                        $('<ul/>').append('<div id="remove_element"><li><p>Центрировать</p></li></div>')
+                        $('<ul/>').append('<div id="center_canvas"><li><p>Центрировать</p></li></div>')
                     )
                     .show('fast');
             }
-            if (event.target.classList.contains('.autowidth')) {
+            if (target.classList = "added_element ui-draggable ui-draggable-handle"){
                 $('<div/>', {
                     class: 'context-menu'
                 })
@@ -61,7 +64,7 @@ $(document).ready(function () {
                     .appendTo('body')
                     .append(
                         $('<ul/>').append('<div id="remove_element"><li><p>Удалить элемент</p></li></div>')
-                            .append('<div id="add_element"><li><p>Изменить элемент</p></li></div>')
+                            .append('<div id="change_element"><li><p>Изменить элемент</p></li></div>')
                     )
                     .show('fast');
             }
