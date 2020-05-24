@@ -102,16 +102,11 @@ table.onclick = function () {
     table.classList.add('selectanalyzerselected');
 };
 
-overlay.onclick = function () {
+document.onclick = function () {
     $(function () {
 
         $("#canvas").draggable({
-            // drag: function(evt,ui)
-            // {
-            //     // zoom fix
-            //     ui.position.top = Math.round(ui.position.top / $('#canvas').css("zoom"));
-            //     ui.position.left = Math.round(ui.position.left / $('#canvas').css("zoom"));
-            // }
+
         });
         $("#and").draggable({
             start: function (event, ui) {
