@@ -50,7 +50,7 @@ $(document).ready(function () {
                     )
                     .show('fast');
             }
-            //alert(target.classList); TODO EBAT
+            //alert(target.classList);
             if (target.hasClass("context_menu_for_draggable_elements")){
                 $('<div/>', {
                     class: 'context-menu'
@@ -61,7 +61,7 @@ $(document).ready(function () {
                     })
                     .appendTo('body')
                     .append(
-                        $('<ul/>').append('<li  id="remove_element"><p  id="remove_element">Удалить элемент</p></li>')
+                        $('<ul/>').append('<li  id="remove_element"><p id="remove_element">Удалить элемент</p></li>')
                             .append('<li id="change_element"><p id="change_element">Изменить элемент</p></li>')
                     )
                     .show('fast');
