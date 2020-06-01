@@ -2,6 +2,8 @@ let i = 1;
 
 document.onclick = function () {
     $(function () {
+        $("#canvas").draggable({
+        });
         $("#and").draggable({
             start: function (event, ui) {
                 $(this).removeClass('elements_color').css('z-index', '49');
@@ -46,6 +48,15 @@ document.onclick = function () {
             helper: "clone",
             snap: "#canvas",
         });
+        $("#xor").draggable({
+            start: function (event, ui) {
+                $(this).removeClass('elements_color').css('z-index', '49');
+            },
+            appendTo: "#canvas",
+            revert: 'invalid',
+            helper: "clone",
+            snap: "#canvas",
+        });
         $("#counter").draggable({
             start: function (event, ui) {
                 $(this).removeClass('elements_color');
@@ -72,7 +83,7 @@ document.onclick = function () {
             }
         });
         $("#canvas").droppable({
-            accept: "#and, #or, #andnot, #ornot, #not, #counter, #counter_",
+            accept: "#and, #or, #andnot, #ornot, #not, #xor, #counter, #counter_",
             drop: function (ev, ui) {
                 let x = ui.position.left / 15;
                 let y = ui.position.top / 15;

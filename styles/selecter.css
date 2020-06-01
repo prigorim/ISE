@@ -87,13 +87,14 @@
 }
 
 .popup_menu_elements {
-    top: 5%;
-    width: 33%;
+    top: 30px;
+    left: 40px;
     position: relative;
-    border: none;
+    width: 33%;
+    height: 45%;
     float: left;
-}
 
+}
 .elements_table {
     position: absolute;
     top: 3%;

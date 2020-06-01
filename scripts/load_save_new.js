@@ -16,4 +16,6 @@ $("#create").click(function () {
     div.className = "ui-draggable ui-draggable-handle checkered";
     div.id="canvas";
     wrap.append(div);//как сновы вызвать scale.js? я не знаю
+    $("#canvas").draggable({
+    });
 });

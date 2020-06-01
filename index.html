@@ -20,6 +20,7 @@
         @import url("styles/fixed_elements.css");
         @import url("styles/selecter.css");
         @import url("styles/analyzer.css");
+        @import url("styles/logic_elements.css");
     </style>
 </head>
 <body id="body">
@@ -160,235 +161,120 @@
             <div class="elements2"
                  id="elem1">
                 <div class="popup_menu_elements">
-                    <div class="elements_background_white" id="and">
-                        <svg height="60"
-                             width="30"
-                             style="z-index: 49;
-                             position:absolute;
-                             left: 30px;">
-                            <rect fill="white"
-                                  height="57"
-                                  stroke="#333333"
-                                  stroke-width="3px" width="27"
-                                  x="1.5"
-                                  y="2"
-                                  class="context_menu_for_draggable_elements">
-                            </rect>
-                            </svg>
-                            <div id="input_and_1" style="width: auto; height: auto">
-                                <svg height="5"
-                                     style="z-index: 49;
-                                     position:absolute;
-                                     top: 15px"
-                                     width="30">
-                            <line stroke="#333333"
-                                  stroke-width="3px"
-                                  x1="30" x2="0"
-                                  y1="0" y2="0">
-                            </line>
-                                </svg>
+                    <div class="elements_background_white" id="and" class="logic">
+                        <div id="input_and" class="input_logic">
+                            <div id="input_and_1" class="line_logic"
+                                 style="top:14px;">
                             </div>
-                            <div id="input_and_2">
-                                <svg height="5"
-                                     style="z-index: 49;
-                                     position:absolute;
-                                     top: 45px"
-                                     width="30">
-                            <line stroke="#333333"
-                                  stroke-width="3px"
-                                  x1="30" x2="0"
-                                  y1="0" y2="0">
-                            </line>
-                                </svg>
+                            <div id="input_and_2" class="line_logic"
+                                 style="top:44px;">
                             </div>
-
-                            <div id="output_and_1">
-                                <svg height="5"
-                                     width="30"
-                                     style="z-index: 49;
-                                     position:absolute;
-                                     top: 30px;
-                                     left: 60px;">
-                            <line stroke="#333333"
-                                  stroke-width="3px"
-                                  x1="30" x2="0"
-                                  y1="0" y2="0">
-                            </line>
-                                    </svg>
-                            </div>
-                        <svg height="10"
-                             style="z-index: 49;
-                                position:absolute;
-                                top: 15px;
-                                left: 45px;"
-                             width="10">
-                            <text style="fill: #333333;" x="0"
-                                  y="0">&
-                            </text>
-                        </svg>
-                    </div>
-                    <p class="unselectable">И</p>
-                </div>
-                <div class="popup_menu_elements">
-                    <div class="elements_background_white" id="or">
-                        <svg height="60"
-                             style="z-index: 49;
-                                position:relative;"
-                             width="90">
-                            <rect fill="white"
-                                  height="57"
-                                  stroke="#333333"
-                                  stroke-width="3px" width="27"
-                                  x="31.5"
-                                  y="2"
-                                  class="context_menu_for_draggable_elements">
-                            </rect>
-                            <line stroke="#333333"
-                                  stroke-width="3px"
-                                  x1="30" x2="0"
-                                  y1="15" y2="15">
-                            </line>
-                            <line stroke="#333333"
-                                  stroke-width="3px"
-                                  x1="30" x2="0"
-                                  y1="45" y2="45">
-                            </line>
-                            <line stroke="#333333"
-                                  stroke-width="3px"
-                                  x1="60" x2="90"
-                                  y1="30" y2="30">
-                            </line>
-                            <text style="fill: #333333;" x="45"
-                                  y="15">1
-                            </text>
-                        </svg>
-                    </div>
-                    <p class="unselectable">ИЛИ</p>
-                </div>
-                <div class="popup_menu_elements">
-                    <div class="elements_background_white" id="andnot">
-                        <div class="line_wrapper">
-                            <svg>
-                                <line stroke="#333333"
-                                      stroke-width="3px"
-                                      x1="30" x2="0"
-                                      y1="15" y2="15">
-                                </line>
-                            </svg>
                         </div>
-                        <svg height="60"
-                             style="z-index: 49;
-                                position:relative;"
-                             width="90">
-                            <rect fill="white"
-                                  height="57"
-                                  stroke="#333333"
-                                  stroke-width="3px" width="27"
-                                  x="31.5"
-                                  y="2"
-                                  class="context_menu_for_draggable_elements">
-                            </rect>
-                            <line stroke="#333333"
-                                  stroke-width="3px"
-                                  x1="30" x2="0"
-                                  y1="45" y2="45">
-                            </line>
-                            <line stroke="#333333"
-                                  stroke-width="3px"
-                                  x1="60" x2="90"
-                                  y1="30" y2="30">
-                            </line>
-                            <text style="fill: #333333;" x="45"
-                                  y="15">&
-                            </text>
-                            <circle cx="60"
-                                    cy="30"
-                                    fill="white"
-                                    r="3px" stroke="#333333"
-                                    stroke-width="3">
-                            </circle>
-                        </svg>
+                        <div id="and_body" class="body_logic">
+                            <p>&</p>
+                        </div>
+                        <div id="output_and"
+                             class="output_logic line_logic">
+                        </div>
                     </div>
-                    <p class="unselectable">ИНЕ</p>
+                    <p class="logic_write">AND</p>
                 </div>
                 <div class="popup_menu_elements">
-                    <div class="elements_background_white" id="ornot">
-                        <svg height="60"
-                             style="z-index: 49;
-                                position:relative;"
-                             width="90">
-                            <rect fill="white"
-                                  height="57"
-                                  stroke="#333333"
-                                  stroke-width="3px" width="27"
-                                  x="31.5"
-                                  y="2"
-                                  class="context_menu_for_draggable_elements">
-                            </rect>
-                            <line stroke="#333333"
-                                  stroke-width="3px"
-                                  x1="30" x2="0"
-                                  y1="15" y2="15">
-                            </line>
-                            <line stroke="#333333"
-                                  stroke-width="3px"
-                                  x1="30" x2="0"
-                                  y1="45" y2="45">
-                            </line>
-                            <line stroke="#333333"
-                                  stroke-width="3px"
-                                  x1="60" x2="90"
-                                  y1="30" y2="30">
-                            </line>
-                            <text style="fill: #333333;" x="45"
-                                  y="15">1
-                            </text>
-                            <circle cx="60"
-                                    cy="30"
-                                    fill="white"
-                                    r="3px" stroke="#333333"
-                                    stroke-width="3">
-                            </circle>
-                        </svg>
+                    <div class="elements_background_white" id="or" class="logic">
+                        <div id="input_or" class="input_logic">
+                            <div id="input_or_1" class="line_logic"
+                                 style="top:14px;">
+                            </div>
+                            <div id="input_or_2" class="line_logic"
+                                 style="top:44px;">
+                            </div>
+                        </div>
+                        <div id="or_body" class="body_logic">
+                            <p>1</p>
+                        </div>
+                        <div id="output_or"
+                             class="output_logic line_logic">
+                        </div>
                     </div>
-                    <p class="unselectable">ИЛИНЕ</p>
+                    <p class="logic_write">OR</p>
                 </div>
                 <div class="popup_menu_elements">
-                    <div class="elements_background_white" id="not">
-                        <svg height="60"
-                             style="z-index: 49;
-                                position:relative;"
-                             width="90">
-                            <rect fill="white"
-                                  height="57"
-                                  stroke="#333333"
-                                  stroke-width="3px" width="27"
-                                  x="31.5"
-                                  y="2"
-                                  class="context_menu_for_draggable_elements">
-                            </rect>
-                            <line stroke="#333333"
-                                  stroke-width="3px"
-                                  x1="30" x2="0"
-                                  y1="30" y2="30">
-                            </line>
-                            <line stroke="#333333"
-                                  stroke-width="3px"
-                                  x1="60" x2="90"
-                                  y1="30" y2="30">
-                            </line>
-                            <text style="fill: #333333;" x="45"
-                                  y="15">1
-                            </text>
-                            <circle cx="60"
-                                    cy="30"
-                                    fill="white"
-                                    r="3px" stroke="#333333"
-                                    stroke-width="3">
-                            </circle>
-                        </svg>
+                    <div class="elements_background_white" id="andnot" class="logic">
+                        <div id="input_andnot" class="input_logic">
+                            <div id="input_andnot_1" class="line_logic"
+                                 style="top:14px;">
+                            </div>
+                            <div id="input_andnot_2" class="line_logic"
+                                 style="top:44px;">
+                            </div>
+                        </div>
+                        <div id="andnot_body" class="body_logic">
+                            <p>&</p>
+                        </div>
+                        <div id="output_andnot"
+                             class="output_logic line_logic">
+                        </div>
+                        <div id="circle_andnot" class="circle_logic"></div>
                     </div>
-                    <p class="unselectable">НЕ</p>
+                    <p class="logic_write">ANDNOT</p>
+                </div>
+
+                    <div class="popup_menu_elements">
+                        <div class="elements_background_white" id="ornot" class="logic">
+                            <div id="input_ornot" class="input_logic">
+                                <div id="input_ornot_1" class="line_logic"
+                                     style="top:14px;">
+                                </div>
+                                <div id="input_ornot_2" class="line_logic"
+                                     style="top:44px;">
+                                </div>
+                            </div>
+                            <div id="ornot_body" class="body_logic">
+                                <p>1</p>
+                            </div>
+                            <div id="output_ornot"
+                                 class="output_logic line_logic">
+                            </div>
+                            <div id="circle_ornot" class="circle_logic"></div>
+                        </div>
+                        <p class="logic_write">ORNOT</p>
+                    </div>
+                <div class="popup_menu_elements">
+                    <div class="elements_background_white" id="not" class="logic">
+                        <div id="input_not" class="input_logic">
+                            <div id="input_not_1" class="line_logic"
+                                 style="top:29px;">
+                            </div>
+                        </div>
+                        <div id="not_body" class="body_logic">
+                            <p>1</p>
+                        </div>
+
+                        <div id="output_not"
+                             class="output_logic line_logic">
+                        </div>
+                        <div id="circle_not" class="circle_logic"></div>
+                    </div>
+                    <p class="logic_write">NOT</p>
+                </div>
+                <div class="popup_menu_elements">
+                    <div class="elements_background_white" id="xor" class="logic">
+                        <div id="input_xor" class="input_logic">
+                            <div id="input_xor_1" class="line_logic"
+                                 style="top:14px;">
+                            </div>
+                            <div id="input_xor_2" class="line_logic"
+                                 style="top:44px;">
+                            </div>
+                        </div>
+                        <div id="xor_body" class="body_logic">
+                            <p>=1</p>
+                        </div>
+                        <div id="output_xor"
+                             class="output_logic line_logic">
+                        </div>
+                    </div>
+                    <p class="logic_write">XOR</p>
                 </div>
             </div>
         </div>
@@ -399,77 +285,36 @@
         <div class="elements2"
              id="elem2">
             <div class="counter_elements elements_icon">
-                <div class="elements_background_white" id="counter">
-                    <svg height="105"
-                         style="z-index: 49;
-                            position:relative;"
-                         width="135">
-                        <rect fill="white"
-                              height="105"
-                              stroke="#333333"
-                              stroke-width="3px" width="75"
-                              x="30"
-                              y="0"
-                              class="context_menu_for_draggable_elements">
-                        </rect>
-                        <line stroke="#333333"
-                              stroke-width="3px"
-                              x1="30" x2="0"
-                              y1="15" y2="15">
-                        </line>
-                        <line stroke="#333333"
-                              stroke-width="3px"
-                              x1="105" x2="135"
-                              y1="15" y2="15">
-                        </line>
-                        <line stroke="#333333"
-                              stroke-width="3px"
-                              x1="105" x2="135"
-                              y1="30" y2="30">
-                        </line>
-                        <line stroke="#333333"
-                              stroke-width="3px"
-                              x1="105" x2="135"
-                              y1="45" y2="45">
-                        </line>
-                        <line stroke="#333333"
-                              stroke-width="3px"
-                              x1="105" x2="135"
-                              y1="60" y2="60">
-                        </line>
-                        <line stroke="#333333"
-                              stroke-width="3px"
-                              x1="105" x2="135"
-                              y1="75" y2="75">
-                        </line>
-                        <line stroke="#333333"
-                              stroke-width="3px"
-                              x1="105" x2="135"
-                              y1="90" y2="90">
-                        </line>
-                        <text style="fill: #333333;" x="35"
-                              y="15">RST+
-                        </text>
-                        <text style="fill: #333333;" x="90"
-                              y="15">1
-                        </text>
-                        <text style="fill: #333333;" x="90"
-                              y="30">2
-                        </text>
-                        <text style="fill: #333333;" x="90"
-                              y="45">3
-                        </text>
-                        <text style="fill: #333333;" x="90"
-                              y="60">4
-                        </text>
-                        <text style="fill: #333333;" x="90"
-                              y="75">5
-                        </text>
-                        <text style="fill: #333333;" x="90"
-                              y="90">6
-                        </text>
-                    </svg>
+                <div id="input_counter" class="input_logic">
+                    <div id="input_counter_1" class="line_logic"
+                         style="top:14px;">
+                    </div>
                 </div>
+                <div id="counter_body" class="body_logic">
+                    <p>=1</p>
+                </div>
+                <div id="output_counter"
+                     class="output_logic line_logic">
+                    <div id="output_counter_1" class="line_logic"
+                         style="top:14px;">
+                    </div>
+                    <div id="output_counter_2" class="line_logic"
+                         style="top:14px;">
+                    </div>
+                    <div id="output_counter_3" class="line_logic"
+                         style="top:14px;">
+                    </div>
+                    <div id="output_counter_4" class="line_logic"
+                         style="top:14px;">
+                    </div>
+                    <div id="output_counter_5" class="line_logic"
+                         style="top:14px;">
+                    </div>
+                    <div id="output_counter_6" class="line_logic"
+                         style="top:14px;">
+                    </div>
+                </div>
+            </div>
                 <p class="unselectable">Счетчик увеличения</p>
             </div>
             <div class="counter_elements elements_icon">
@@ -479,13 +324,13 @@
                      position:relative;
                      background-color: aqua;"
                          width="135">
-                        <rect fill="white"
+                        <rect class="context_menu_for_draggable_elements"
+                              fill="white"
                               height="105"
-                              stroke="#333333"
-                              stroke-width="3px" width="75"
+                              stroke="#333333" stroke-width="3px"
+                              width="75"
                               x="30"
-                              y="0"
-                              class="context_menu_for_draggable_elements">
+                              y="0">
                         </rect>
                         <line stroke="#333333"
                               stroke-width="3px"
