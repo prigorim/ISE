@@ -8,6 +8,7 @@ load.onclick = function () {
 }
 save.onclick = function () {
     alert(1);
+    $("#and").plumb({target: 'andnot'});
 }
 
 create.onclick = function () {
@@ -16,5 +17,5 @@ create.onclick = function () {
     let div = document.createElement('div');
     div.className = "ui-draggable ui-draggable-handle checkered";
     div.id="canvas";
-    wrap.append(div);//как сновы вызвать функцию? я не знаю
+    wrap.append(div);//как сновы вызвать функцию scale? я не знаю
 }
