@@ -2,7 +2,6 @@ var scale = 1;
 
 window.onkeydown = function (evt) {
     if (evt.ctrlKey) {
-        alert('no scale pls')
         return false;
     }
 };
