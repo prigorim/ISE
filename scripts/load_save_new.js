@@ -4,7 +4,7 @@ $("#load").click(function () {
 });
 
 $("#save").click(function () {
-    $("#and").jsPlumb({target: "#andnot"});
+    //$("#and").jsPlumb({target: "#andnot"});
 });
 
 $("#create").click(function () {
