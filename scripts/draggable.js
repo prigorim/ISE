@@ -2,10 +2,6 @@ let i = 1;
 
 document.onclick = function () {
     $(function () {
-
-        $("#canvas").draggable({
-
-        });
         $("#and").draggable({
             start: function (event, ui) {
                 $(this).removeClass('elements_color').css('z-index', '49');
@@ -78,25 +74,29 @@ document.onclick = function () {
         $("#canvas").droppable({
             accept: "#and, #or, #andnot, #ornot, #not, #counter, #counter_",
             drop: function (ev, ui) {
-                x = ui.position.left / 15, y = ui.position.top / 15,
-                    correctx = Math.ceil(x) * 15,
-                    correcty = Math.ceil(y) * 15,
-                    $(ui.draggable).clone()
-                        .appendTo(this)
-                        .removeClass()
-                        .addClass('added_element')
-                        .removeAttr('id')
-                        .draggable({
-                            grid: [15, 15],
-                            containment: 'parent',
-                        })
-                        .attr("id", 'log_'+i)
-                        .css({
-                            left: correctx,
-                            top: correcty,
-                            zIndex: 10
-                        });
-                i=i+1;
+                let x = ui.position.left / 15;
+                let y = ui.position.top / 15;
+                let correctedX = Math.ceil(x) * 15;
+                let correctedY = Math.ceil(y) * 15;
+                let dropped = $(ui.draggable).clone()
+                    .appendTo(this)
+                    .removeClass()
+                    .addClass('added_element')
+                    .removeAttr('id')
+                    .draggable({
+                        grid: [15, 15],
+                        containment: 'parent',
+                    })
+                    .attr("id", 'log_' + i)
+                    .css({
+                        left: correctedX,
+                        top: correctedY,
+                        zIndex: 10
+                    });
+                dropped[0].querySelectorAll('.line_wrapper').forEach(line => jsPlumb.addEndpoint(line,
+                    {anchor: "Top"},
+                    {isSource: true, isTarget: true}));
+                i = i + 1;
             }
 
         });
