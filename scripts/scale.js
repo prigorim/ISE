@@ -1,5 +1,3 @@
-const pluse_scale = document.getElementById("pluse_scale");
-const minus_scale = document.getElementById("minus_scale");
 var scale = 1;
 
 window.onkeydown = function (evt) {
@@ -9,19 +7,19 @@ window.onkeydown = function (evt) {
     }
 };
 
-pluse_scale.onclick = function () {
+$("#pluse_scale").click(function () {
     if (scale < 2) {
         scale += 0.1;
         canvas.style.zoom = canvas.style.WebkitZoom = canvas.style.MsZoom = scale;
     }
-}
+});
 
-minus_scale.onclick = function () {
+$("#minus_scale").click(function () {
     if (scale > 0.3) {
         scale -= 0.1;
         canvas.style.zoom = canvas.style.WebkitZoom = canvas.style.MsZoom = scale;
     }
-}
+});
 
 function addOnWheel(elem, handler) {
     if (elem.addEventListener) {
