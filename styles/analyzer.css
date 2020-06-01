@@ -1,74 +1,74 @@
 .analyzerpanel {
-	position: absolute;
-	height: 60%; 
-	width: 30%;
-	right:0;
-	top: 5%;
-	bottom:0;
-	overflow: auto;
-	background-color: #333333;
-	z-index: 10;	
-	box-shadow: 0 0 2vw #000000;
-	cursor: pointer;
-	display: none;
+    position: absolute;
+    height: 60%;
+    width: 30%;
+    right: 0;
+    top: 5%;
+    bottom: 0;
+    overflow: auto;
+    background-color: #333333;
+    z-index: 10;
+    box-shadow: 0 0 2vw #000000;
+    cursor: pointer;
+    display: none;
 }
 
 .headeranalyzer {
-	position: relative;
-	color: #ededed;
-	font-size: 6vh;
-	left: 3%;
-	top: -10%;
-	font-family:  Calibri, Helvetica, sans-serif;
-	cursor: default;
-	width: 90%
+    position: relative;
+    color: #ededed;
+    font-size: 6vh;
+    left: 3%;
+    top: -10%;
+    font-family: Calibri, Helvetica, sans-serif;
+    cursor: default;
+    width: 90%
 }
 
 .containeranalyzer {
-	position:fixed;
-	top: 25.2%;
-	left: 60%;
-	z-index: 11;
-	display: none;
+    position: fixed;
+    top: 25.2%;
+    left: 60%;
+    z-index: 11;
+    display: none;
 }
 
 .selectanalyzer {
-	position: relative;
-	color: #ededed;
-	background-color: rgb(100, 149, 237);
-	cursor: pointer;
-	top: -12.4vh;
-	left: 0.9vw;
-	height: 4vh; /* высота секции равна высоте области просмотра */
-	width: 10vw;
-	margin: 0;
-	text-align: center;
+    position: relative;
+    color: #ededed;
+    background-color: rgb(100, 149, 237);
+    cursor: pointer;
+    top: -12.4vh;
+    left: 0.9vw;
+    height: 4vh; /* высота секции равна высоте области просмотра */
+    width: 10vw;
+    margin: 0;
+    text-align: center;
 }
 
-.selectanalyzer p{
-	font-family:  Calibri, Helvetica, sans-serif;
-	font-size: 2vh;
-	position: relative;
-	top: 0.5vh;
-	z-index: 10;
-	margin: 0;
+.selectanalyzer p {
+    font-family: Calibri, Helvetica, sans-serif;
+    font-size: 2vh;
+    position: relative;
+    top: 0.5vh;
+    z-index: 10;
+    margin: 0;
 }
 
 .selectanalyzer:hover {
-	background-color: #FFFFFF;
-	color: #333333;
+    background-color: #FFFFFF;
+    color: #333333;
 }
 
-.selectanalyzerselected{
-	background-color: #FFFFFF;
-	color: #333333;
+.selectanalyzerselected {
+    background-color: #FFFFFF;
+    color: #333333;
 }
 
 .analyzegraf {
-	position: absolute;
-	top: 13%;
-	left: 3%;
-	background-color: #FFFFFF;
-	height: 84%; /* высота секции равна высоте области просмотра */
-	width: 94%;
+    position: absolute;
+    top: 13%;
+    left: 3%;
+    background-color: #FFFFFF;
+    height: 84%; /* высота секции равна высоте области просмотра */
+    width: 94%;
 }

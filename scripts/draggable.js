@@ -2,8 +2,7 @@ let i = 1;
 
 document.onclick = function () {
     $(function () {
-        $("#canvas").draggable({
-        });
+        $("#canvas").draggable({});
         $("#and").draggable({
             start: function (event, ui) {
                 $(this).removeClass('elements_color').css('z-index', '49');

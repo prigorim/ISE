@@ -10,6 +10,7 @@
     animation: fade .6s;
     overflow: auto;
 }
+
 /* модальный блок */
 .popup {
     top: 25%;
@@ -26,6 +27,7 @@
     animation: fade .6s;
     text-align: left;
 }
+
 .popup p {
     text-align: justify;
 }
@@ -34,27 +36,43 @@
 .popup img {
     width: 100%;
     height: auto;
-	border-radius: 3%;
+    border-radius: 3%;
 }
 
 .popup h2 {
     text-align: left;
     font: 4vh/5vh 'Tahoma', Arial, sans-serif;
 }
+
 .pl-left {
     float: left;
     width: 30%;
     height: auto;
 }
+
 @-moz-keyframes fade {
-    from { opacity: 0; }
-    to { opacity: 1 }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1
+    }
 }
+
 @-webkit-keyframes fade {
-    from { opacity: 0; }
-    to { opacity: 1 } 
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1
+    }
 }
+
 @keyframes fade {
-    from { opacity: 0; }
-    to { opacity: 1 }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1
+    }
 }

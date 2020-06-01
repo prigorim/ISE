@@ -16,7 +16,8 @@
     max-height: 100%;
     display: none;
 }
-.navigation{
+
+.navigation {
     width: 5vh;
     height: 5vh;
     top: 93%;
@@ -24,9 +25,11 @@
     cursor: pointer;
     opacity: .30;
 }
-.navigation:hover{
+
+.navigation:hover {
     opacity: 0.99;
 }
+
 .elements {
     width: 100%;
     position: relative;
@@ -94,8 +97,8 @@
     width: 33%;
     height: 45%;
     float: left;
-
 }
+
 .elements_table {
     position: absolute;
     top: 3%;

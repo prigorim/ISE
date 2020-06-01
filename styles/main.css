@@ -53,11 +53,13 @@ svg {
     box-shadow: -1vh 0.5vh 2vh rgba(0, 0, 0, 0.5); /* Параметры тени */
     z-index: 100;
 }
+
 .context-menu ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
+
 .context-menu ul li p {
     margin: 0;
     padding: 0;
@@ -65,6 +67,7 @@ svg {
     display: block;
     cursor: default;
 }
+
 .context-menu ul li p {
     color: #333;
     text-decoration: none;
@@ -72,6 +75,7 @@ svg {
     display: block;
     padding: 1vh;
 }
+
 .context-menu ul li p:hover {
     background-color: #eee;
 }

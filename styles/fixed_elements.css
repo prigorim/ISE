@@ -1,57 +1,60 @@
 .copi {
     color: #333333;
-	font-size: 2vh;
-	font-family:  Calibri, Helvetica, sans-serif;
-	text-align: left;
-	position: fixed; 
+    font-size: 2vh;
+    font-family: Calibri, Helvetica, sans-serif;
+    text-align: left;
+    position: fixed;
     right: 0;
-	bottom: -2%;
-	cursor: default;	
+    bottom: -2%;
+    cursor: default;
 }
+
 .trash {
-	position: fixed;
-	bottom: 4%;
-	right: 1.5%;
-	width: 15vh;
+    position: fixed;
+    bottom: 4%;
+    right: 1.5%;
+    width: 15vh;
     height: auto;
-	opacity: .30;
-	z-index: 9;
-	cursor: pointer;
+    opacity: .30;
+    z-index: 9;
+    cursor: pointer;
 }
 
 .trash:hover {
-	opacity: .99;
+    opacity: .99;
 }
 
 .opacity_trash {
-	opacity: .99;
-	transition: 0.5s;
+    opacity: .99;
+    transition: 0.5s;
 }
 
 .pluse_scale {
-	position: fixed;
-	width: 5vh;
-	height: 5vh;
-	opacity: .30;
-	z-index: 50;
-	right: 1.5%;
-	top: 7vh;
+    position: fixed;
+    width: 5vh;
+    height: 5vh;
+    opacity: .30;
+    z-index: 50;
+    right: 1.5%;
+    top: 7vh;
 }
-.pluse_scale:hover{
-	opacity: .99;
-	cursor: pointer;
+
+.pluse_scale:hover {
+    opacity: .99;
+    cursor: pointer;
 }
 
 .minus_scale {
-	position: fixed;
-	width: 5vh;
-	height: 5vh;
-	opacity: .30;
-	z-index: 50;
-	right: 1.5%;
-	top: 12vh;
+    position: fixed;
+    width: 5vh;
+    height: 5vh;
+    opacity: .30;
+    z-index: 50;
+    right: 1.5%;
+    top: 12vh;
 }
-.minus_scale:hover{
-	opacity: .99;
-	cursor: pointer;
+
+.minus_scale:hover {
+    opacity: .99;
+    cursor: pointer;
 }

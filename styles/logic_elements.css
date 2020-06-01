@@ -1,25 +1,26 @@
-.logic{
+.logic {
     position: absolute;
     display: inline-block;
 }
+
 .input_logic {
     position: absolute;
     width: 30px;
     height: 60px;
-    left:-30px;
+    left: -30px;
 }
 
 .input_counter {
     position: absolute;
     width: 30px;
     height: 105px;
-    left:-30px;
+    left: -30px;
 }
 
 .output_logic {
     position: absolute;
-    top:29px;
-    left:30px;
+    top: 29px;
+    left: 30px;
 }
 
 .output_counter {
@@ -29,9 +30,9 @@
     height: 105px;
 }
 
-.line_logic{
+.line_logic {
     position: absolute;
-    background-color:#333333;
+    background-color: #333333;
     width: 30px;
     height: 3px;
 }
@@ -47,9 +48,9 @@
     user-select: none;
 }
 
-.line_logic_analyzer{
+.line_logic_analyzer {
     position: absolute;
-    background-color:#333333;
+    background-color: #333333;
     width: 30px;
     height: 3px;
 }
@@ -80,7 +81,7 @@
 }
 
 .body_logic p {
-position: absolute;
+    position: absolute;
     width: 24px;
     top: 0px;
     margin: 0px;
@@ -99,7 +100,7 @@ position: absolute;
     user-select: none;
 }
 
-.body_analyzer_inside{
+.body_analyzer_inside {
     width: 40px;
     height: 90px;
     background-color: #333333;
@@ -113,14 +114,15 @@ position: absolute;
     user-select: none;
     position: relative;
     top: 50px;
-    left:20px;
+    left: 20px;
     text-align: center;
 }
+
 .logic_write_counter {
     user-select: none;
     position: relative;
     top: 95px;
-    left:-45px;
+    left: -45px;
     text-align: center;
 }
 
@@ -128,9 +130,9 @@ position: absolute;
     position: absolute;
     border: 3px solid #333333;
     width: 5px;
-    height:5px;
+    height: 5px;
     border-radius: 50%;
     top: 25px;
-    left:23px;
+    left: 23px;
     background-color: white;
 }
