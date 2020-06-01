@@ -2,6 +2,7 @@ let i = 1;
 
 document.onclick = function () {
     $(function () {
+        jsPlumb.setContainer($("#canvas"));
         $("#canvas").draggable({});
         $("#and").draggable({
             start: function (event, ui) {
@@ -119,10 +120,13 @@ document.onclick = function () {
                     .css({
                         left: correctedX,
                         top: correctedY,
-                        zIndex: 10
+                        zIndex: 1
                     });
-                dropped[0].querySelectorAll('.line_wrapper').forEach(line => jsPlumb.addEndpoint(line,
-                    {anchor: "Top"},
+                dropped[0].querySelectorAll('.input_logic > .line_logic').forEach(line => jsPlumb.addEndpoint(line,
+                    {anchor: "Left", connector: "Flowchart"},
+                    {isSource: true, isTarget: true}));
+                dropped[0].querySelectorAll('.output_logic').forEach(line => jsPlumb.addEndpoint(line,
+                    {anchor: "Right", connector: "Flowchart"},
                     {isSource: true, isTarget: true}));
                 i = i + 1;
             }
