@@ -8,10 +8,25 @@
     height: 60px;
     left:-30px;
 }
+
+.input_counter {
+    position: absolute;
+    width: 30px;
+    height: 105px;
+    left:-30px;
+}
+
 .output_logic {
     position: absolute;
     top:29px;
     left:30px;
+}
+
+.output_counter {
+    position: absolute;
+    left: 75px;
+    width: 30px;
+    height: 105px;
 }
 
 .line_logic{
@@ -19,14 +34,51 @@
     background-color:#333333;
     width: 30px;
     height: 3px;
-
 }
+
+.line_logic p {
+    position: absolute;
+    width: 24px;
+    top: -5px;
+    left: -30px;
+    margin: 0px;
+    color: #333333;
+    text-align: right;
+    user-select: none;
+}
+
+.line_logic_analyzer{
+    position: absolute;
+    background-color:#333333;
+    width: 30px;
+    height: 3px;
+}
+
+.line_logic_analyzer p {
+    position: absolute;
+    width: 24px;
+    top: -5px;
+    left: 35px;
+    margin: 0px;
+    color: #333333;
+    text-align: left;
+    user-select: none;
+}
+
 .body_logic {
     position: absolute;
     border: 3px solid #333333;
     width: 24px;
     height: 54px;
 }
+
+.body_counter {
+    position: absolute;
+    border: 3px solid #333333;
+    width: 69px;
+    height: 99px;
+}
+
 .body_logic p {
 position: absolute;
     width: 24px;
@@ -37,16 +89,39 @@ position: absolute;
     user-select: none;
 }
 
+.body_counter p {
+    position: absolute;
+    width: 24px;
+    top: 0px;
+    margin: 0px;
+    color: #333333;
+    text-align: left;
+    user-select: none;
+}
+
+.body_analyzer_inside{
+    width: 40px;
+    height: 90px;
+    background-color: #333333;
+    top: 5px;
+    left: 25px;
+    position: absolute;
+    margin: 0px;
+}
+
 .logic_write {
     user-select: none;
     position: relative;
     top: 50px;
     left:-45px;
-}
-
-.logic_write p {
     text-align: center;
-
+}
+.logic_write_counter {
+    user-select: none;
+    position: relative;
+    top: 95px;
+    left:-45px;
+    text-align: center;
 }
 
 .circle_logic {

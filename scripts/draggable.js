@@ -75,6 +75,24 @@ document.onclick = function () {
             helper: "clone",
             snap: "#canvas",
         });
+        $("#analyzer1").draggable({
+            start: function (event, ui) {
+                $(this).removeClass('elements_color');
+            },
+            appendTo: "#canvas",
+            revert: 'invalid',
+            helper: "clone",
+            snap: "#canvas",
+        });
+        $("#analyzer2").draggable({
+            start: function (event, ui) {
+                $(this).removeClass('elements_color');
+            },
+            appendTo: "#canvas",
+            revert: 'invalid',
+            helper: "clone",
+            snap: "#canvas",
+        });
         $("#trash").droppable({
             hoverClass: "opacity_trash",
             accept: '.added_element',
@@ -83,7 +101,7 @@ document.onclick = function () {
             }
         });
         $("#canvas").droppable({
-            accept: "#and, #or, #andnot, #ornot, #not, #xor, #counter, #counter_",
+            accept: "#and, #or, #andnot, #ornot, #not, #xor, #counter, #counter_, #analyzer1, #analyzer2",
             drop: function (ev, ui) {
                 let x = ui.position.left / 15;
                 let y = ui.position.top / 15;
