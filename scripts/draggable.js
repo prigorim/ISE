@@ -1,9 +1,11 @@
-let i = 1;
+let i = 0;
 
 document.onclick = function () {
     $(function () {
         jsPlumb.setContainer($("#canvas"));
-        $("#canvas").draggable({});
+        $("#canvas").draggable({
+
+        });
         $("#and").draggable({
             start: function (event, ui) {
                 $(this).removeClass('elements_color').css('z-index', '49');
@@ -11,6 +13,7 @@ document.onclick = function () {
             appendTo: "#canvas",
             revert: 'invalid',
             helper: "clone",
+
         });
         $("#or").draggable({
             start: function (event, ui) {
@@ -125,27 +128,27 @@ document.onclick = function () {
                     });
                 dropped[0].querySelectorAll('.input_logic > .line_logic')
                           .forEach(line => jsPlumb
-                          .addEndpoint(line, {anchor: "Left", connector: "Flowchart"},
+                          .addEndpoint(line, {endpoint: ["Dot", { radius: 4 }], cssClass:"aRedEndpoint", anchor: "Left", connector: "Flowchart"},
                             {isSource: true, isTarget: true})
                     );
                 dropped[0].querySelectorAll('.output_logic > .line_logic')
                           .forEach(line => jsPlumb
-                          .addEndpoint(line, {anchor: "Right", connector: "Flowchart"},
-                            {isSource: true, isTarget: true})
+                          .addEndpoint(line, {endpoint: ["Dot", { radius: 4 }], cssClass:"aRedEndpoint", anchor: "Right", connector: "Flowchart"},
+                              {isSource: true, isTarget: true})
                     );
                 dropped[0].querySelectorAll('.input_counter > .line_logic')
                           .forEach(line => jsPlumb
-                          .addEndpoint(line, {anchor: "Left", connector: "Flowchart"},
+                          .addEndpoint(line, {endpoint: ["Dot", { radius: 4 }], cssClass:"aRedEndpoint", anchor: "Left", connector: "Flowchart"},
                             {isSource: true, isTarget: true})
                     );
                 dropped[0].querySelectorAll('.output_counter > .line_logic')
                           .forEach(line => jsPlumb
-                          .addEndpoint(line, {anchor: "Right", connector: "Flowchart"},
+                          .addEndpoint(line, {endpoint: ["Dot", { radius: 4 }], cssClass:"aRedEndpoint", anchor: "Right", connector: "Flowchart"},
                             {isSource: true, isTarget: true})
                     );
                 dropped[0].querySelectorAll('.input_counter > .line_logic_analyzer')
                           .forEach(line => jsPlumb
-                          .addEndpoint(line, {anchor: "Left", connector: "Flowchart"},
+                          .addEndpoint(line, {endpoint: ["Dot", { radius: 4 }], cssClass:"aRedEndpoint", anchor: "Left", connector: "Flowchart"},
                             {isSource: true, isTarget: true})
                     );
                 i = i + 1;

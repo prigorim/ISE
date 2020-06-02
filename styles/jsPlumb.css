@@ -1,0 +1,17 @@
+svg path {
+    stroke: #333333;
+    stroke-width: 4px;
+}
+
+.aRedEndpoint svg circle {
+    fill: #333333;
+    fill-opacity: 0;
+    stroke: rgb(100,139,237);
+
+}
+.aRedEndpoint svg circle:hover{
+    fill-opacity: 1;
+}
+.jtk-connector svg {
+    min-height: 4px;
+}
