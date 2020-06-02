@@ -56,6 +56,7 @@ document.onclick = function () {
             revert: 'invalid',
             helper: "clone",
             snap: "#canvas",
+
         });
         $("#counter").draggable({
             start: function (event, ui) {
@@ -122,12 +123,31 @@ document.onclick = function () {
                         top: correctedY,
                         zIndex: 1
                     });
-                dropped[0].querySelectorAll('.input_logic > .line_logic').forEach(line => jsPlumb.addEndpoint(line,
-                    {anchor: "Left", connector: "Flowchart"},
-                    {isSource: true, isTarget: true}));
-                dropped[0].querySelectorAll('.output_logic').forEach(line => jsPlumb.addEndpoint(line,
-                    {anchor: "Right", connector: "Flowchart"},
-                    {isSource: true, isTarget: true}));
+                dropped[0].querySelectorAll('.input_logic > .line_logic')
+                          .forEach(line => jsPlumb
+                          .addEndpoint(line, {anchor: "Left", connector: "Flowchart"},
+                            {isSource: true, isTarget: true})
+                    );
+                dropped[0].querySelectorAll('.output_logic > .line_logic')
+                          .forEach(line => jsPlumb
+                          .addEndpoint(line, {anchor: "Right", connector: "Flowchart"},
+                            {isSource: true, isTarget: true})
+                    );
+                dropped[0].querySelectorAll('.input_counter > .line_logic')
+                          .forEach(line => jsPlumb
+                          .addEndpoint(line, {anchor: "Left", connector: "Flowchart"},
+                            {isSource: true, isTarget: true})
+                    );
+                dropped[0].querySelectorAll('.output_counter > .line_logic')
+                          .forEach(line => jsPlumb
+                          .addEndpoint(line, {anchor: "Right", connector: "Flowchart"},
+                            {isSource: true, isTarget: true})
+                    );
+                dropped[0].querySelectorAll('.input_counter > .line_logic_analyzer')
+                          .forEach(line => jsPlumb
+                          .addEndpoint(line, {anchor: "Left", connector: "Flowchart"},
+                            {isSource: true, isTarget: true})
+                    );
                 i = i + 1;
             }
 
