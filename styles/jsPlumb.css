@@ -12,6 +12,4 @@ svg path {
 .aRedEndpoint svg circle:hover{
     fill-opacity: 1;
 }
-.jtk-connector svg {
-    min-height: 4px;
-}
+
