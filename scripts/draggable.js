@@ -111,7 +111,7 @@ document.onclick = function () {
                 let correctedX = Math.ceil(x) * 15;
                 let correctedY = Math.ceil(y) * 15;
                 let dropped = $(ui.draggable).clone()
-                    .appendTo(this)
+                    .prependTo(this)
                     .removeClass()
                     .addClass('added_element')
                     .removeAttr('id')
@@ -125,6 +125,7 @@ document.onclick = function () {
                         top: correctedY,
                         zIndex: 1
                     });
+                //let container = document.querySelector("#log_"+i);
                 dropped[0].querySelectorAll('.input_logic > .line_logic')
                     .forEach(line => jsPlumb
                         .addEndpoint(line, {
