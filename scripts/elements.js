@@ -4,8 +4,20 @@ class Pin extends HTMLDivElement {
         this.className = 'pin';
     }
 
-    value() {
-        //IMPL вычисление значения на пине
+    level() {
+        //IMPL
+    }
+}
+
+class PinInput extends Pin {
+    level() {
+    }
+}
+
+class PinOutput extends Pin {
+    constructor(func) {
+        super();
+        this.level = () => func();
     }
 }
 
@@ -39,22 +51,26 @@ class Element extends HTMLTableElement {
         solid.className = 'solid';
         return solid;
     }
+
+    func() {
+        //IMPL func for each element
+    }
 }
 
 class ElementLogic extends Element {
     createInputBlock() {
         const input = super.createInputBlock();
-        input.createPin = () => {
-            input.appendChild(new Pin());
+        input.createPinOutput = () => {
+            input.appendChild(new PinInput());
         };
-        input.createPin();
-        input.createPin();
+        input.createPinOutput();
+        input.createPinOutput();
         return input;
     }
 
     createOutputBlock() {
         const output = super.createOutputBlock();
-        output.appendChild(new Pin());
+        output.appendChild(new PinOutput(this.func));
         return output;
     }
 }
@@ -65,6 +81,9 @@ class ElementLogicAnd extends ElementLogic {
         solid.innerText = '&';
         return solid;
     }
+
+    func() {
+    }
 }
 
 class ElementLogicOr extends ElementLogic {
@@ -73,9 +92,14 @@ class ElementLogicOr extends ElementLogic {
         solid.innerText = '1';
         return solid;
     }
+
+    func() {
+    }
 }
 
 customElements.define('element-pin', Pin, {extends: 'div'});
+customElements.define('element-pin-input', PinInput, {extends: 'div'});
+customElements.define('element-pin-output', PinOutput, {extends: 'div'});
 
 customElements.define('element-ise', Element, {extends: 'table'});
 customElements.define('element-logic', ElementLogic, {extends: 'table'});

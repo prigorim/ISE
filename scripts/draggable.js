@@ -3,13 +3,13 @@ document.onclick = function () {
         const canvas = $('#canvas');
         $(canvas).draggable({});
         $('.element').draggable({
-            appendTo: "#canvas",
+            appendTo: '#canvas',
             revert: 'invalid',
             helper: () => new ElementLogic(),
             zIndex: 99
         });
         $(canvas).droppable({
-            accept: ".element",
+            accept: '.element',
             drop: function (e, ui) {
                 $(document.createElement(
                     'table',
