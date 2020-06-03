@@ -52,7 +52,7 @@ class Element extends HTMLTableElement {
         const row = document.createElement('tr');
 
         setTimeout(() => {
-                if (this.parentElement === canvas) {
+                if (this.parentElement === canvas) {//Q not best practise?
                     this.inputBlock = this.createInputBlock();
                     row.insertBefore(this.inputBlock, row.firstChild);
                     this.outputBlock = this.createOutputBlock();
