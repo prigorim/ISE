@@ -1,3 +1,6 @@
+#elements_pallet .element {
+    width: 35px;
+}
 .element {
     float: left;
     table-layout: fixed;

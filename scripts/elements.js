@@ -1,6 +1,10 @@
 //IMPL default settings
+//TODO объединиить с draggable (как минимум, общие переменные jsPlumbInstance, canvas)
+//TODO refactor to jQuery syntax
 const jsPlumbInstance = jsPlumb.getInstance();
-jsPlumbInstance.setContainer($('#canvas'));
+const canvas = document.getElementById('canvas');
+jsPlumbInstance.setContainer(canvas);
+
 class Pin extends HTMLDivElement {
     constructor() {
         super();
@@ -47,13 +51,18 @@ class Element extends HTMLTableElement {
         this.className = 'element';
         const row = document.createElement('tr');
 
-        this.inputBlock = this.createInputBlock();
-        row.appendChild(this.inputBlock);
+        setTimeout(() => {
+                if (this.parentElement === canvas) {
+                    this.inputBlock = this.createInputBlock();
+                    $(this.inputBlock).prependTo(row);
+                    this.outputBlock = this.createOutputBlock();
+                    $(this.outputBlock).appendTo(row);
+                }
+            }, 0
+        )
 
         row.appendChild(this.createSolid());
 
-        this.outputBlock = this.createOutputBlock();
-        row.appendChild(this.outputBlock);
 
         this.appendChild(row);
     }
