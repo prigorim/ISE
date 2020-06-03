@@ -2,14 +2,14 @@ document.onclick = function () {
     $(function () {
         const canvas = $('#canvas');
         $(canvas).draggable({});
-        $('.element').draggable({
+        $('#elements_pallet .element').draggable({
             appendTo: '#canvas',
             revert: 'invalid',
             helper: () => new Element(),
             zIndex: 99
         });
         $(canvas).droppable({
-            accept: '.element',
+            accept: '#elements_pallet .element',
             drop: function (e, ui) {
                 $(document.createElement(
                     'table',
@@ -22,6 +22,10 @@ document.onclick = function () {
                 }).draggable({
                     grid: [15, 15],
                     containment: 'parent',
+                    //TODO сделать пизже!
+                    drag: () => {
+                        jsPlumbInstance.repaint($(this))
+                    }
                 }).prependTo(this);
             }
 

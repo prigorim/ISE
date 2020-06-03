@@ -1,3 +1,4 @@
+//IMPL default settings
 const jsPlumbInstance = jsPlumb.getInstance();
 
 class Pin extends HTMLDivElement {
@@ -5,9 +6,13 @@ class Pin extends HTMLDivElement {
         super();
         this.className = 'pin';
         setTimeout(() => jsPlumbInstance.addEndpoint(this,
-            {anchor: "Center", connector: "Flowchart"},
+            {anchor: this.anchor(), connector: "Flowchart"},
             {isSource: true, isTarget: true}),
             0);
+    }
+
+    anchor() {
+        return 'Center';
     }
 
     level() {
@@ -19,12 +24,20 @@ class PinPassive extends Pin {
     level() {
         //IMPL aggregation all connected
     }
+
+    anchor() {
+        return "Left";
+    }
 }
 
 class PinFunctional extends Pin {
     constructor(func) {
         super();
         this.level = () => func();
+    }
+
+    anchor() {
+        return "Right";
     }
 }
 
