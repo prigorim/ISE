@@ -1,6 +1,6 @@
 //IMPL default settings
 const jsPlumbInstance = jsPlumb.getInstance();
-
+jsPlumbInstance.setContainer($('#canvas'));
 class Pin extends HTMLDivElement {
     constructor() {
         super();

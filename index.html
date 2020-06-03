@@ -12,7 +12,6 @@
             type="text/javascript"></script>
     <script src="lib/jsplumb.js"
             type="text/javascript"></script>
-    <script src="scripts/elements.js" type="text/javascript"></script>
     <style>
         @import url("styles/splash.css");
         @import url("styles/main.css");
@@ -31,9 +30,6 @@
     <div class="ui-draggable ui-draggable-handle checkered"
          id="canvas">
     </div>
-    <script>
-        jsPlumbInstance.setContainer($('#canvas'));
-    </script>
 </div>
 <!-- Модальное Окно  -->
 <!--
@@ -168,6 +164,7 @@
     <!--Название-->
     <p class="autor unselectable">МЕНЮ</p>
     <!--Палитра элементов-->
+    <script src="scripts/elements.js" type="text/javascript"></script>
     <div id="elements_pallet">
         <!--Заголовок контейнера-->
         <div class="elements unselectable"
