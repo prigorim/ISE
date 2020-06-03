@@ -1,60 +1,10 @@
-class LogicElement extends HTMLElement {
-    constructor(x, y) {
-        super();
-        //внутреннее DOM-дерево
-        const shadowRoot = this.attachShadow({mode: "open"});
-        //обертка содержимого - корневый элемент внутреннего DOM-дерева
-        this.body = document.createElement('div');
-        //TODO extract to stylesheet
-        this.body.style.display = 'inline-block';
-        this.body.style.left = x || 0;
-        this.body.style.top = y || 0;
-        //входы
-        this.inputBlock = this.createInputBlock();
-        this.body.appendChild(this.inputBlock);
-        //тело
-        this.solid = this.createSolid();
-        this.body.appendChild(this.solid);
-        //выходы
-        this.outputBlock = this.createOutputBlock();
-        this.body.appendChild(this.outputBlock);
-
-        shadowRoot.appendChild(this.body);
-    }
-
-    createInputBlock() {
-        const input = document.createElement('div')
-        //TODO extract to stylesheet
-        input.style.display = 'inline-block';
-        return input;
-    }
-
-    createSolid() {
-        const solid = document.createElement('div')
-        //TODO extract to stylesheet
-        solid.style.display = 'inline-block';
-        solid.style.border = '2px solid black';
-        solid.style.width = '30px';
-        solid.style.textAlign = 'right';
-        return solid;
-    }
-
-    createOutputBlock() {
-        const output = document.createElement('div')
-        //TODO extract to stylesheet
-        output.style.display = 'inline-block';
-        return output;
-    }
-}
-
 class Pin extends HTMLDivElement {
     constructor() {
         super();
         //TODO extract to stylesheet
         this.style.background = 'black';
-        this.style.margin = '20px 0';
-        this.style.height = '2px'
-        this.style.width = '10px'
+        this.style.height = '3px';
+        this.style.width = '100%';
     }
 
     value() {
@@ -71,6 +21,49 @@ class InputPin extends Pin {
 class OutputPin extends Pin {
     constructor(logicElement) {
         super();
+    }
+}
+
+class LogicElement extends HTMLTableElement {
+    constructor(x, y) {
+        super();
+        //TODO extract to stylesheet
+        this.style.left = x || 0;
+        this.style.top = y || 0;
+        this.style.height = '60px';
+        this.style.width = '100px';
+        this.style.tableLayout = 'fixed';
+        this.style.borderCollapse = 'collapse';
+
+        const row = document.createElement('tr');
+        row.appendChild(this.createInputBlock());
+        row.appendChild(this.createSolid());
+        row.appendChild(this.createOutputBlock());
+        this.appendChild(row);
+    }
+
+    createInputBlock() {
+        const input = document.createElement('td')
+        //TODO extract to stylesheet
+        input.style.padding = '0';
+        return input;
+    }
+
+    createSolid() {
+        const solid = document.createElement('td')
+        //TODO extract to stylesheet
+        solid.style.border = '3px solid black';
+        solid.style.textAlign = 'right';
+        solid.style.verticalAlign = 'top';
+        solid.style.padding = '0';
+        return solid;
+    }
+
+    createOutputBlock() {
+        const output = document.createElement('td')
+        //TODO extract to stylesheet
+        output.style.padding = '0';
+        return output;
     }
 }
 
@@ -94,12 +87,12 @@ class LogicElementAnd extends LogicElement {
     }
 }
 
-customElements.define('logic-element', LogicElement);
-
 customElements.define('logic-pin', Pin, {extends: 'div'});
 
 customElements.define('input-pin', InputPin, {extends: 'div'});
 
 customElements.define('output-pin', OutputPin, {extends: 'div'});
 
-customElements.define('logic-element-and', LogicElementAnd);
+customElements.define('logic-element', LogicElement, {extends: 'table'});
+
+customElements.define('logic-element-and', LogicElementAnd, {extends: 'table'});
