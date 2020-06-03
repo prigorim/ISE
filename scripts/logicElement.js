@@ -24,8 +24,7 @@ class OutputPin extends Pin {
 class LogicElement extends HTMLTableElement {
     constructor() {
         super();
-        this.className = 'logic-element';
-
+        this.className = 'logic-element logic-draggable';
         const row = document.createElement('tr');
         row.appendChild(this.createInputBlock());
         row.appendChild(this.createSolid());
