@@ -5,6 +5,8 @@ class Pin extends HTMLDivElement {
         this.style.background = 'black';
         this.style.height = '3px';
         this.style.width = '100%';
+        this.style.marginTop = '10px';
+        this.style.marginBottom = '10px';
     }
 
     value() {
