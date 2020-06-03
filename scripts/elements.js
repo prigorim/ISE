@@ -9,12 +9,13 @@ class Pin extends HTMLDivElement {
     }
 }
 
-class PinInput extends Pin {
+class PinPassive extends Pin {
     level() {
+        //IMPL aggregation all connected
     }
 }
 
-class PinOutput extends Pin {
+class PinFunctional extends Pin {
     constructor(func) {
         super();
         this.level = () => func();
@@ -60,17 +61,17 @@ class Element extends HTMLTableElement {
 class ElementLogic extends Element {
     createInputBlock() {
         const input = super.createInputBlock();
-        input.createPinOutput = () => {
-            input.appendChild(new PinInput());
+        input.createPinPassive = () => {
+            input.appendChild(new PinPassive());
         };
-        input.createPinOutput();
-        input.createPinOutput();
+        input.createPinPassive();
+        input.createPinPassive();
         return input;
     }
 
     createOutputBlock() {
         const output = super.createOutputBlock();
-        output.appendChild(new PinOutput(this.func));
+        output.appendChild(new PinFunctional(this.func));
         return output;
     }
 }
@@ -83,6 +84,7 @@ class ElementLogicAnd extends ElementLogic {
     }
 
     func() {
+        //IMPL
     }
 }
 
@@ -94,12 +96,13 @@ class ElementLogicOr extends ElementLogic {
     }
 
     func() {
+        //IMPL
     }
 }
 
 customElements.define('element-pin', Pin, {extends: 'div'});
-customElements.define('element-pin-input', PinInput, {extends: 'div'});
-customElements.define('element-pin-output', PinOutput, {extends: 'div'});
+customElements.define('element-pin-input', PinPassive, {extends: 'div'});
+customElements.define('element-pin-output', PinFunctional, {extends: 'div'});
 
 customElements.define('element-ise', Element, {extends: 'table'});
 customElements.define('element-logic', ElementLogic, {extends: 'table'});
