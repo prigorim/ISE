@@ -18,6 +18,7 @@ document.onclick = function () {
                     position: 'absolute',
                     left: ui.position.left - ui.position.left % 15,
                     top: ui.position.top - ui.position.top % 15,
+                    margin: 0,
                 }).draggable({
                     grid: [15, 15],
                     containment: 'parent',

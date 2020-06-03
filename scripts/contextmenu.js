@@ -51,7 +51,7 @@ $(document).ready(function () {
                     .show('fast');
             }
             //alert(target.classList);
-            if (target.hasClass("context_menu_for_draggable_elements")) {
+            if (target.is("<table/>")) {
                 $('<div/>', {
                     class: 'context-menu'
                 })
