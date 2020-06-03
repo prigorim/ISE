@@ -12,8 +12,6 @@
             <item index="4" class="java.lang.String" itemvalue="embed" />
             <item index="5" class="java.lang.String" itemvalue="script" />
             <item index="6" class="java.lang.String" itemvalue="menuitem" />
-            <item index="7" class="java.lang.String" itemvalue="logic-element" />
-            <item index="8" class="java.lang.String" itemvalue="logic-element-and" />
           </list>
         </value>
       </option>

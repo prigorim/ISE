@@ -1,4 +1,4 @@
-.logic-element {
+.element {
     float: left;
     table-layout: fixed;
     border-collapse: collapse;
@@ -7,18 +7,18 @@
     width: 105px;
 }
 
-.logic-element > tr > td {
+.element > tr > td {
     padding: 0;
 }
 
-.logic-solid {
+.solid {
     border: 3px solid black;
     text-align: right;
     vertical-align: top;
     width: 40px;
 }
 
-.logic-pin {
+.pin {
     background-color: black;
     height: 3px;
     margin-bottom: 27px;
