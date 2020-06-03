@@ -1,7 +1,13 @@
+const jsPlumbInstance = jsPlumb.getInstance();
+
 class Pin extends HTMLDivElement {
     constructor() {
         super();
         this.className = 'pin';
+        setTimeout(() => jsPlumbInstance.addEndpoint(this,
+            {anchor: "Center", connector: "Flowchart"},
+            {isSource: true, isTarget: true}),
+            0);
     }
 
     level() {
@@ -73,6 +79,10 @@ class ElementLogic extends Element {
         const output = super.createOutputBlock();
         output.appendChild(new PinFunctional(this.func));
         return output;
+    }
+
+    func() {
+        //IMPL func for each element
     }
 }
 
