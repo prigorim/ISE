@@ -110,8 +110,7 @@ document.onclick = function () {
                 let y = ui.position.top / 15;
                 let correctedX = Math.ceil(x) * 15;
                 let correctedY = Math.ceil(y) * 15;
-                let dropped = $(ui.draggable).clone()
-                    .prependTo(this)
+                $(ui.draggable).clone().prependTo(this)
                     .removeClass()
                     .addClass('added_element')
                     .removeAttr('id')
@@ -125,8 +124,9 @@ document.onclick = function () {
                         top: correctedY,
                         zIndex: 1
                     });
-                //let container = document.querySelector("#log_"+i);
-                dropped[0].querySelectorAll('.input_logic > .line_logic')
+                let container = document.querySelector("#log_" + i);
+                //alert(container);
+                container.querySelectorAll('.input_logic > .line_logic')
                     .forEach(line => jsPlumb
                         .addEndpoint(line, {
                                 endpoint: ["Dot", {radius: 4}],
@@ -139,7 +139,7 @@ document.onclick = function () {
                                 isTarget: true
                             })
                     );
-                dropped[0].querySelectorAll('.output_logic > .line_logic')
+                container.querySelectorAll('.output_logic > .line_logic')
                     .forEach(line => jsPlumb
                         .addEndpoint(line, {
                                 endpoint: ["Dot", {radius: 4}],
@@ -149,7 +149,7 @@ document.onclick = function () {
                             },
                             {isSource: true, isTarget: true})
                     );
-                dropped[0].querySelectorAll('.input_counter > .line_logic')
+                container.querySelectorAll('.input_counter > .line_logic')
                     .forEach(line => jsPlumb
                         .addEndpoint(line, {
                                 endpoint: ["Dot", {radius: 4}],
@@ -159,7 +159,7 @@ document.onclick = function () {
                             },
                             {isSource: true, isTarget: true})
                     );
-                dropped[0].querySelectorAll('.output_counter > .line_logic')
+                container.querySelectorAll('.output_counter > .line_logic')
                     .forEach(line => jsPlumb
                         .addEndpoint(line, {
                                 endpoint: ["Dot", {radius: 4}],
@@ -169,7 +169,7 @@ document.onclick = function () {
                             },
                             {isSource: true, isTarget: true})
                     );
-                dropped[0].querySelectorAll('.input_counter > .line_logic_analyzer')
+                container.querySelectorAll('.input_counter > .line_logic_analyzer')
                     .forEach(line => jsPlumb
                         .addEndpoint(line, {
                                 endpoint: ["Dot", {radius: 4}],
