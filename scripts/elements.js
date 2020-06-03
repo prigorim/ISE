@@ -41,7 +41,7 @@ class Element extends HTMLTableElement {
     }
 }
 
-class LogicElement extends Element {
+class ElementLogic extends Element {
     createInputBlock() {
         const input = super.createInputBlock();
         input.createPin = () => {
@@ -59,7 +59,7 @@ class LogicElement extends Element {
     }
 }
 
-class LogicElementAnd extends LogicElement {
+class ElementLogicAnd extends ElementLogic {
     createSolid() {
         let solid = super.createSolid();
         solid.innerText = '&';
@@ -67,8 +67,17 @@ class LogicElementAnd extends LogicElement {
     }
 }
 
+class ElementLogicOr extends ElementLogic {
+    createSolid() {
+        let solid = super.createSolid();
+        solid.innerText = '1';
+        return solid;
+    }
+}
+
 customElements.define('element-pin', Pin, {extends: 'div'});
 
 customElements.define('element-ise', Element, {extends: 'table'});
-customElements.define('logic-element', LogicElement, {extends: 'table'});
-customElements.define('logic-element-and', LogicElementAnd, {extends: 'table'});
+customElements.define('element-logic', ElementLogic, {extends: 'table'});
+customElements.define('element-logic-and', ElementLogicAnd, {extends: 'table'});
+customElements.define('element-logic-or', ElementLogicOr, {extends: 'table'});
