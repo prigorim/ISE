@@ -19,21 +19,22 @@ class InputPin extends Pin {
 }
 
 class OutputPin extends Pin {
-    constructor(logicElement) {
+    constructor() {
         super();
     }
 }
 
 class LogicElement extends HTMLTableElement {
-    constructor(x, y) {
+    constructor() {
         super();
         //TODO extract to stylesheet
-        this.style.left = x || 0;
-        this.style.top = y || 0;
         this.style.height = '60px';
         this.style.width = '100px';
         this.style.tableLayout = 'fixed';
         this.style.borderCollapse = 'collapse';
+        this.style.float = 'left';
+        this.style.margin = '5px';
+        this.className = 'logic-element';
 
         const row = document.createElement('tr');
         row.appendChild(this.createInputBlock());
@@ -82,7 +83,7 @@ class LogicElementAnd extends LogicElement {
 
     createOutputBlock() {
         let output = super.createOutputBlock();
-        output.appendChild(new OutputPin(this));
+        output.appendChild(new OutputPin());
         return output;
     }
 }
