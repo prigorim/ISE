@@ -2,14 +2,14 @@ document.onclick = function () {
     $(function () {
         const canvas = $('#canvas');
         $(canvas).draggable({});
-        $('.logic-element').draggable({
+        $('.logic-draggable').draggable({
             appendTo: "#canvas",
             revert: 'invalid',
             helper: () => new LogicElement(),
             zIndex: 99
         });
         $(canvas).droppable({
-            accept: ".logic-element",
+            accept: ".logic-draggable",
             drop: function (e, ui) {
                 $(document.createElement(
                     'table',
@@ -22,7 +22,7 @@ document.onclick = function () {
                 }).draggable({
                     grid: [15, 15],
                     containment: 'parent',
-                }).prependTo(this);
+                }).prependTo(this).removeClass('logic-draggable');
             }
 
         });
