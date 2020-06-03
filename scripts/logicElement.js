@@ -78,6 +78,7 @@ class LogicElementAnd extends LogicElement {
     createInputBlock() {
         let input = super.createInputBlock();
         input.appendChild(new InputPin());
+        input.appendChild(new InputPin());
         return input;
     }
 
