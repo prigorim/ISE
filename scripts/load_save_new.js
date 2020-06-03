@@ -14,4 +14,6 @@ $("#create").click(function () {
     div.id = "canvas";
     wrap.append(div);//как сновы вызвать scale.js? я не знаю
     $("#canvas").draggable({});
+    $(".aRedEndpoint").remove();
+    $(".jtk-connector").remove();
 });

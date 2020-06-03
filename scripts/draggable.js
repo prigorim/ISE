@@ -98,7 +98,9 @@ document.onclick = function () {
             hoverClass: "opacity_trash",
             accept: '.added_element',
             drop: function (ev, ui) {
-                $(ui.draggable).remove()
+                $(ui.draggable).remove();
+               //$(".aRedEndpoint").remove();
+               //$(".jtk-connector").remove();
             }
         });
         $("#canvas").droppable({
