@@ -29,7 +29,7 @@ class LogicElement extends HTMLTableElement {
         super();
         //TODO extract to stylesheet
         this.style.height = '60px';
-        this.style.width = '100px';
+        this.style.width = '90px';
         this.style.tableLayout = 'fixed';
         this.style.borderCollapse = 'collapse';
         this.style.float = 'left';
