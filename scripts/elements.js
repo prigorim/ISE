@@ -54,9 +54,9 @@ class Element extends HTMLTableElement {
         setTimeout(() => {
                 if (this.parentElement === canvas) {
                     this.inputBlock = this.createInputBlock();
-                    $(this.inputBlock).prependTo(row);
+                    row.insertBefore(this.inputBlock, row.firstChild);
                     this.outputBlock = this.createOutputBlock();
-                    $(this.outputBlock).appendTo(row);
+                    row.insertBefore(this.outputBlock, null);
                 }
             }, 0
         )
