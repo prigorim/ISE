@@ -1,7 +1,6 @@
 class Pin extends HTMLDivElement {
     constructor() {
         super();
-        //TODO extract to stylesheet
         this.className = 'logic-pin';
     }
 
@@ -25,7 +24,6 @@ class OutputPin extends Pin {
 class LogicElement extends HTMLTableElement {
     constructor() {
         super();
-        //TODO extract to stylesheet
         this.className = 'logic-element';
 
         const row = document.createElement('tr');
@@ -36,24 +34,17 @@ class LogicElement extends HTMLTableElement {
     }
 
     createInputBlock() {
-        const input = document.createElement('td')
-        //TODO extract to stylesheet
-        input.className = 'logic-input';
-        return input;
+        return document.createElement('td');
     }
 
     createSolid() {
         const solid = document.createElement('td')
-        //TODO extract to stylesheet
         solid.className = 'logic-solid';
         return solid;
     }
 
     createOutputBlock() {
-        const output = document.createElement('td')
-        //TODO extract to stylesheet
-        output.className = 'logic-output';
-        return output;
+        return document.createElement('td');
     }
 }
 
@@ -79,11 +70,8 @@ class LogicElementAnd extends LogicElement {
 }
 
 customElements.define('logic-pin', Pin, {extends: 'div'});
-
 customElements.define('input-pin', InputPin, {extends: 'div'});
-
 customElements.define('output-pin', OutputPin, {extends: 'div'});
 
 customElements.define('logic-element', LogicElement, {extends: 'table'});
-
 customElements.define('logic-element-and', LogicElementAnd, {extends: 'table'});

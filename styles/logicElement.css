@@ -1,0 +1,25 @@
+.logic-element {
+    float: left;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin: 5px;
+    height: 60px;
+    width: 90px;
+}
+
+.logic-element > tr > td {
+    padding: 0;
+}
+
+.logic-solid {
+    border: 3px solid black;
+    text-align: right;
+    vertical-align: top;
+}
+
+.logic-pin {
+    background-color: black;
+    height: 3px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
