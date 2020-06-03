@@ -11,7 +11,6 @@ document.onclick = function () {
             appendTo: "#canvas",
             revert: 'invalid',
             helper: "clone",
-
         });
         $("#or").draggable({
             start: function (event, ui) {
@@ -177,6 +176,11 @@ document.onclick = function () {
                             },
                             {isSource: true, isTarget: true})
                     );
+                $("#log_"+i).draggable({
+                    drag: function () {
+                        jsPlumb.repaint($(this));
+                    },
+                });
                 i = i + 1;
             }
 
