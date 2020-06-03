@@ -1,7 +1,7 @@
 .selecter {
     position: fixed;
     height: 100%; /* высота секции равна высоте области просмотра */
-    width: 50vh;
+    width: 52vh;
     left: 0;
     right: 0;
     top: 0;
@@ -12,7 +12,7 @@
     z-index: 48;
     min-width: 50vh;
     min-height: 100%;
-    max-width: 50vh;
+    max-width: 52vh;
     max-height: 100%;
     display: none;
 }
