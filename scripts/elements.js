@@ -75,6 +75,10 @@ class Element extends HTMLTableElement {
         return document.createElement('td');
     }
 
+    //createInverter() {
+    //   return document.createElement('td');
+    //}
+
     createSolid() {
         const solid = document.createElement('td')
         solid.className = 'solid';

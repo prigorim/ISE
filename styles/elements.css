@@ -29,13 +29,30 @@
     margin-top: 27px;
 }
 
+.inverter {
+    background-color: white;
+    border-radius: 50%;
+    width: 7px;
+    height: 7px;
+    border: 3px solid black;
+}
+
 .block-logic {
     position: relative;
     width: 105px;
     height: 90px;
     float: left;
-    margin: 5px;
+    margin: 5px 5px 15px 5px;
     left:30px;
+}
+
+.block-logic p {
+    position: absolute;
+    top: 92px;
+    align-content: center;
+    margin: 0;
+    width: 105px;
+    left: -30px;
 }
 
 .input-logic-1 {
