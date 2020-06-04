@@ -1,5 +1,5 @@
 const jsPlumbInstance = jsPlumb.getInstance({
-    Endpoint: ["Dot", {radius: 5}],
+    Endpoint:[ "Dot", { radius:5} ],
 });
 const canvas = document.getElementById('canvas');
 jsPlumbInstance.setContainer(canvas);
@@ -9,7 +9,6 @@ class Pin extends HTMLDivElement {
         super();
         this.className = 'pin';
         setTimeout(() => jsPlumbInstance.addEndpoint(this,
-            //TODO extract to defaults
             {anchor: this.anchor(), connector: "Flowchart"},
             {isSource: true, isTarget: true}
             ),
@@ -17,12 +16,10 @@ class Pin extends HTMLDivElement {
     }
 
     level() {
-        return false;
         //IMPL for each pin
     }
 
     anchor() {
-        return '';
         //IMPL for each pin
     }
 }
@@ -80,12 +77,10 @@ class Element extends HTMLTableElement {
 
     func() {
         //IMPL for each element
-        return false;
     }
 
     label() {
         //IMPL for each element
-        return '';
     }
 }
 
@@ -114,6 +109,10 @@ const MixInsPinFunctionalBlock = Element => class extends Element {
 }
 
 class ElementLogic extends MixInsInputBlock(MixInsPinFunctionalBlock(Element)) {
+    func() {
+        //IMPL
+    }
+
     createPinPassiveBlock() {
         if (this.parentNode === canvas) {
             this.pinPassiveBlock = document.createElement('td');
@@ -132,29 +131,11 @@ class ElementLogic extends MixInsInputBlock(MixInsPinFunctionalBlock(Element)) {
         }
         return super.createPinFunctionalBlock();
     }
-
-    func() {
-        return [...this.pinPassiveBlock.childNodes].map(passivePin => passivePin.level());
-    }
-}
-
-const MixInsNot = Element => class extends Element {
-    createSolid() {
-        const solid = super.createSolid();
-        const not = document.createElement('div');
-        not.className = 'pin-invert';
-        solid.appendChild(not);
-        return solid;
-    }
-
-    func() {
-        return !super.func();
-    }
 }
 
 class ElementLogicAnd extends ElementLogic {
     func() {
-        return super.func().some(Boolean);
+        //IMPL
     }
 
     label() {
@@ -164,7 +145,7 @@ class ElementLogicAnd extends ElementLogic {
 
 class ElementLogicOr extends ElementLogic {
     func() {
-        return super.func().every(Boolean);
+        //IMPL
     }
 
     label() {
@@ -174,11 +155,29 @@ class ElementLogicOr extends ElementLogic {
 
 class ElementLogicXor extends ElementLogic {
     func() {
-        return super.func().filter(Boolean).length === 1;
+        //IMPL
     }
 
     label() {
         return '=1';
+    }
+}
+
+class ElementLogicNand extends ElementLogicAnd {
+    func() {
+        //IMPL
+    }
+}
+
+class ElementLogicNor extends ElementLogicOr {
+    func() {
+        //IMPL
+    }
+}
+
+class ElementLogicNxor extends ElementLogicXor {
+    func() {
+        //IMPL
     }
 }
 
@@ -192,6 +191,6 @@ customElements.define('element-logic', ElementLogic, {extends: 'table'});
 customElements.define('element-logic-and', ElementLogicAnd, {extends: 'table'});
 customElements.define('element-logic-or', ElementLogicOr, {extends: 'table'});
 customElements.define('element-logic-xor', ElementLogicXor, {extends: 'table'});
-customElements.define('element-logic-nand', MixInsNot(ElementLogicAnd), {extends: 'table'});
-customElements.define('element-logic-nor', MixInsNot(ElementLogicOr), {extends: 'table'});
-customElements.define('element-logic-nxor', MixInsNot(ElementLogicXor), {extends: 'table'});
+customElements.define('element-logic-nand', ElementLogicNand, {extends: 'table'});
+customElements.define('element-logic-nor', ElementLogicNor, {extends: 'table'});
+customElements.define('element-logic-nxor', ElementLogicNxor, {extends: 'table'});
