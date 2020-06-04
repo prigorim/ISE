@@ -144,7 +144,7 @@
          ondrag="return false"
          ondragstart="return false"
          src="img/save.png"
-         style="left: 33vh">
+         style="left: 31vh">
     <!--Загрузить-->
     <img alt="load"
          class="navigation unselectable"
@@ -152,7 +152,7 @@
          ondrag="return false"
          ondragstart="return false"
          src="img/download.png"
-         style="left: 39vh">
+         style="left: 37vh">
     <!--Создать-->
     <img alt="create"
          class="navigation unselectable"
@@ -160,7 +160,7 @@
          ondrag="return false"
          ondragstart="return false"
          src="img/create.png"
-         style="left: 45vh">
+         style="left: 43vh">
     <!--Название-->
     <p class="autor unselectable">МЕНЮ</p>
     <!--Палитра элементов-->
@@ -175,8 +175,50 @@
         <div style="text-align: center;">
             <div class="elements2"
                  id="elem1">
-                <table is="element-logic-and"></table>
-                <table is="element-logic-or"></table>
+                <div class="block-logic">
+                    <table is="element-logic-and">
+                        <div class="input-logic-1"></div>
+                        <div class="input-logic-2"></div>
+                        <div class="output-logic"></div>
+                    </table>
+                </div>
+                <div class="block-logic">
+                    <table is="element-logic-or">
+                        <div class="input-logic-1"></div>
+                        <div class="input-logic-2"></div>
+                        <div class="output-logic"></div>
+                    </table>
+                </div>
+                <div class="block-logic">
+                    <table is="element-logic-andnot">
+                        <div class="input-logic-1"></div>
+                        <div class="input-logic-2"></div>
+                        <div class="output-logic"></div>
+                        <div class="output-logic-circle"></div>
+                    </table>
+                </div>
+                <div class="block-logic">
+                    <table is="element-logic-ornot">
+                        <div class="input-logic-1"></div>
+                        <div class="input-logic-2"></div>
+                        <div class="output-logic"></div>
+                        <div class="output-logic-circle"></div>
+                    </table>
+                </div>
+                <div class="block-logic">
+                    <table is="element-logic-not">
+                        <div class="input-logic-1" style="top: 42px"></div>
+                        <div class="output-logic"></div>
+                        <div class="output-logic-circle"></div>
+                    </table>
+                </div>
+                <div class="block-logic">
+                    <table is="element-logic-xor">
+                        <div class="input-logic-1"></div>
+                        <div class="input-logic-2"></div>
+                        <div class="output-logic"></div>
+                    </table>
+                </div>
             </div>
         </div>
         <!--Заголовок контейнера-->
