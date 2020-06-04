@@ -1,6 +1,3 @@
-//IMPL default settings
-//TODO объединиить с draggable (как минимум, общие переменные jsPlumbInstance, canvas)
-//TODO refactor to jQuery syntax
 const jsPlumbInstance = jsPlumb.getInstance();
 const canvas = document.getElementById('canvas');
 jsPlumbInstance.setContainer(canvas);
@@ -16,21 +13,21 @@ class Pin extends HTMLDivElement {
     }
 
     anchor() {
-        return 'Center';
+        //IMPL for each pin
     }
 
     level() {
-        //IMPL
+        //IMPL for each pin
     }
 }
 
 class PinPassive extends Pin {
-    level() {
-        //IMPL aggregation all connected
-    }
-
     anchor() {
         return "Left";
+    }
+
+    level() {
+        //IMPL aggregation all connected
     }
 }
 
@@ -57,12 +54,15 @@ class Element extends HTMLTableElement {
                     row.insertBefore(this.inputBlock, row.firstChild);
                     this.outputBlock = this.createOutputBlock();
                     row.insertBefore(this.outputBlock, null);
+                    jsPlumbInstance.draggable(this, {
+                        containment: 'parent',
+                        grid: [15, 15]
+                    })
                 }
             }, 0
         )
 
         row.appendChild(this.createSolid());
-
 
         this.appendChild(row);
     }
@@ -75,48 +75,40 @@ class Element extends HTMLTableElement {
         return document.createElement('td');
     }
 
-    //createInverter() {
-    //   return document.createElement('td');
-    //}
-
     createSolid() {
         const solid = document.createElement('td')
+        solid.innerText = this.label();
         solid.className = 'solid';
         return solid;
     }
 
+    label() {
+        //IMPL for each element
+        return '';
+    }
+
     func() {
-        //IMPL func for each element
+        //IMPL for each element
     }
 }
 
 class ElementLogic extends Element {
     createInputBlock() {
-        const input = super.createInputBlock();
-        input.createPinPassive = () => {
-            input.appendChild(new PinPassive());
-        };
-        input.createPinPassive();
-        input.createPinPassive();
-        return input;
+        return super.createInputBlock();
     }
 
     createOutputBlock() {
-        const output = super.createOutputBlock();
-        output.appendChild(new PinFunctional(this.func));
-        return output;
+        return super.createOutputBlock();
     }
 
     func() {
-        //IMPL func for each element
+        //IMPL
     }
 }
 
 class ElementLogicAnd extends ElementLogic {
-    createSolid() {
-        let solid = super.createSolid();
-        solid.innerText = '&';
-        return solid;
+    label() {
+        return '&';
     }
 
     func() {
@@ -125,46 +117,8 @@ class ElementLogicAnd extends ElementLogic {
 }
 
 class ElementLogicOr extends ElementLogic {
-    createSolid() {
-        let solid = super.createSolid();
-        solid.innerText = '1';
-        return solid;
-    }
-
-    func() {
-        //IMPL
-    }
-}
-
-class ElementLogicAndNot extends ElementLogic {
-    createSolid() {
-        let solid = super.createSolid();
-        solid.innerText = '&';
-        return solid;
-    }
-
-    func() {
-        //IMPL
-    }
-}
-
-class ElementLogicOrNot extends ElementLogic {
-    createSolid() {
-        let solid = super.createSolid();
-        solid.innerText = '1';
-        return solid;
-    }
-
-    func() {
-        //IMPL
-    }
-}
-
-class ElementLogicNot extends ElementLogic {
-    createSolid() {
-        let solid = super.createSolid();
-        solid.innerText = '1';
-        return solid;
+    label() {
+        return '1';
     }
 
     func() {
@@ -173,12 +127,28 @@ class ElementLogicNot extends ElementLogic {
 }
 
 class ElementLogicXor extends ElementLogic {
-    createSolid() {
-        let solid = super.createSolid();
-        solid.innerText = '=1';
-        return solid;
+    label() {
+        return '=1';
     }
 
+    func() {
+        //IMPL
+    }
+}
+
+class ElementLogicNand extends ElementLogicAnd {
+    func() {
+        //IMPL
+    }
+}
+
+class ElementLogicNor extends ElementLogicOr {
+    func() {
+        //IMPL
+    }
+}
+
+class ElementLogicNxor extends ElementLogicXor {
     func() {
         //IMPL
     }
@@ -193,7 +163,7 @@ customElements.define('element-logic', ElementLogic, {extends: 'table'});
 
 customElements.define('element-logic-and', ElementLogicAnd, {extends: 'table'});
 customElements.define('element-logic-or', ElementLogicOr, {extends: 'table'});
-customElements.define('element-logic-andnot', ElementLogicAndNot, {extends: 'table'});
-customElements.define('element-logic-ornot', ElementLogicOrNot, {extends: 'table'});
-customElements.define('element-logic-not', ElementLogicNot, {extends: 'table'});
 customElements.define('element-logic-xor', ElementLogicXor, {extends: 'table'});
+customElements.define('element-logic-nand', ElementLogicNand, {extends: 'table'});
+customElements.define('element-logic-nor', ElementLogicNor, {extends: 'table'});
+customElements.define('element-logic-nxor', ElementLogicNxor, {extends: 'table'});

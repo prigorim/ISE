@@ -1,25 +1,21 @@
-#elements_pallet .element {
-    width: 35px;
-}
 .element {
     float: left;
     table-layout: fixed;
     border-collapse: collapse;
-    margin: 0;
+    margin: 5px;
     height: 60px;
-    width: 105px;
+    font-size: 20px;
 }
 
 .element > tr > td {
     padding: 0;
+    width: 35px;
 }
 
 .solid {
     border: 3px solid black;
     text-align: right;
     vertical-align: top;
-    width: 41px;
-    height: 84px;
 }
 
 .pin {
@@ -27,69 +23,4 @@
     height: 3px;
     margin-bottom: 27px;
     margin-top: 27px;
-}
-
-.inverter {
-    background-color: white;
-    border-radius: 50%;
-    width: 7px;
-    height: 7px;
-    border: 3px solid black;
-}
-
-.block-logic {
-    position: relative;
-    width: 105px;
-    height: 90px;
-    float: left;
-    margin: 5px 5px 15px 5px;
-    left:30px;
-}
-
-.block-logic p {
-    position: absolute;
-    top: 92px;
-    align-content: center;
-    margin: 0;
-    width: 105px;
-    left: -30px;
-}
-
-.input-logic-1 {
-    position: absolute;
-    background-color: black;
-    height: 3px;
-    width: 30px;
-    left: -30px;
-    top: 27px;
-}
-
-.input-logic-2 {
-    position: absolute;
-    background-color: black;
-    height: 3px;
-    width: 30px;
-    left: -30px;
-    top: 57px;
-}
-
-.output-logic {
-    position: absolute;
-    background-color: black;
-    height: 3px;
-    margin-bottom: 42px;
-    margin-top: 42px;
-    width: 30px;
-    left: 45px;
-}
-
-.output-logic-circle{
-    background-color: white;
-    position: absolute;
-    border-radius: 50%;
-    width: 7px;
-    height: 7px;
-    border: 3px solid black;
-    top: 38px;
-    left: 39px;
 }
