@@ -1,5 +1,5 @@
 const jsPlumbInstance = jsPlumb.getInstance({
-    //IMPL defaults!!!
+    Endpoint:[ "Dot", { radius:5} ],
 });
 const canvas = document.getElementById('canvas');
 jsPlumbInstance.setContainer(canvas);
@@ -10,7 +10,8 @@ class Pin extends HTMLDivElement {
         this.className = 'pin';
         setTimeout(() => jsPlumbInstance.addEndpoint(this,
             {anchor: this.anchor(), connector: "Flowchart"},
-            {isSource: true, isTarget: true}),
+            {isSource: true, isTarget: true}
+            ),
             0);
     }
 

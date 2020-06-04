@@ -6,7 +6,6 @@ svg path {
 svg circle {
     fill: #333333;
     fill-opacity: 0;
-    stroke: rgb(100,139,237);
 
 }
 svg circle:hover{
