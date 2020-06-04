@@ -111,7 +111,7 @@ const MixInsPinFunctionalBlock = Element => class extends Element {
 
 class ElementLogic extends MixInsInputBlock(MixInsPinFunctionalBlock(Element)) {
     func() {
-        //IMPL
+        return [...this.pinPassiveBlock.childNodes].map(passivePin => passivePin.level());
     }
 
     createPinPassiveBlock() {
