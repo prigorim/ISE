@@ -118,6 +118,7 @@ class ElementLogic extends MixInsInputBlock(MixInsPinFunctionalBlock(Element)) {
         if (this.parentNode === canvas) {
             this.pinPassiveBlock = document.createElement('td');
             this.pinPassiveBlock.appendChild(new PinPassive());
+            this.pinPassiveBlock.appendChild(new PinPassive());
             return this.pinPassiveBlock;
         }
         return super.createPinPassiveBlock();
@@ -126,7 +127,6 @@ class ElementLogic extends MixInsInputBlock(MixInsPinFunctionalBlock(Element)) {
     createPinFunctionalBlock() {
         if (this.parentNode === canvas) {
             const pinFunctionalBlock = document.createElement('td');
-            pinFunctionalBlock.appendChild(new PinFunctional(this.func));
             pinFunctionalBlock.appendChild(new PinFunctional(this.func));
             return pinFunctionalBlock;
         }
