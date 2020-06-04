@@ -5,7 +5,7 @@ document.onclick = function () {
         $('#elements_pallet .element').draggable({
             appendTo: '#canvas',
             revert: 'invalid',
-            helper: () => new Element(),
+            helper: () => new Element(),//IMPL some interesting
             zIndex: 99
         });
         $(canvas).droppable({

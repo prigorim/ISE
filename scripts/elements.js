@@ -1,4 +1,6 @@
-const jsPlumbInstance = jsPlumb.getInstance();
+const jsPlumbInstance = jsPlumb.getInstance({
+    //IMPL defaults!!!
+});
 const canvas = document.getElementById('canvas');
 jsPlumbInstance.setContainer(canvas);
 
@@ -12,22 +14,22 @@ class Pin extends HTMLDivElement {
             0);
     }
 
-    anchor() {
+    level() {
         //IMPL for each pin
     }
 
-    level() {
+    anchor() {
         //IMPL for each pin
     }
 }
 
 class PinPassive extends Pin {
-    anchor() {
-        return "Left";
-    }
-
     level() {
         //IMPL aggregation all connected
+    }
+
+    anchor() {
+        return "Left";
     }
 }
 
@@ -47,32 +49,22 @@ class Element extends HTMLTableElement {
         super();
         this.className = 'element';
         const row = document.createElement('tr');
-
-        setTimeout(() => {
-                if (this.parentElement === canvas) {//Q not best practise?
-                    this.inputBlock = this.createInputBlock();
-                    row.insertBefore(this.inputBlock, row.firstChild);
-                    this.outputBlock = this.createOutputBlock();
-                    row.insertBefore(this.outputBlock, null);
-                    jsPlumbInstance.draggable(this, {
-                        containment: 'parent',
-                        grid: [15, 15]
-                    })
-                }
-            }, 0
-        )
-
-        row.appendChild(this.createSolid());
-
         this.appendChild(row);
+        setTimeout(() => {
+            row.append(this.components())
+            if (this.parentNode === canvas) {
+                jsPlumbInstance.draggable(this, {
+                    grid: [15, 15],
+                    containment: 'parent',
+                });
+            }
+        }, 0);
     }
 
-    createInputBlock() {
-        return document.createElement('td');
-    }
-
-    createOutputBlock() {
-        return document.createElement('td');
+    components() {
+        const nodes = document.createDocumentFragment();
+        nodes.appendChild(this.createSolid());
+        return nodes;
     }
 
     createSolid() {
@@ -82,57 +74,91 @@ class Element extends HTMLTableElement {
         return solid;
     }
 
-    label() {
+    func() {
         //IMPL for each element
-        return '';
     }
 
-    func() {
+    label() {
         //IMPL for each element
     }
 }
 
-class ElementLogic extends Element {
-    createInputBlock() {
-        return super.createInputBlock();
+const MixInsInputBlock = Element => class extends Element {
+    components() {
+        const components = super.components();
+        components.insertBefore(this.createPinPassiveBlock(), components.firstChild);
+        return components;
     }
 
-    createOutputBlock() {
-        return super.createOutputBlock();
+    createPinPassiveBlock() {
+        return document.createTextNode('');
+    }
+}
+
+const MixInsPinFunctionalBlock = Element => class extends Element {
+    components() {
+        const components = super.components();
+        components.insertBefore(this.createPinFunctionalBlock(), null);
+        return components;
     }
 
+    createPinFunctionalBlock() {
+        return document.createTextNode('');
+    }
+}
+
+class ElementLogic extends MixInsInputBlock(MixInsPinFunctionalBlock(Element)) {
     func() {
         //IMPL
+    }
+
+    createPinPassiveBlock() {
+        if (this.parentNode === canvas) {
+            this.pinPassiveBlock = document.createElement('td');
+            this.pinPassiveBlock.appendChild(new PinPassive());
+            return this.pinPassiveBlock;
+        }
+        return super.createPinPassiveBlock();
+    }
+
+    createPinFunctionalBlock() {
+        if (this.parentNode === canvas) {
+            const pinFunctionalBlock = document.createElement('td');
+            pinFunctionalBlock.appendChild(new PinFunctional(this.func));
+            pinFunctionalBlock.appendChild(new PinFunctional(this.func));
+            return pinFunctionalBlock;
+        }
+        return super.createPinFunctionalBlock();
     }
 }
 
 class ElementLogicAnd extends ElementLogic {
-    label() {
-        return '&';
-    }
-
     func() {
         //IMPL
+    }
+
+    label() {
+        return '&';
     }
 }
 
 class ElementLogicOr extends ElementLogic {
-    label() {
-        return '1';
-    }
-
     func() {
         //IMPL
+    }
+
+    label() {
+        return '1';
     }
 }
 
 class ElementLogicXor extends ElementLogic {
-    label() {
-        return '=1';
-    }
-
     func() {
         //IMPL
+    }
+
+    label() {
+        return '=1';
     }
 }
 
@@ -155,8 +181,8 @@ class ElementLogicNxor extends ElementLogicXor {
 }
 
 customElements.define('element-pin', Pin, {extends: 'div'});
-customElements.define('element-pin-input', PinPassive, {extends: 'div'});
-customElements.define('element-pin-output', PinFunctional, {extends: 'div'});
+customElements.define('element-pin-passive', PinPassive, {extends: 'div'});
+customElements.define('element-pin-functional', PinFunctional, {extends: 'div'});
 
 customElements.define('element-ise', Element, {extends: 'table'});
 customElements.define('element-logic', ElementLogic, {extends: 'table'});
