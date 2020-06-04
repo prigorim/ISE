@@ -81,6 +81,7 @@ class Element extends HTMLTableElement {
 
     label() {
         //IMPL for each element
+        return '';
     }
 }
 
