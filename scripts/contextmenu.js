@@ -51,7 +51,7 @@ $(document).ready(function () {
                     .show('fast');
             }
             //alert(target.classList);
-            if (target.is("<table/>")) {
+            if (target.is(".solid")) {
                 $('<div/>', {
                     class: 'context-menu'
                 })
