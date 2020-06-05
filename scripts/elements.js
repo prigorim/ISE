@@ -3,7 +3,7 @@ const jsPlumbInstance = jsPlumb.getInstance({
 });
 const canvas = document.getElementById('canvas');
 jsPlumbInstance.setContainer(canvas);
-
+let counter=0;
 class Pin extends HTMLDivElement {
     constructor() {
         super();
@@ -51,6 +51,7 @@ class PinFunctional extends Pin {
 class Element extends HTMLTableElement {
     constructor() {
         super();
+        this.id='log-'+counter++;
         this.className = 'element';
         const row = document.createElement('tr');
         this.appendChild(row);
@@ -110,6 +111,24 @@ const MixInsPinFunctionalBlock = Element => class extends Element {
 
     createPinFunctionalBlock() {
         return document.createTextNode('');
+    }
+}
+
+class ElementOne extends MixInsPinFunctionalBlock(Element) {
+    createPinFunctionalBlock() {
+        if (this.parentNode === canvas) {
+            const pinFunctionalBlock = document.createElement('td');
+            pinFunctionalBlock.appendChild(new PinFunctional(this.func));
+            return pinFunctionalBlock;
+        }
+        return super.createPinFunctionalBlock();
+    }
+
+    func() {
+        return true
+    }
+    label() {
+        return '1';
     }
 }
 
@@ -189,6 +208,7 @@ customElements.define('element-pin-functional', PinFunctional, {extends: 'div'})
 customElements.define('element-ise', Element, {extends: 'table'});
 customElements.define('element-logic', ElementLogic, {extends: 'table'});
 
+customElements.define('element-one', ElementOne, {extends: 'table'});
 customElements.define('element-logic-and', ElementLogicAnd, {extends: 'table'});
 customElements.define('element-logic-or', ElementLogicOr, {extends: 'table'});
 customElements.define('element-logic-xor', ElementLogicXor, {extends: 'table'});
