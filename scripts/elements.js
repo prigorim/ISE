@@ -73,7 +73,8 @@ class PinBlock extends HTMLTableCellElement {
 
     createPinIncButton() {
         const incButton = document.createElement('button');
-        incButton.className = 'incButton'
+        incButton.className = 'logButton incButton';
+        incButton.textContent= '+';
         incButton.onclick = () => this.addPin(this.pinCount);
         incButton.enabled = this.pinCount > 1;
         return incButton;
@@ -81,7 +82,8 @@ class PinBlock extends HTMLTableCellElement {
 
     createPinDecButton() {
         const decButton = document.createElement('button');
-        decButton.className = 'decButton'
+        decButton.className = 'logButton decButton'
+        decButton.textContent= '-';
         decButton.onclick = () => this.removePin();
         return decButton;
     }

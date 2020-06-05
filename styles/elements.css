@@ -14,66 +14,65 @@
 }
 
 .solid {
-    box-sizing:border-box;
-    border: 3px solid black;
+    box-sizing: border-box;
+    border: 3px solid #333333;
     text-align: right;
     vertical-align: top;
 }
 
 .pin {
-    background-color: black;
+    background-color: #333333;
     height: 3px;
     margin-bottom: 22px;
     margin-top: 22px;
 }
+
 /*TODO simplify*/
 .pin-invert {
     position: relative;
     background: white;
     height: 10px;
     width: 10px;
-    border: 3px solid black;
+    border: 3px solid #333333;
     border-radius: 50%;
     left: calc(100% - 5px);
 }
 
-.incButton {
-    position: absolute;
+.logButton {
     display: inline-block;
+    padding: 0;
+    background-color: white;
+    color: rgb(100,139,237);
+    position: absolute;
+    border: 1px solid rgb(100,139,237);
+    border-radius: 50%;
+    opacity: 0.5;
+    height: 14px;
+    width:14px;
+}
+
+.logButton:hover{
+    opacity: 1;
+}
+
+.logButton:focus{
+    outline: none;
+
+}
+
+.logButton:active {
+    outline: none;
+    color: #ededed;
+    background-color: #333333;
+    border: 1px solid #333333;
+}
+
+.incButton {
     left: 16px;
-    top: 0px;
-    background: blue;
-    border: none;
-    height: 12px;
-}
-.incButton:hover {
-    border: none;
-    outline: none;
-}
-
-.incButton:active{
-    border: none;
-    outline: none;
-}
-
-.incButton:focus {
-    border: none;
-    outline: none;
+    top: -15px;
 }
 
 .decButton {
-    position: absolute;
-    display: inline-block;
-    top: 0px;
-    left: 2px;
-    background: red;
-    border: none;
-    height: 12px;
-}
-.decButton:hover {
-
-}
-
-.decButton:active {
-
+    left:1px;
+    top: -15px;
 }
