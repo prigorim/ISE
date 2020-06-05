@@ -31,9 +31,13 @@ class Pin extends HTMLDivElement {
 class PinPassive extends Pin {
     level() {
         return jsPlumbInstance.getConnections({target: this.id})
-            .map(connection => connection.source.level).concat(
-                jsPlumbInstance.getConnections({source: this.id})
-                    .map(connection => connection.target.level))
+            .map(connection => connection.source)
+            .concat
+            (jsPlumbInstance.getConnections({source: this.id})
+                .map(connection => connection.target)
+            )
+            .filter(pin => pin instanceof PinFunctional)
+            .map(pin => pin.level())
             .some(Boolean)
     }
 
@@ -130,7 +134,7 @@ class ElementOne extends MixInsPinFunctionalBlock(Element) {
     }
 
     func() {
-        return true
+        return true;
     }
 
     label() {
@@ -152,7 +156,7 @@ class ElementLogic extends MixInsPinPassiveBlock(MixInsPinFunctionalBlock(Elemen
     createPinFunctionalBlock() {
         if (this.parentNode === canvas) {
             const pinFunctionalBlock = document.createElement('td');
-            pinFunctionalBlock.appendChild(new PinFunctional(this.func));
+            pinFunctionalBlock.appendChild(new PinFunctional(this.func.bind(this)));
             return pinFunctionalBlock;
         }
         return super.createPinFunctionalBlock();
