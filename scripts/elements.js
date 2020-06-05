@@ -144,7 +144,7 @@ class PinBlock extends HTMLTableCellElement {
     removePin() {
         if (this.pinCount > 2) {
             //TODO ОБРАТИЦА К ТОЧКАМ КОТОРЫЕ НАДА УДАЛЯТ
-            //jsPlumb.deleteEndpoint(this.lastChild);
+            jsPlumb.removeAllEndpoints(this.lastChild);
             jsPlumb.remove(this.lastChild);
             //this.removeChild(this.lastChild);
             this.pinCount--;
