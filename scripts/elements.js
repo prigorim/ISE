@@ -60,19 +60,20 @@ class PinFunctional extends Pin {
 class PinBlock extends HTMLTableCellElement {
     constructor(pinCount, buttons) {
         super();
+        if (buttons) {
+            this.appendChild(this.createPinIncButton());
+            this.appendChild(this.createPinDecButton());
+        }
         this.pinCount = pinCount;
         for (let i = 0; i < pinCount; i++) {
             this.addPin();
         }
         //TODO extract to mix-ins
-        if (buttons) {
-            this.appendChild(this.createPinIncButton());
-            this.appendChild(this.createPinDecButton());
-        }
     }
 
     createPinIncButton() {
         const incButton = document.createElement('button');
+        incButton.className = 'incButton'
         incButton.onclick = () => this.addPin();
         incButton.enabled = this.pinCount > 1;
         return incButton;
@@ -80,6 +81,7 @@ class PinBlock extends HTMLTableCellElement {
 
     createPinDecButton() {
         const decButton = document.createElement('button');
+        decButton.className = 'decButton'
         decButton.onclick = () => this.removePin();
         return decButton;
     }

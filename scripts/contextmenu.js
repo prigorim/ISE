@@ -67,7 +67,6 @@ $(document).ready(function () {
                     .show('fast');
                 $("#remove_element").click(function () {
                     alert(1);
-                    target.remove();
                 });
             }
 
