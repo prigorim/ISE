@@ -78,6 +78,24 @@ class PinBlock extends HTMLTableCellElement {
     }
 }
 
+const MixInsPinIncButtons = Block => class extends Block {
+    constructor() {
+        super();
+        this.appendChild(this.createPinIncButton());
+        this.appendChild(this.createPinDecButton());
+    }
+
+    createPinIncButton() {
+        const incButton = document.createElement('div');
+        incButton.onclick = () => this.addPin();
+    }
+
+    createPinDecButton() {
+        const decButton = document.createElement('div');
+        decButton.onclick = () => this.removePin();
+    }
+}
+
 class PinPassiveBlock extends PinBlock {
     addPin() {
         super.addPin();
@@ -235,16 +253,6 @@ class ElementLogicOr extends ElementLogic {
     }
 }
 
-class ElementLogicNor extends MixInsNot(ElementLogicOr){
-    createPinPassiveBlock() {
-        if (this.parentNode === canvas) {
-            this.pinPassiveBlock = new PinPassiveBlock(1);
-            return this.pinPassiveBlock;
-        }
-        return super.createPinPassiveBlock();
-    }
-}
-
 class ElementLogicXor extends ElementLogic {
     func() {
         return super.func().filter(Boolean).length === 1;
@@ -252,6 +260,16 @@ class ElementLogicXor extends ElementLogic {
 
     label() {
         return '=1';
+    }
+}
+
+class ElementLogicNor extends MixInsNot(ElementLogicOr) {
+    createPinPassiveBlock() {
+        if (this.parentNode === canvas) {
+            this.pinPassiveBlock = new PinPassiveBlock(1);
+            return this.pinPassiveBlock;
+        }
+        return super.createPinPassiveBlock();
     }
 }
 
