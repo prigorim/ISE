@@ -1,5 +1,5 @@
 const jsPlumbInstance = jsPlumb.getInstance({
-    Endpoint: ["Dot", {radius: 5}],
+    Endpoint: ["Dot",{radius: 5}],
 });
 const canvas = document.getElementById('canvas');
 jsPlumbInstance.setContainer(canvas);
@@ -11,7 +11,18 @@ class Pin extends HTMLDivElement {
         this.className = 'pin';
         setTimeout(() => jsPlumbInstance.addEndpoint(this,
             //TODO extract to defaults
-            {anchor: this.anchor(), connector: "Flowchart"},
+            {
+                anchor: this.anchor(),
+                paintStyle: {
+                    fill: "transparent",
+                    outlineStroke: "#333333",
+                    outlineWidth: 1,
+                    opacity: "0.5",
+                },
+                hoverPaintStyle: {
+                    fill: "rgba(100,139,237,1)"},
+                connector: "Flowchart"
+            },
             {isSource: true, isTarget: true}),
             0);
         this.onclick = () => console.log(this.level());
@@ -75,6 +86,15 @@ class PinBlock extends HTMLTableCellElement {
         //TODO extract to mix-ins
     }
 
+    createPinDecButton() {
+        const decButton = document.createElement('button');
+        decButton.className = 'logButton'
+        decButton.textContent = '-';
+        decButton.style = 'left: 1px;';
+        decButton.onclick = () => this.removePin();
+        return decButton;
+    }
+
     createPinIncButton() {
         const incButton = document.createElement('button');
         incButton.className = 'logButton';
@@ -83,15 +103,6 @@ class PinBlock extends HTMLTableCellElement {
         incButton.onclick = () => this.addPin(this.pinCount);
         incButton.enabled = this.pinCount > 1;
         return incButton;
-    }
-
-    createPinDecButton() {
-        const decButton = document.createElement('button');
-        decButton.className = 'logButton'
-        decButton.textContent = '-';
-        decButton.style = 'left: 1px;';
-        decButton.onclick = () => this.removePin();
-        return decButton;
     }
 
     createPinFlipHorizontalButton() {
@@ -132,7 +143,10 @@ class PinBlock extends HTMLTableCellElement {
 
     removePin() {
         if (this.pinCount > 2) {
-            this.removeChild(this.lastChild);
+            //TODO ОБРАТИЦА К ТОЧКАМ КОТОРЫЕ НАДА УДАЛЯТ
+            //jsPlumb.deleteEndpoint(this.lastChild);
+            jsPlumb.remove(this.lastChild);
+            //this.removeChild(this.lastChild);
             this.pinCount--;
         }
     }

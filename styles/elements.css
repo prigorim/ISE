@@ -36,7 +36,7 @@
     width: 8px;
     border: 3px solid #333333;
     border-radius: 50%;
-    left: 59%;
+    left: 58%;
     top: calc(50% - 7px);
 }
 
@@ -71,3 +71,11 @@
     border: 1px solid #333333;
 }
 
+svg path {
+    stroke:#333333;
+    stroke-width:3;
+}
+
+svg path:hover {
+    stroke: rgba(100,139,237,1);
+}
