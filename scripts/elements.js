@@ -58,12 +58,28 @@ class PinFunctional extends Pin {
 }
 
 class PinBlock extends HTMLTableCellElement {
-    constructor(pinCount) {
+    constructor(pinCount, buttons) {
         super();
         this.pinCount = pinCount;
         for (let i = 0; i < pinCount; i++) {
             this.addPin();
         }
+        if (buttons) {
+            this.appendChild(this.createPinIncButton());
+            this.appendChild(this.createPinDecButton());
+        }
+    }
+
+    createPinIncButton() {
+        const incButton = document.createElement('div');
+        incButton.onclick = () => this.addPin();
+        return incButton;
+    }
+
+    createPinDecButton() {
+        const decButton = document.createElement('div');
+        decButton.onclick = () => this.removePin();
+        return decButton;
     }
 
     addPin() {
@@ -78,24 +94,6 @@ class PinBlock extends HTMLTableCellElement {
     }
 }
 
-const MixInsPinIncButtons = Block => class extends Block {
-    constructor() {
-        super();
-        this.appendChild(this.createPinIncButton());
-        this.appendChild(this.createPinDecButton());
-    }
-
-    createPinIncButton() {
-        const incButton = document.createElement('div');
-        incButton.onclick = () => this.addPin();
-    }
-
-    createPinDecButton() {
-        const decButton = document.createElement('div');
-        decButton.onclick = () => this.removePin();
-    }
-}
-
 class PinPassiveBlock extends PinBlock {
     addPin() {
         super.addPin();
@@ -104,8 +102,8 @@ class PinPassiveBlock extends PinBlock {
 }
 
 class PinFunctionalBlock extends PinBlock {
-    constructor(pinCount, func) {
-        super(pinCount);
+    constructor(pinCount, func, inc, dec) {
+        super(pinCount, inc, dec);
         this.func = func;
     }
 
@@ -266,7 +264,7 @@ class ElementLogicXor extends ElementLogic {
 class ElementLogicNor extends MixInsNot(ElementLogicOr) {
     createPinPassiveBlock() {
         if (this.parentNode === canvas) {
-            this.pinPassiveBlock = new PinPassiveBlock(1);
+            this.pinPassiveBlock = new PinPassiveBlock(1, true);
             return this.pinPassiveBlock;
         }
         return super.createPinPassiveBlock();
