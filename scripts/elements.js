@@ -64,6 +64,7 @@ class PinBlock extends HTMLTableCellElement {
         for (let i = 0; i < pinCount; i++) {
             this.addPin();
         }
+        //TODO extract to mix-ins
         if (buttons) {
             this.appendChild(this.createPinIncButton());
             this.appendChild(this.createPinDecButton());
@@ -71,13 +72,14 @@ class PinBlock extends HTMLTableCellElement {
     }
 
     createPinIncButton() {
-        const incButton = document.createElement('div');
+        const incButton = document.createElement('button');
         incButton.onclick = () => this.addPin();
+        incButton.enabled = this.pinCount > 1;
         return incButton;
     }
 
     createPinDecButton() {
-        const decButton = document.createElement('div');
+        const decButton = document.createElement('button');
         decButton.onclick = () => this.removePin();
         return decButton;
     }
@@ -199,7 +201,7 @@ class ElementOne extends MixInsPinFunctionalBlock(Element) {
 class ElementLogic extends MixInsPinPassiveBlock(MixInsPinFunctionalBlock(Element)) {
     createPinPassiveBlock() {
         if (this.parentNode === canvas) {
-            this.pinPassiveBlock = new PinPassiveBlock(2);
+            this.pinPassiveBlock = new PinPassiveBlock(2, true);
             return this.pinPassiveBlock;
         }
         return super.createPinPassiveBlock();
