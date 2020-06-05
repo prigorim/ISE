@@ -77,8 +77,9 @@ class PinBlock extends HTMLTableCellElement {
 
     createPinIncButton() {
         const incButton = document.createElement('button');
-        incButton.className = 'logButton incButton';
-        incButton.textContent= '+';
+        incButton.className = 'logButton';
+        incButton.textContent = '+';
+        incButton.style = 'left: 16px;';
         incButton.onclick = () => this.addPin(this.pinCount);
         incButton.enabled = this.pinCount > 1;
         return incButton;
@@ -86,38 +87,43 @@ class PinBlock extends HTMLTableCellElement {
 
     createPinDecButton() {
         const decButton = document.createElement('button');
-        decButton.className = 'logButton decButton'
-        decButton.textContent= '-';
+        decButton.className = 'logButton'
+        decButton.textContent = '-';
+        decButton.style = 'left: 1px;';
         decButton.onclick = () => this.removePin();
         return decButton;
     }
 
     createPinFlipHorizontalButton() {
-        const decButton = document.createElement('button');
-        decButton.className = 'logButton flipHorizontalButton'
-        decButton.textContent= '↔';
-        return decButton;
+        const FlipHorizontalButton = document.createElement('button');
+        FlipHorizontalButton.className = 'logButton'
+        FlipHorizontalButton.textContent = '↔';
+        FlipHorizontalButton.style = 'left: 31px;';
+        return FlipHorizontalButton;
     }
 
     createPinFlipVerticalButton() {
-        const decButton = document.createElement('button');
-        decButton.className = 'logButton flipVerticalButton'
-        decButton.textContent= '↕';
-        return decButton;
+        const FlipVerticalButton = document.createElement('button');
+        FlipVerticalButton.className = 'logButton'
+        FlipVerticalButton.textContent = '↕';
+        FlipVerticalButton.style = 'left: 46px;';
+        return FlipVerticalButton;
     }
 
     createPinLeftButton() {
-        const decButton = document.createElement('button');
-        decButton.className = 'logButton leftButton'
-        decButton.textContent= '←';
-        return decButton;
+        const LeftButton = document.createElement('button');
+        LeftButton.className = 'logButton'
+        LeftButton.textContent = '←';
+        LeftButton.style = 'left: 61px;';
+        return LeftButton;
     }
 
     createPinRightButton() {
-        const decButton = document.createElement('button');
-        decButton.className = 'logButton rightButton'
-        decButton.textContent= '→';
-        return decButton;
+        const RightButton = document.createElement('button');
+        RightButton.className = 'logButton'
+        RightButton.textContent = '→';
+        RightButton.style = 'left: 76px;';
+        return RightButton;
     }
 
     addPin(index) {

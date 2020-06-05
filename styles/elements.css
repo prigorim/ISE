@@ -40,24 +40,24 @@
 
 .logButton {
     display: inline-block;
+    position: absolute;
     padding: 0;
     background-color: white;
-    color: rgb(100,139,237);
-    position: absolute;
-    border: 1px solid rgb(100,139,237);
+    color: rgb(100, 139, 237);
+    border: 1px solid rgb(100, 139, 237);
     border-radius: 50%;
-    opacity: 0.3;
     height: 14px;
-    width:14px;
+    width: 14px;
     top: -16px;
     font-size: 9px;
+    opacity: 0.3;
 }
 
-.logButton:hover{
+.logButton:hover {
     opacity: 1;
 }
 
-.logButton:focus{
+.logButton:focus {
     outline: none;
 
 }
@@ -68,29 +68,4 @@
     background-color: #333333;
     border: 1px solid #333333;
 }
-
-.decButton {
-    left:1px;
-}
-
-.incButton {
-    left: 16px;
-}
-
-.flipHorizontalButton {
-    left: 31px;
-}
-
-.flipVerticalButton {
-    left: 46px;
-}
-
-.leftButton {
-    left: 61px;
-}
-
-.rightButton {
-    left: 76px;
-}
-
 
