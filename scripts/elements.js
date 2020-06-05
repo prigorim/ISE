@@ -89,7 +89,7 @@ class PinBlock extends HTMLTableCellElement {
     createPinDecButton() {
         const decButton = document.createElement('button');
         decButton.className = 'logButton'
-        decButton.textContent = '-';
+        decButton.textContent = '﹣';
         decButton.style = 'left: 1px;';
         decButton.onclick = () => this.removePin();
         return decButton;
@@ -108,7 +108,7 @@ class PinBlock extends HTMLTableCellElement {
     createPinFlipHorizontalButton() {
         const FlipHorizontalButton = document.createElement('button');
         FlipHorizontalButton.className = 'logButton'
-        FlipHorizontalButton.textContent = '↔';
+        FlipHorizontalButton.textContent = '⇋';
         FlipHorizontalButton.style = 'left: 31px;';
         return FlipHorizontalButton;
     }
@@ -116,7 +116,7 @@ class PinBlock extends HTMLTableCellElement {
     createPinFlipVerticalButton() {
         const FlipVerticalButton = document.createElement('button');
         FlipVerticalButton.className = 'logButton'
-        FlipVerticalButton.textContent = '↕';
+        FlipVerticalButton.textContent = '⥮';
         FlipVerticalButton.style = 'left: 46px;';
         return FlipVerticalButton;
     }
@@ -124,7 +124,7 @@ class PinBlock extends HTMLTableCellElement {
     createPinLeftButton() {
         const LeftButton = document.createElement('button');
         LeftButton.className = 'logButton'
-        LeftButton.textContent = '←';
+        LeftButton.textContent = '↶';
         LeftButton.style = 'left: 61px;';
         return LeftButton;
     }
@@ -132,7 +132,7 @@ class PinBlock extends HTMLTableCellElement {
     createPinRightButton() {
         const RightButton = document.createElement('button');
         RightButton.className = 'logButton'
-        RightButton.textContent = '→';
+        RightButton.textContent = '↷';
         RightButton.style = 'left: 76px;';
         return RightButton;
     }
