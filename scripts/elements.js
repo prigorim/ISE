@@ -30,7 +30,11 @@ class Pin extends HTMLDivElement {
 
 class PinPassive extends Pin {
     level() {
-        //IMPL aggregation all connected
+        return jsPlumbInstance.getConnections({target: this.id})
+            .map(connection => connection.source.level).concat(
+                jsPlumbInstance.getConnections({source: this.id})
+                    .map(connection => connection.target.level))
+            .some(Boolean)
     }
 
     anchor() {
