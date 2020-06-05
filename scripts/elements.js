@@ -183,7 +183,7 @@ class ElementOne extends MixInsPinFunctionalBlock(Element) {
 class ElementLogic extends MixInsPinPassiveBlock(MixInsPinFunctionalBlock(Element)) {
     createPinPassiveBlock() {
         if (this.parentNode === canvas) {
-            this.pinPassiveBlock = new PinPassiveBlock(1);
+            this.pinPassiveBlock = new PinPassiveBlock(2);
             return this.pinPassiveBlock;
         }
         return super.createPinPassiveBlock();
@@ -191,7 +191,7 @@ class ElementLogic extends MixInsPinPassiveBlock(MixInsPinFunctionalBlock(Elemen
 
     createPinFunctionalBlock() {
         if (this.parentNode === canvas) {
-            return new PinFunctionalBlock(2, this.func.bind(this));
+            return new PinFunctionalBlock(1, this.func.bind(this));
         }
         return super.createPinFunctionalBlock();
     }
@@ -235,6 +235,16 @@ class ElementLogicOr extends ElementLogic {
     }
 }
 
+class ElementLogicNor extends MixInsNot(ElementLogicOr){
+    createPinPassiveBlock() {
+        if (this.parentNode === canvas) {
+            this.pinPassiveBlock = new PinPassiveBlock(1);
+            return this.pinPassiveBlock;
+        }
+        return super.createPinPassiveBlock();
+    }
+}
+
 class ElementLogicXor extends ElementLogic {
     func() {
         return super.func().filter(Boolean).length === 1;
@@ -260,5 +270,5 @@ customElements.define('element-logic-and', ElementLogicAnd, {extends: 'table'});
 customElements.define('element-logic-or', ElementLogicOr, {extends: 'table'});
 customElements.define('element-logic-xor', ElementLogicXor, {extends: 'table'});
 customElements.define('element-logic-nand', MixInsNot(ElementLogicAnd), {extends: 'table'});
-customElements.define('element-logic-nor', MixInsNot(ElementLogicOr), {extends: 'table'});
+customElements.define('element-logic-nor', ElementLogicNor, {extends: 'table'});
 customElements.define('element-logic-nxor', MixInsNot(ElementLogicXor), {extends: 'table'});
