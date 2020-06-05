@@ -49,7 +49,7 @@ class PinPassive extends Pin {
 class PinFunctional extends Pin {
     constructor(func) {
         super();
-        this.level = () => func();
+        this.level = () => func(this.index);
     }
 
     anchor() {
@@ -66,7 +66,7 @@ class PinBlock extends HTMLTableCellElement {
         }
         this.pinCount = pinCount;
         for (let i = 0; i < pinCount; i++) {
-            this.addPin();
+            this.addPin(i);
         }
         //TODO extract to mix-ins
     }
@@ -74,7 +74,7 @@ class PinBlock extends HTMLTableCellElement {
     createPinIncButton() {
         const incButton = document.createElement('button');
         incButton.className = 'incButton'
-        incButton.onclick = () => this.addPin();
+        incButton.onclick = () => this.addPin(this.pinCount);
         incButton.enabled = this.pinCount > 1;
         return incButton;
     }
@@ -86,12 +86,12 @@ class PinBlock extends HTMLTableCellElement {
         return decButton;
     }
 
-    addPin() {
+    addPin(index) {
         this.pinCount++;
     }
 
     removePin() {
-        if (this.pinCount > 1) {
+        if (this.pinCount > 2) {
             this.removeChild(this.lastChild);
             this.pinCount--;
         }
@@ -99,20 +99,20 @@ class PinBlock extends HTMLTableCellElement {
 }
 
 class PinPassiveBlock extends PinBlock {
-    addPin() {
+    addPin(index) {
         super.addPin();
         this.appendChild(new PinPassive());
     }
 }
 
 class PinFunctionalBlock extends PinBlock {
-    constructor(pinCount, func, inc, dec) {
-        super(pinCount, inc, dec);
+    constructor(pinCount, func, inc) {
+        super(pinCount, inc);
         this.func = func;
     }
 
-    addPin() {
-        super.addPin();
+    addPin(index) {
+        super.addPin(index);
         this.appendChild(new PinFunctional(this.func))
     }
 }
@@ -275,6 +275,26 @@ class ElementLogicNor extends MixInsNot(ElementLogicOr) {
     }
 }
 
+class ElementLogicCounter extends MixInsPinFunctionalBlock(Element) {
+    constructor() {
+        super();
+        this.value = 0;
+    }
+    createPinFunctionalBlock() {
+        if (this.parentNode === canvas) {
+            return new PinFunctionalBlock(1, (index)=>{return this.func.bind(this)()&index},true);
+        }
+        return super.createPinFunctionalBlock();
+    }
+    func(){
+
+        return this.value++;
+    }
+    label() {
+        return 'RST';
+    }
+}
+
 customElements.define('element-pin', Pin, {extends: 'div'});
 customElements.define('element-pin-passive', PinPassive, {extends: 'div'});
 customElements.define('element-pin-functional', PinFunctional, {extends: 'div'});
@@ -292,3 +312,5 @@ customElements.define('element-logic-xor', ElementLogicXor, {extends: 'table'});
 customElements.define('element-logic-nand', MixInsNot(ElementLogicAnd), {extends: 'table'});
 customElements.define('element-logic-nor', ElementLogicNor, {extends: 'table'});
 customElements.define('element-logic-nxor', MixInsNot(ElementLogicXor), {extends: 'table'});
+
+customElements.define('element-logic-counter', ElementLogicCounter, {extends: 'table'});
