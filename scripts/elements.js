@@ -280,16 +280,21 @@ class ElementLogicCounter extends MixInsPinFunctionalBlock(Element) {
         super();
         this.value = 0;
     }
+
     createPinFunctionalBlock() {
         if (this.parentNode === canvas) {
-            return new PinFunctionalBlock(1, (index)=>{return this.func.bind(this)()&index},true);
+            return new PinFunctionalBlock(1, (index) => {
+                return this.func.bind(this)() & index
+            }, true);
         }
         return super.createPinFunctionalBlock();
     }
-    func(){
+
+    func() {
 
         return this.value++;
     }
+
     label() {
         return 'RST';
     }
