@@ -143,7 +143,7 @@ class PinBlock extends HTMLTableCellElement {
 
     removePin() {
         if (this.pinCount > 2) {
-            //TODO ОБРАТИЦА К ТОЧКАМ КОТОРЫЕ НАДА УДАЛЯТ
+            //TODO ОБРАТИЦА К ТОЧКАМ КОТОРЫЕ НАДА УДАЛЯТ ОНИ НА КАНВЕ А Я В ГОВНЕ
             //connections
             var conns = jsPlumb.getConnections({source: this.lastChild });
             for (var i = 0; i < conns.length; i++) jsPlumb.detach(conns[i]);
