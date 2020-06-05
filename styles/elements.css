@@ -46,9 +46,11 @@
     position: absolute;
     border: 1px solid rgb(100,139,237);
     border-radius: 50%;
-    opacity: 0.5;
+    opacity: 0.3;
     height: 14px;
     width:14px;
+    top: -16px;
+    font-size: 9px;
 }
 
 .logButton:hover{
@@ -62,17 +64,33 @@
 
 .logButton:active {
     outline: none;
-    color: #ededed;
+    color: white;
     background-color: #333333;
     border: 1px solid #333333;
 }
 
-.incButton {
-    left: 16px;
-    top: -15px;
-}
-
 .decButton {
     left:1px;
-    top: -15px;
 }
+
+.incButton {
+    left: 16px;
+}
+
+.flipHorizontalButton {
+    left: 31px;
+}
+
+.flipVerticalButton {
+    left: 46px;
+}
+
+.leftButton {
+    left: 61px;
+}
+
+.rightButton {
+    left: 76px;
+}
+
+

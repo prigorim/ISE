@@ -63,6 +63,10 @@ class PinBlock extends HTMLTableCellElement {
         if (buttons) {
             this.appendChild(this.createPinIncButton());
             this.appendChild(this.createPinDecButton());
+            this.appendChild(this.createPinFlipHorizontalButton());
+            this.appendChild(this.createPinFlipVerticalButton());
+            this.appendChild(this.createPinLeftButton());
+            this.appendChild(this.createPinRightButton());
         }
         this.pinCount = pinCount;
         for (let i = 0; i < pinCount; i++) {
@@ -85,6 +89,34 @@ class PinBlock extends HTMLTableCellElement {
         decButton.className = 'logButton decButton'
         decButton.textContent= '-';
         decButton.onclick = () => this.removePin();
+        return decButton;
+    }
+
+    createPinFlipHorizontalButton() {
+        const decButton = document.createElement('button');
+        decButton.className = 'logButton flipHorizontalButton'
+        decButton.textContent= '↔';
+        return decButton;
+    }
+
+    createPinFlipVerticalButton() {
+        const decButton = document.createElement('button');
+        decButton.className = 'logButton flipVerticalButton'
+        decButton.textContent= '↕';
+        return decButton;
+    }
+
+    createPinLeftButton() {
+        const decButton = document.createElement('button');
+        decButton.className = 'logButton leftButton'
+        decButton.textContent= '←';
+        return decButton;
+    }
+
+    createPinRightButton() {
+        const decButton = document.createElement('button');
+        decButton.className = 'logButton rightButton'
+        decButton.textContent= '→';
         return decButton;
     }
 
