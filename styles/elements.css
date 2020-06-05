@@ -23,19 +23,21 @@
 .pin {
     background-color: #333333;
     height: 3px;
-    margin-bottom: 22px;
-    margin-top: 22px;
+    margin-bottom: 27px;
+    margin-top: 27px;
 }
 
 /*TODO simplify*/
 .pin-invert {
-    position: relative;
+    display: inline-block;
+    position: absolute;
     background: white;
-    height: 10px;
-    width: 10px;
+    height: 8px;
+    width: 8px;
     border: 3px solid #333333;
     border-radius: 50%;
-    left: calc(100% - 5px);
+    left: 59%;
+    top: calc(50% - 7px);
 }
 
 .logButton {
@@ -50,7 +52,7 @@
     width: 14px;
     top: -16px;
     font-size: 9px;
-    opacity: 0.3;
+    opacity: 0.25;
 }
 
 .logButton:hover {
