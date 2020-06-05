@@ -3,7 +3,8 @@ const jsPlumbInstance = jsPlumb.getInstance({
 });
 const canvas = document.getElementById('canvas');
 jsPlumbInstance.setContainer(canvas);
-let counter=0;
+let counter = 0;
+
 class Pin extends HTMLDivElement {
     constructor() {
         super();
@@ -11,9 +12,9 @@ class Pin extends HTMLDivElement {
         setTimeout(() => jsPlumbInstance.addEndpoint(this,
             //TODO extract to defaults
             {anchor: this.anchor(), connector: "Flowchart"},
-            {isSource: true, isTarget: true}
-            ),
+            {isSource: true, isTarget: true}),
             0);
+        this.onclick = () => console.log(this.level());
     }
 
     level() {
@@ -51,7 +52,7 @@ class PinFunctional extends Pin {
 class Element extends HTMLTableElement {
     constructor() {
         super();
-        this.id='log-'+counter++;
+        this.id = 'log-' + counter++;
         this.className = 'element';
         const row = document.createElement('tr');
         this.appendChild(row);
@@ -90,7 +91,7 @@ class Element extends HTMLTableElement {
     }
 }
 
-const MixInsInputBlock = Element => class extends Element {
+const MixInsPinPassiveBlock = Element => class extends Element {
     components() {
         const components = super.components();
         components.insertBefore(this.createPinPassiveBlock(), components.firstChild);
@@ -127,12 +128,13 @@ class ElementOne extends MixInsPinFunctionalBlock(Element) {
     func() {
         return true
     }
+
     label() {
         return '1';
     }
 }
 
-class ElementLogic extends MixInsInputBlock(MixInsPinFunctionalBlock(Element)) {
+class ElementLogic extends MixInsPinPassiveBlock(MixInsPinFunctionalBlock(Element)) {
     createPinPassiveBlock() {
         if (this.parentNode === canvas) {
             this.pinPassiveBlock = document.createElement('td');
@@ -173,7 +175,7 @@ const MixInsNot = Element => class extends Element {
 
 class ElementLogicAnd extends ElementLogic {
     func() {
-        return super.func().some(Boolean);
+        return super.func().every(Boolean);
     }
 
     label() {
@@ -183,7 +185,7 @@ class ElementLogicAnd extends ElementLogic {
 
 class ElementLogicOr extends ElementLogic {
     func() {
-        return super.func().every(Boolean);
+        return super.func().some(Boolean);
     }
 
     label() {
