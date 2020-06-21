@@ -1,5 +1,5 @@
 const jsPlumbInstance = jsPlumb.getInstance({
-    Endpoint: ["Dot",{radius: 5}],
+    Endpoint: ["Dot", {radius: 5}],
 });
 const canvas = document.getElementById('canvas');
 jsPlumbInstance.setContainer(canvas);
@@ -20,7 +20,8 @@ class Pin extends HTMLDivElement {
                     opacity: "0.5",
                 },
                 hoverPaintStyle: {
-                    fill: "rgba(100,139,237,1)"},
+                    fill: "rgba(100,139,237,1)"
+                },
                 connector: "Flowchart"
             },
             {isSource: true, isTarget: true}),
@@ -60,7 +61,7 @@ class PinPassive extends Pin {
 class PinFunctional extends Pin {
     constructor(func) {
         super();
-        this.level = () => func(this.index);
+        this.level = () => func();
     }
 
     anchor() {
@@ -69,20 +70,18 @@ class PinFunctional extends Pin {
 }
 
 class PinBlock extends HTMLTableCellElement {
-    constructor(pinCount, buttons) {
+    constructor(buttons) {
         super();
-        if (buttons) {
-            this.appendChild(this.createPinIncButton());
-            this.appendChild(this.createPinDecButton());
-            this.appendChild(this.createPinFlipHorizontalButton());
-            this.appendChild(this.createPinFlipVerticalButton());
-            this.appendChild(this.createPinLeftButton());
-            this.appendChild(this.createPinRightButton());
-        }
-        this.pinCount = pinCount;
-        for (let i = 0; i < pinCount; i++) {
-            this.addPin(i);
-        }
+        //
+        // if (buttons) {
+        //     this.appendChild(this.createPinIncButton());
+        //     this.appendChild(this.createPinDecButton());
+        //     this.appendChild(this.createPinFlipHorizontalButton());
+        //     this.appendChild(this.createPinFlipVerticalButton());
+        //     this.appendChild(this.createPinLeftButton());
+        //     this.appendChild(this.createPinRightButton());
+        // }
+        this.pinCount = 0;
         //TODO extract to mix-ins
     }
 
@@ -137,7 +136,7 @@ class PinBlock extends HTMLTableCellElement {
         return RightButton;
     }
 
-    addPin(index) {
+    addPin() {
         this.pinCount++;
     }
 
@@ -145,7 +144,7 @@ class PinBlock extends HTMLTableCellElement {
         if (this.pinCount > 2) {
             //TODO ОБРАТИЦА К ТОЧКАМ КОТОРЫЕ НАДА УДАЛЯТ ОНИ НА КАНВЕ А Я В ГОВНЕ
             //connections
-            var conns = jsPlumb.getConnections({source: this.lastChild });
+            var conns = jsPlumb.getConnections({source: this.lastChild});
             for (var i = 0; i < conns.length; i++) jsPlumb.detach(conns[i]);
             jsPlumb.removeAllEndpoints(this.lastChild);
             jsPlumb.remove(this.lastChild);
@@ -156,20 +155,20 @@ class PinBlock extends HTMLTableCellElement {
 }
 
 class PinPassiveBlock extends PinBlock {
-    addPin(index) {
+    addPin() {
         super.addPin();
         this.appendChild(new PinPassive());
     }
 }
 
 class PinFunctionalBlock extends PinBlock {
-    constructor(pinCount, func, inc) {
-        super(pinCount, inc);
+    constructor(func, inc) {
+        super(inc);
         this.func = func;
     }
 
-    addPin(index) {
-        super.addPin(index);
+    addPin() {
+        super.addPin();
         this.appendChild(new PinFunctional(this.func))
     }
 }
@@ -243,7 +242,9 @@ const MixInsPinFunctionalBlock = Element => class extends Element {
 class ElementOne extends MixInsPinFunctionalBlock(Element) {
     createPinFunctionalBlock() {
         if (this.parentNode === canvas) {
-            return new PinFunctionalBlock(1, this.func);
+            const functionalBlock = new PinFunctionalBlock(this.func);
+            functionalBlock.addPin();
+            return functionalBlock;
         }
         return super.createPinFunctionalBlock();
     }
@@ -260,7 +261,9 @@ class ElementOne extends MixInsPinFunctionalBlock(Element) {
 class ElementLogic extends MixInsPinPassiveBlock(MixInsPinFunctionalBlock(Element)) {
     createPinPassiveBlock() {
         if (this.parentNode === canvas) {
-            this.pinPassiveBlock = new PinPassiveBlock(2, true);
+            this.pinPassiveBlock = new PinPassiveBlock( true);
+            this.pinPassiveBlock.addPin();
+            this.pinPassiveBlock.addPin();
             return this.pinPassiveBlock;
         }
         return super.createPinPassiveBlock();
@@ -268,7 +271,9 @@ class ElementLogic extends MixInsPinPassiveBlock(MixInsPinFunctionalBlock(Elemen
 
     createPinFunctionalBlock() {
         if (this.parentNode === canvas) {
-            return new PinFunctionalBlock(1, this.func.bind(this));
+            const pinFunctionalBlock = new PinFunctionalBlock(this.func.bind(this));
+            pinFunctionalBlock.addPin();
+            return pinFunctionalBlock;
         }
         return super.createPinFunctionalBlock();
     }
@@ -325,7 +330,8 @@ class ElementLogicXor extends ElementLogic {
 class ElementLogicNor extends MixInsNot(ElementLogicOr) {
     createPinPassiveBlock() {
         if (this.parentNode === canvas) {
-            this.pinPassiveBlock = new PinPassiveBlock(1, true);
+            this.pinPassiveBlock = new PinPassiveBlock(true);
+            this.pinPassiveBlock.addPin();
             return this.pinPassiveBlock;
         }
         return super.createPinPassiveBlock();
@@ -340,15 +346,12 @@ class ElementLogicCounter extends MixInsPinFunctionalBlock(Element) {
 
     createPinFunctionalBlock() {
         if (this.parentNode === canvas) {
-            return new PinFunctionalBlock(1, (index) => {
-                return this.func.bind(this)() & index
-            }, true);
+            return new PinFunctionalBlock(this.func.bind(this), true);
         }
         return super.createPinFunctionalBlock();
     }
 
     func() {
-
         return this.value++;
     }
 
