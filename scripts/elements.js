@@ -279,7 +279,7 @@ class ElementLogic extends MixInsPinPassiveBlock(MixInsPinFunctionalBlock(Elemen
     }
 
     func() {
-        return [...this.pinPassiveBlock.childNodes].map(passivePin => passivePin.level());
+        return [...this.pinPassiveBlock.querySelector('div')].map(passivePin => passivePin.level());
     }
 }
 
