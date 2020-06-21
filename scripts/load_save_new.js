@@ -4,7 +4,6 @@ $("#load").click(function () {
 });
 
 $("#save").click(function () {
-    //$("#and").jsPlumb({target: "#andnot"});
 });
 
 $("#create").click(function () {
@@ -12,6 +11,6 @@ $("#create").click(function () {
     let div = document.createElement('div');
     div.className = "ui-draggable ui-draggable-handle checkered";
     div.id = "canvas";
-    wrap.append(div);//как сновы вызвать scale.js? я не знаю
+    wrap.append(div);
     $("#canvas").draggable({});
 });
