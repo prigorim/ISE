@@ -50,7 +50,6 @@ $(document).ready(function () {
                     )
                     .show('fast');
             }
-            //alert(target.classList);
             if (target.is(".solid")) {
                 $('<div/>', {
                     class: 'context-menu'
@@ -65,12 +64,13 @@ $(document).ready(function () {
                             .append('<li id="change_element"><p id="change_element">Изменить элемент</p></li>')
                     )
                     .show('fast');
-                $("#remove_element").click(function () {
-                    alert(1);
-                });
+
             }
 
         }
 
     });
+    $("#remove_element").click(function () {
+                        alert(1);
+                    });
 });

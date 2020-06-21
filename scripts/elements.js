@@ -72,15 +72,15 @@ class PinFunctional extends Pin {
 class PinBlock extends HTMLTableCellElement {
     constructor(buttons) {
         super();
-        //
-        // if (buttons) {
-        //     this.appendChild(this.createPinIncButton());
-        //     this.appendChild(this.createPinDecButton());
+
+         if (buttons) {
+             this.appendChild(this.createPinIncButton());
+             this.appendChild(this.createPinDecButton());
         //     this.appendChild(this.createPinFlipHorizontalButton());
         //     this.appendChild(this.createPinFlipVerticalButton());
         //     this.appendChild(this.createPinLeftButton());
         //     this.appendChild(this.createPinRightButton());
-        // }
+         }
         this.pinCount = 0;
         //TODO extract to mix-ins
     }
