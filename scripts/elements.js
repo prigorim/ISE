@@ -15,7 +15,7 @@ class Pin extends HTMLDivElement {
                 anchor: this.anchor(),
                 paintStyle: {
                     fill: "transparent",
-                    outlineStroke: "#333333",
+                    //outlineStroke: "#FFFFFF",
                     outlineWidth: 1,
                     opacity: "0.5",
                 },
