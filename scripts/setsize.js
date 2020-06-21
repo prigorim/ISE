@@ -37,6 +37,23 @@ $("#id3").click(function () {
 });
 
 $("#clk").click(function () {
+    if ($("#clk")[0].interval) {
+        clearInterval($("#clk")[0].interval);
+        $("#clk")[0].interval = undefined;
+        $("#analyztable")[0].innerText = '';
+    } else {
+        getPinLevels().forEach(pl => {
+            const row = $("#analyztable")[0].insertRow();
+            const column = row.insertCell();
+            column.innerText = pl.label;
+        });
+        $("#clk")[0].interval = setInterval(() => {
+            getPinLevels().forEach((pl, i) => {
+                const column = $("#analyztable tr")[i].insertCell();
+                column.innerText = +pl.level;
+            });
+        }, $("#input_clk")[0].value)
+    }
     $("#analyz").fadeToggle();
     $("#containeranalyzer").fadeToggle();
     $("#clk_edit").fadeToggle();
