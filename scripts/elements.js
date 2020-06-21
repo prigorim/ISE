@@ -9,6 +9,9 @@ class Pin extends HTMLDivElement {
     constructor() {
         super();
         this.className = 'pin';
+        this.label = document.createElement('input');
+        this.label.style.width = '75%';
+        this.appendChild(this.label);
         setTimeout(() => jsPlumbInstance.addEndpoint(this,
             //TODO extract to defaults
             {
@@ -72,15 +75,14 @@ class PinFunctional extends Pin {
 class PinBlock extends HTMLTableCellElement {
     constructor(buttons) {
         super();
-
-         if (buttons) {
-             this.appendChild(this.createPinIncButton());
-             this.appendChild(this.createPinDecButton());
-        //     this.appendChild(this.createPinFlipHorizontalButton());
-        //     this.appendChild(this.createPinFlipVerticalButton());
-        //     this.appendChild(this.createPinLeftButton());
-        //     this.appendChild(this.createPinRightButton());
-         }
+        if (buttons) {
+            this.appendChild(this.createPinIncButton());
+            this.appendChild(this.createPinDecButton());
+            this.appendChild(this.createPinFlipHorizontalButton());
+            this.appendChild(this.createPinFlipVerticalButton());
+            this.appendChild(this.createPinLeftButton());
+            this.appendChild(this.createPinRightButton());
+        }
         this.pinCount = 0;
         //TODO extract to mix-ins
     }
@@ -261,7 +263,7 @@ class ElementOne extends MixInsPinFunctionalBlock(Element) {
 class ElementLogic extends MixInsPinPassiveBlock(MixInsPinFunctionalBlock(Element)) {
     createPinPassiveBlock() {
         if (this.parentNode === canvas) {
-            this.pinPassiveBlock = new PinPassiveBlock( true);
+            this.pinPassiveBlock = new PinPassiveBlock(true);
             this.pinPassiveBlock.addPin();
             this.pinPassiveBlock.addPin();
             return this.pinPassiveBlock;
@@ -279,7 +281,7 @@ class ElementLogic extends MixInsPinPassiveBlock(MixInsPinFunctionalBlock(Elemen
     }
 
     func() {
-        return [...this.pinPassiveBlock.querySelector('div')].map(passivePin => passivePin.level());
+        return [...this.pinPassiveBlock.querySelectorAll('.pin')].map(passivePin => passivePin.level());
     }
 }
 
@@ -352,12 +354,21 @@ class ElementLogicCounter extends MixInsPinFunctionalBlock(Element) {
     }
 
     func() {
-        return this.value++;
+        return value++;
     }
 
     label() {
         return 'RST';
     }
+}
+
+getPinLevels = () => {
+    return [...canvas.querySelectorAll('.pin')].filter(p => p.label.value !== '').map(p => {
+        return {
+            label: p.label.value,
+            level: p.level()
+        }
+    });
 }
 
 customElements.define('element-pin', Pin, {extends: 'div'});
